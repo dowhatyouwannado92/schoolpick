@@ -28,9 +28,9 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-
 .nav-links{display:flex;gap:1.25rem}
 .nav-links a{font-size:14px;color:var(--gray-600);text-decoration:none}
 .nav-links a:hover{color:var(--gray-900)}
-.nav-driver-btn{font-size:13px;font-weight:500;color:var(--primary-dark);background:var(--primary-light);border:1px solid rgba(26,111,212,.2);padding:7px 14px;border-radius:20px;cursor:pointer;text-decoration:none;transition:background .15s}
+.nav-driver-btn{font-size:13px;font-weight:500;color:var(--primary-dark);background:var(--primary-light);border:1px solid rgba(26,111,212,.2);padding:7px 14px;border-radius:20px;cursor:pointer;text-decoration:none}
 .nav-driver-btn:hover{background:#d0e4f8}
-.nav-cta{background:var(--primary);color:#fff;padding:8px 18px;border-radius:20px;font-size:14px;font-weight:500;cursor:pointer;border:none;transition:background .15s;font-family:inherit}
+.nav-cta{background:var(--primary);color:#fff;padding:8px 18px;border-radius:20px;font-size:14px;font-weight:500;cursor:pointer;border:none;font-family:inherit}
 .nav-cta:hover{background:var(--primary-dark)}
 @media(max-width:600px){.nav-links{display:none}}
 
@@ -52,54 +52,68 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-
 .wizard-card{max-width:700px;margin:0 auto;background:#fff;border-radius:var(--radius-lg) var(--radius-lg) 0 0;border:1px solid var(--gray-200);border-bottom:none;box-shadow:0 -4px 24px rgba(0,0,0,.07);overflow:hidden}
 .wizard-steps-bar{display:flex;border-bottom:1px solid var(--gray-100);background:var(--gray-50)}
 .wstep{flex:1;padding:10px 4px;text-align:center;font-size:11px;font-weight:500;color:var(--gray-400);border-bottom:2px solid transparent;cursor:pointer;transition:all .15s}
-.wstep.done{color:var(--primary)}
-.wstep.active{color:var(--primary-dark);border-bottom-color:var(--primary);font-weight:700}
+.wstep.done{color:var(--primary)}.wstep.active{color:var(--primary-dark);border-bottom-color:var(--primary);font-weight:700}
 .wstep-num{width:20px;height:20px;border-radius:50%;background:var(--gray-200);color:var(--gray-500);font-size:11px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;margin-bottom:3px}
 .wstep.done .wstep-num{background:var(--primary);color:#fff}
 .wstep.active .wstep-num{background:var(--primary-dark);color:#fff}
-.wpane{display:none;padding:1.5rem}
-.wpane.active{display:block}
+.wpane{display:none;padding:1.5rem}.wpane.active{display:block}
 .wpane-title{font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:1.25rem}
 
 /* STOP ROWS */
 .stop-row{display:flex;align-items:flex-start;gap:10px}
 .stop-icon-col{display:flex;flex-direction:column;align-items:center;width:20px;flex-shrink:0;padding-top:22px}
 .stop-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
-.stop-dot-start{background:var(--primary)}
-.stop-dot-end{background:var(--red);border-radius:3px}
-.stop-dot-via{background:#fff;border:2px solid var(--amber)}
+.stop-dot-start{background:var(--primary)}.stop-dot-end{background:var(--red);border-radius:3px}.stop-dot-via{background:#fff;border:2px solid var(--amber)}
 .stop-line{width:2px;height:28px;background:var(--gray-200)}
-.stop-input-wrap{flex:1;margin-bottom:10px}
+.stop-input-wrap{flex:1;margin-bottom:10px;position:relative}
 .stop-label{font-size:10px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
 
 /* 주소 입력 행 */
-.stop-input-row{display:flex;gap:6px;align-items:stretch}
-.stop-text-input{
+.stop-input-row{display:flex;gap:6px}
+.addr-input{
   flex:1;padding:10px 14px;
   border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);
-  font-size:14px;font-family:inherit;color:var(--gray-800);
-  background:#fff;transition:border-color .15s;
+  font-size:14px;font-family:inherit;color:var(--gray-800);background:#fff;
+  transition:border-color .15s;
 }
-.stop-text-input:focus{outline:none;border-color:var(--primary)}
-.stop-text-input.confirmed{border-color:#a0c4f0;background:#fafcff;color:var(--gray-700)}
-.stop-text-input::placeholder{color:var(--gray-400)}
+.addr-input:focus{outline:none;border-color:var(--primary)}
+.addr-input.confirmed{border-color:#a0c4f0;background:#fafcff;color:var(--gray-700)}
+.addr-input::placeholder{color:var(--gray-400)}
 
 /* 돋보기 버튼 */
 .search-icon-btn{
-  width:42px;flex-shrink:0;
-  border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);
-  background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;
-  transition:all .15s;
+  width:42px;flex-shrink:0;border:1.5px solid var(--gray-200);
+  border-radius:var(--radius-sm);background:#fff;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all .15s;
 }
 .search-icon-btn:hover{background:var(--primary-light);border-color:var(--primary)}
 .search-icon-btn svg{width:18px;height:18px;stroke:var(--gray-500);transition:stroke .15s}
 .search-icon-btn:hover svg{stroke:var(--primary)}
 
+/* 자동완성 드롭다운 */
+.autocomplete-drop{
+  position:absolute;top:calc(100% + 2px);left:0;right:0;
+  background:#fff;border:1.5px solid var(--primary-light);
+  border-radius:var(--radius-md);box-shadow:var(--shadow-md);
+  z-index:50;display:none;overflow:hidden;
+}
+.autocomplete-drop.open{display:block}
+.ac-item{
+  padding:10px 14px;font-size:13px;cursor:pointer;
+  border-bottom:1px solid var(--gray-100);transition:background .1s;
+  display:flex;flex-direction:column;gap:2px;
+}
+.ac-item:last-child{border-bottom:none}
+.ac-item:hover,.ac-item.focused{background:var(--primary-light)}
+.ac-name{font-weight:500;color:var(--gray-900)}
+.ac-addr{font-size:11px;color:var(--gray-500)}
+.ac-empty{padding:14px;text-align:center;font-size:13px;color:var(--gray-400)}
+
 /* 선택된 주소 칩 */
 .addr-chip{display:inline-flex;align-items:center;gap:6px;background:var(--primary-light);border:1px solid rgba(26,111,212,.15);border-radius:6px;padding:5px 10px;font-size:12px;margin-top:5px;max-width:100%}
 .addr-chip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .addr-chip-text{color:var(--primary-dark);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.addr-chip-edit{font-size:11px;color:var(--primary);cursor:pointer;border:none;background:none;padding:0 2px;font-family:inherit;font-weight:500;flex-shrink:0;white-space:nowrap}
+.addr-chip-edit{font-size:11px;color:var(--primary);cursor:pointer;border:none;background:none;padding:0 2px;font-family:inherit;font-weight:500;flex-shrink:0}
 .addr-chip-edit:hover{text-decoration:underline}
 
 .remove-stop{width:42px;height:42px;border-radius:var(--radius-sm);border:1px solid var(--gray-200);background:#fff;color:var(--gray-400);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:20px;transition:all .15s}
@@ -108,41 +122,24 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-
 .add-via-btn:hover{background:#d0e4f8}
 .step1-hint{font-size:12px;color:var(--gray-400);margin-bottom:1rem;padding-left:30px;line-height:1.6}
 
-/* ── 주소검색 모달 ── */
-.search-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:600;align-items:center;justify-content:center;padding:1rem}
-.search-modal-overlay.open{display:flex}
-.search-modal{background:#fff;border-radius:var(--radius-lg);width:100%;max-width:480px;max-height:80vh;display:flex;flex-direction:column;animation:slideUp .2s ease;overflow:hidden}
-@keyframes slideUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
-.search-modal-header{padding:1rem 1.25rem;border-bottom:1px solid var(--gray-100);display:flex;align-items:center;gap:10px}
-.search-modal-header h3{font-size:15px;font-weight:700;flex:none}
-.search-modal-input-wrap{flex:1;display:flex;gap:8px}
-.search-modal-input{flex:1;padding:9px 14px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);font-size:14px;font-family:inherit}
-.search-modal-input:focus{outline:none;border-color:var(--primary)}
-.search-modal-btn{padding:9px 16px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
-.search-modal-btn:hover{background:var(--primary-dark)}
-.search-modal-close{width:30px;height:30px;border-radius:50%;border:1px solid var(--gray-200);background:#fff;font-size:16px;cursor:pointer;color:var(--gray-500);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.search-results{flex:1;overflow-y:auto}
-.search-result-item{padding:12px 1.25rem;border-bottom:1px solid var(--gray-100);cursor:pointer;transition:background .1s}
-.search-result-item:hover{background:var(--primary-light)}
-.sri-name{font-size:14px;font-weight:500;color:var(--gray-900);margin-bottom:2px}
-.sri-addr{font-size:12px;color:var(--gray-500)}
-.search-empty{padding:2rem 1.25rem;text-align:center;color:var(--gray-400);font-size:14px}
-.search-loading{padding:2rem 1.25rem;text-align:center;color:var(--gray-400);font-size:14px}
-.search-initial{padding:1.5rem 1.25rem}
-.search-initial p{font-size:13px;color:var(--gray-500);margin-bottom:1rem}
-.search-quick-btns{display:flex;flex-wrap:wrap;gap:8px}
-.search-quick-btn{padding:6px 12px;border:1px solid var(--gray-200);border-radius:20px;font-size:12px;background:#fff;cursor:pointer;color:var(--gray-600);font-family:inherit;transition:all .15s}
-.search-quick-btn:hover{border-color:var(--primary);color:var(--primary)}
-
 /* ── 지도 모달 ── */
-.map-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:700;align-items:center;justify-content:center;padding:1rem}
+.map-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:600;align-items:center;justify-content:center;padding:1rem}
 .map-modal-overlay.open{display:flex}
 .map-modal{background:#fff;border-radius:var(--radius-lg);width:100%;max-width:600px;display:flex;flex-direction:column;max-height:92vh;overflow:hidden;animation:slideUp .2s ease}
+@keyframes slideUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
 .map-modal-header{padding:.875rem 1.25rem;border-bottom:1px solid var(--gray-200);display:flex;align-items:flex-start;gap:10px}
 .map-modal-title-col{flex:1}
 .map-modal-title-col h3{font-size:15px;font-weight:700}
 .map-modal-subtitle{font-size:12px;color:var(--gray-500);margin-top:2px}
 .map-modal-close{width:30px;height:30px;border-radius:50%;border:1px solid var(--gray-200);background:#fff;font-size:16px;cursor:pointer;color:var(--gray-500);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+/* 선택된 주소 배너 */
+.map-selected-addr{
+  padding:10px 1.25rem;background:var(--primary-light);
+  border-bottom:1px solid rgba(26,111,212,.15);
+  font-size:13px;color:var(--primary-dark);font-weight:500;
+  display:flex;align-items:center;gap:8px;
+}
+.map-selected-addr svg{width:16px;height:16px;stroke:var(--primary);flex-shrink:0}
 .map-inner-bar{padding:.6rem 1rem;background:var(--gray-50);border-bottom:1px solid var(--gray-200);display:flex;gap:8px}
 .map-inner-input{flex:1;padding:7px 12px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);font-size:13px;font-family:inherit;background:#fff}
 .map-inner-input:focus{outline:none;border-color:var(--primary)}
@@ -161,8 +158,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-
 .map-addr-text{flex:1;font-size:13px;color:var(--gray-700);line-height:1.4}
 .map-addr-text.loading{color:var(--gray-400)}
 .map-modal-footer{padding:.875rem 1rem;border-top:1px solid var(--gray-200);display:flex;gap:10px}
-.map-cancel-btn{padding:10px 20px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);background:#fff;font-size:14px;font-weight:500;cursor:pointer;color:var(--gray-600);font-family:inherit}
-.map-cancel-btn:hover{border-color:var(--gray-400)}
+.map-back-btn{padding:10px 16px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);background:#fff;font-size:13px;font-weight:500;cursor:pointer;color:var(--gray-600);font-family:inherit}
+.map-back-btn:hover{border-color:var(--gray-400)}
 .map-confirm-btn{flex:1;padding:10px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s}
 .map-confirm-btn:hover{background:var(--primary-dark)}
 
@@ -303,7 +300,11 @@ footer strong{color:#fff}
 </head>
 <body>
 
-<!-- 카카오 API: autoload=false로 로드 후 kakao.maps.load()에서 초기화 -->
+<!--
+  주소 검색: Daum 우편번호 서비스 (행정안전부 도로명주소 DB, 키 불필요, CORS 없음)
+  지도 핀:   카카오맵 (주소 선택 완료 후 미세조정용, 지오코딩만 사용)
+-->
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=6c56d2eedeb2fd8d5ab3f4775401be97&libraries=services&autoload=false"></script>
 
 <!-- NAV -->
@@ -329,9 +330,9 @@ footer strong{color:#fff}
     코스 설정하고 기사님 찾기 →
   </button>
   <div class="hero-trust">
-    <div class="trust-item"><span>✓</span> 주소 검색 후 핀으로 정확 지정</div>
+    <div class="trust-item"><span>✓</span> 도로명주소 공식 DB 검색</div>
+    <div class="trust-item"><span>✓</span> 지도 핀으로 정확 지정</div>
     <div class="trust-item"><span>✓</span> 경력 인증 기사님</div>
-    <div class="trust-item"><span>✓</span> 범죄경력 조회 완료</div>
     <div class="trust-item"><span>✓</span> 구간 정액 요금</div>
   </div>
 
@@ -357,15 +358,18 @@ footer strong{color:#fff}
           <div class="stop-input-wrap">
             <div class="stop-label">출발지</div>
             <div class="stop-input-row">
-              <input class="stop-text-input" id="display-start" placeholder="주소 또는 장소명 입력 후 돋보기 클릭" readonly onclick="openSearchModal('start')">
-              <button class="search-icon-btn" onclick="openSearchModal('start')" title="주소 검색">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input class="addr-input" id="addr-start" placeholder="주소 또는 장소명 입력 후 🔍 클릭"
+                oninput="onTypeAddr(this,'start')" onkeydown="onKeyAddr(event,'start')"
+                onblur="scheduleHide('start')" autocomplete="off">
+              <button class="search-icon-btn" onclick="openDaumPostcode('start')" title="주소 검색">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </button>
             </div>
+            <div class="autocomplete-drop" id="drop-start"></div>
             <div id="chip-start"></div>
           </div>
         </div>
-        <!-- 경유지 영역 -->
+        <!-- 경유지 -->
         <div id="via-stops"></div>
         <!-- 목적지 -->
         <div class="stop-row">
@@ -375,17 +379,20 @@ footer strong{color:#fff}
           <div class="stop-input-wrap">
             <div class="stop-label">최종 목적지</div>
             <div class="stop-input-row">
-              <input class="stop-text-input" id="display-end" placeholder="학교·학원 이름 또는 주소 입력 후 돋보기 클릭" readonly onclick="openSearchModal('end')">
-              <button class="search-icon-btn" onclick="openSearchModal('end')" title="주소 검색">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input class="addr-input" id="addr-end" placeholder="학교·학원 이름 또는 주소 입력"
+                oninput="onTypeAddr(this,'end')" onkeydown="onKeyAddr(event,'end')"
+                onblur="scheduleHide('end')" autocomplete="off">
+              <button class="search-icon-btn" onclick="openDaumPostcode('end')" title="주소 검색">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </button>
             </div>
+            <div class="autocomplete-drop" id="drop-end"></div>
             <div id="chip-end"></div>
           </div>
         </div>
       </div>
       <button class="add-via-btn" onclick="addVia()">+ 경유지 추가 (최대 3개)</button>
-      <p class="step1-hint">💡 돋보기를 클릭하면 주소 검색창이 열립니다. 검색 후 목록을 선택하면 지도에서 정확한 위치를 핀으로 지정할 수 있어요.</p>
+      <p class="step1-hint">💡 주소를 입력하면 연관 주소가 바로 표시됩니다. 선택하면 지도에서 정확한 탑승 위치를 핀으로 지정할 수 있어요.</p>
       <div class="wizard-nav">
         <button class="w-btn-next" id="step1-next" onclick="goStep(2)" disabled>다음 — 요일·시간 설정 →</button>
       </div>
@@ -411,11 +418,9 @@ footer strong{color:#fff}
       </div>
       <div class="time-grid">
         <div class="time-field"><label>등원 출발 시간</label>
-          <select><option>오전 7:00</option><option>오전 7:30</option><option>오전 8:00</option><option selected>오전 8:30</option><option>오전 9:00</option><option>오후 1:00</option><option>오후 1:30</option><option>오후 2:00</option><option>오후 2:30</option><option>오후 3:00</option></select>
-        </div>
+          <select><option>오전 7:00</option><option>오전 7:30</option><option>오전 8:00</option><option selected>오전 8:30</option><option>오전 9:00</option><option>오후 1:00</option><option>오후 1:30</option><option>오후 2:00</option><option>오후 2:30</option><option>오후 3:00</option></select></div>
         <div class="time-field" id="ret-time-wrap" style="display:none"><label>하원 출발 시간</label>
-          <select><option>오후 4:00</option><option>오후 4:30</option><option selected>오후 5:00</option><option>오후 5:30</option><option>오후 6:00</option><option>오후 6:30</option><option>오후 7:00</option></select>
-        </div>
+          <select><option>오후 4:00</option><option>오후 4:30</option><option selected>오후 5:00</option><option>오후 5:30</option><option>오후 6:00</option><option>오후 6:30</option><option>오후 7:00</option></select></div>
       </div>
       <div class="wizard-nav">
         <button class="w-btn-back" onclick="goStep(1)">← 이전</button>
@@ -446,8 +451,8 @@ footer strong{color:#fff}
       <div class="route-summary" id="fare-route-summary"></div>
       <div class="fare-panel">
         <div class="fare-row"><span class="fare-label">편도 기본 요금</span><span class="fare-value" id="f-oneway">-</span></div>
-        <div class="fare-row" id="f-row-return" style="display:none"><span class="fare-label">왕복 적용 (×2)</span><span class="fare-value" id="f-return">-</span></div>
-        <div class="fare-row" id="f-row-via" style="display:none"><span class="fare-label">경유지 추가 요금</span><span class="fare-value" id="f-via">-</span></div>
+        <div class="fare-row" id="f-row-return" style="display:none"><span class="fare-label">왕복 (×2)</span><span class="fare-value" id="f-return">-</span></div>
+        <div class="fare-row" id="f-row-via" style="display:none"><span class="fare-label">경유지 추가</span><span class="fare-value" id="f-via">-</span></div>
         <div class="fare-row"><span class="fare-label">월 운행 횟수</span><span class="fare-value" id="f-count">-</span></div>
         <div class="fare-row" id="f-row-discount" style="display:none"><span class="fare-label" id="f-discount-label">할인</span><span class="fare-value" id="f-discount">-</span></div>
         <div class="fare-divider"></div>
@@ -468,8 +473,8 @@ footer strong{color:#fff}
     <div class="section-label">이용 방법</div>
     <div class="section-title">4단계로 간단하게</div>
     <div class="steps">
-      <div class="step-card"><div class="step-num">1</div><h4>주소 검색</h4><p>돋보기 버튼으로 검색창을 열고 장소명이나 주소를 입력하세요.</p></div>
-      <div class="step-card"><div class="step-num">2</div><h4>핀으로 정확 지정</h4><p>검색 결과 선택 후 지도 핀을 정확한 탑승 위치에 맞추세요.</p></div>
+      <div class="step-card"><div class="step-num">1</div><h4>주소 검색</h4><p>입력하면 바로 연관 주소가 나와요. 선택하거나 🔍로 상세 검색도 가능해요.</p></div>
+      <div class="step-card"><div class="step-num">2</div><h4>핀으로 정확 지정</h4><p>주소 선택 후 지도가 열려요. 핀을 정확한 탑승 위치에 맞추세요.</p></div>
       <div class="step-card"><div class="step-num">3</div><h4>기사님 선택</h4><p>경력·범죄경력 조회·평점을 비교해 원하는 기사님을 선택하세요.</p></div>
       <div class="step-card"><div class="step-num">4</div><h4>매칭 & 운행</h4><p>기사님 수락 후 연결 완료. 운행 후 평점을 남겨주세요.</p></div>
     </div>
@@ -488,36 +493,9 @@ footer strong{color:#fff}
       <button class="filter-btn" onclick="setFilter(this)">범죄경력 조회 완료</button>
     </div>
     <div class="profile-list">
-      <div class="profile-card selected">
-        <div class="avatar avatar-1">김</div>
-        <div class="profile-info">
-          <div class="profile-name">김○○ 기사님</div>
-          <div class="profile-stars">★★★★★ <span>4.9 (리뷰 47개)</span></div>
-          <div class="profile-badges"><span class="badge badge-blue">✓ 경력 12년</span><span class="badge badge-blue">✓ 범죄경력 조회 완료</span><span class="badge badge-accent">✓ 안전교육 수료</span></div>
-          <div class="profile-stats"><div class="pstat"><strong>234</strong><span>총 운행</span></div><div class="pstat"><strong>100%</strong><span>정시 도착</span></div><div class="pstat"><strong>3년</strong><span>플랫폼 이용</span></div></div>
-        </div>
-        <button class="select-btn selected" onclick="toggleSelect(this)">선택됨</button>
-      </div>
-      <div class="profile-card">
-        <div class="avatar avatar-2">박</div>
-        <div class="profile-info">
-          <div class="profile-name">박○○ 기사님</div>
-          <div class="profile-stars">★★★★☆ <span>4.7 (리뷰 32개)</span></div>
-          <div class="profile-badges"><span class="badge badge-blue">✓ 경력 8년</span><span class="badge badge-blue">✓ 범죄경력 조회 완료</span></div>
-          <div class="profile-stats"><div class="pstat"><strong>156</strong><span>총 운행</span></div><div class="pstat"><strong>98%</strong><span>정시 도착</span></div><div class="pstat"><strong>2년</strong><span>플랫폼 이용</span></div></div>
-        </div>
-        <button class="select-btn" onclick="toggleSelect(this)">선택하기</button>
-      </div>
-      <div class="profile-card">
-        <div class="avatar avatar-3">이</div>
-        <div class="profile-info">
-          <div class="profile-name">이○○ 기사님</div>
-          <div class="profile-stars">★★★★☆ <span>4.6 (리뷰 18개)</span></div>
-          <div class="profile-badges"><span class="badge badge-blue">✓ 경력 5년</span><span class="badge badge-blue">✓ 범죄경력 조회 완료</span></div>
-          <div class="profile-stats"><div class="pstat"><strong>89</strong><span>총 운행</span></div><div class="pstat"><strong>96%</strong><span>정시 도착</span></div><div class="pstat"><strong>1년</strong><span>플랫폼 이용</span></div></div>
-        </div>
-        <button class="select-btn" onclick="toggleSelect(this)">선택하기</button>
-      </div>
+      <div class="profile-card selected"><div class="avatar avatar-1">김</div><div class="profile-info"><div class="profile-name">김○○ 기사님</div><div class="profile-stars">★★★★★ <span>4.9 (47개)</span></div><div class="profile-badges"><span class="badge badge-blue">✓ 경력 12년</span><span class="badge badge-blue">✓ 범죄경력 조회 완료</span><span class="badge badge-accent">✓ 안전교육</span></div><div class="profile-stats"><div class="pstat"><strong>234</strong><span>총 운행</span></div><div class="pstat"><strong>100%</strong><span>정시 도착</span></div><div class="pstat"><strong>3년</strong><span>이용</span></div></div></div><button class="select-btn selected" onclick="toggleSelect(this)">선택됨</button></div>
+      <div class="profile-card"><div class="avatar avatar-2">박</div><div class="profile-info"><div class="profile-name">박○○ 기사님</div><div class="profile-stars">★★★★☆ <span>4.7 (32개)</span></div><div class="profile-badges"><span class="badge badge-blue">✓ 경력 8년</span><span class="badge badge-blue">✓ 범죄경력 조회 완료</span></div><div class="profile-stats"><div class="pstat"><strong>156</strong><span>총 운행</span></div><div class="pstat"><strong>98%</strong><span>정시 도착</span></div><div class="pstat"><strong>2년</strong><span>이용</span></div></div></div><button class="select-btn" onclick="toggleSelect(this)">선택하기</button></div>
+      <div class="profile-card"><div class="avatar avatar-3">이</div><div class="profile-info"><div class="profile-name">이○○ 기사님</div><div class="profile-stars">★★★★☆ <span>4.6 (18개)</span></div><div class="profile-badges"><span class="badge badge-blue">✓ 경력 5년</span><span class="badge badge-blue">✓ 범죄경력 조회 완료</span></div><div class="profile-stats"><div class="pstat"><strong>89</strong><span>총 운행</span></div><div class="pstat"><strong>96%</strong><span>정시 도착</span></div><div class="pstat"><strong>1년</strong><span>이용</span></div></div></div><button class="select-btn" onclick="toggleSelect(this)">선택하기</button></div>
     </div>
     <div class="section-label">최근 리뷰</div>
     <div class="reviews-list">
@@ -533,12 +511,12 @@ footer strong{color:#fff}
     <div class="section-label">주요 기능</div>
     <div class="section-title">필요한 모든 것을 한 곳에</div>
     <div class="features-grid">
-      <div class="feat-card"><div class="feat-icon">🔍</div><h3>주소 검색 & 핀 지정</h3><p>장소 검색 후 지도 핀으로 정확한 탑승 위치를 지정할 수 있어요</p></div>
+      <div class="feat-card"><div class="feat-icon">🔍</div><h3>도로명주소 검색</h3><p>행정안전부 공식 DB로 정확한 주소 검색. 입력하면 바로 연관 주소가 표시돼요</p></div>
+      <div class="feat-card"><div class="feat-icon">📍</div><h3>지도 핀 정확 지정</h3><p>주소 선택 후 지도가 열려요. 핀을 드래그해 정확한 탑승 위치를 지정하세요</p></div>
       <div class="feat-card"><div class="feat-icon">💰</div><h3>구간 정액 요금</h3><p>km당 고정 단가로 투명하게 계산. 협상 없이 바로 확인</p></div>
       <div class="feat-card"><div class="feat-icon">🛡️</div><h3>범죄경력 조회</h3><p>조회 완료 기사님만 배지로 표시. 안심하고 선택하세요</p></div>
       <div class="feat-card"><div class="feat-icon">⭐</div><h3>평점 & 리뷰</h3><p>실제 이용 학부모의 리뷰로 믿을 수 있는 기사님 선택</p></div>
       <div class="feat-card"><div class="feat-icon">🔔</div><h3>실시간 알림</h3><p>기사님 출발·도착 알림으로 아이 위치를 언제든 확인</p></div>
-      <div class="feat-card"><div class="feat-icon">📋</div><h3>계약 관리</h3><p>편도·왕복·월정기 계약 내역을 한눈에 관리</p></div>
     </div>
   </div>
 </section>
@@ -609,53 +587,29 @@ footer strong{color:#fff}
       <div class="form-group"><label>비밀번호</label><input type="password" placeholder="8자 이상"></div>
       <div class="form-group" id="child-field"><label>자녀 이름</label><input type="text" placeholder="자녀 이름"></div>
       <div class="form-group" id="exp-field" style="display:none"><label>운전 경력</label>
-        <select><option>1~3년</option><option>3~5년</option><option>5~10년</option><option>10년 이상</option></select>
-      </div>
+        <select><option>1~3년</option><option>3~5년</option><option>5~10년</option><option>10년 이상</option></select></div>
       <button class="form-submit" onclick="handleSignup()">회원가입</button>
     </div>
   </div>
 </div>
 
-<!-- 주소 검색 모달 -->
-<div class="search-modal-overlay" id="search-modal" onclick="if(event.target===this)closeSearchModal()">
-  <div class="search-modal">
-    <div class="search-modal-header">
-      <h3 id="search-modal-title">주소 검색</h3>
-      <div class="search-modal-input-wrap">
-        <input class="search-modal-input" id="search-modal-input" placeholder="장소명 또는 주소 입력"
-          onkeydown="if(event.key==='Enter')doSearch()">
-        <button class="search-modal-btn" onclick="doSearch()">검색</button>
-      </div>
-      <button class="search-modal-close" onclick="closeSearchModal()">✕</button>
-    </div>
-    <div class="search-results" id="search-results">
-      <div class="search-initial">
-        <p>빠른 검색 예시</p>
-        <div class="search-quick-btns">
-          <button class="search-quick-btn" onclick="setSearchAndRun('해운대구')">해운대구</button>
-          <button class="search-quick-btn" onclick="setSearchAndRun('수영구')">수영구</button>
-          <button class="search-quick-btn" onclick="setSearchAndRun('동래구')">동래구</button>
-          <button class="search-quick-btn" onclick="setSearchAndRun('부산진구')">부산진구</button>
-          <button class="search-quick-btn" onclick="setSearchAndRun('연제구')">연제구</button>
-          <button class="search-quick-btn" onclick="setSearchAndRun('기장군')">기장군</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 지도 모달 (핀 미세조정) -->
+<!-- 지도 모달 (주소 선택 후 핀 미세조정) -->
 <div class="map-modal-overlay" id="map-modal" onclick="if(event.target===this)closeMapModal()">
   <div class="map-modal">
     <div class="map-modal-header">
       <div class="map-modal-title-col">
-        <h3 id="map-modal-title">정확한 위치를 지정해주세요</h3>
-        <div class="map-modal-subtitle">지도를 드래그해 핀을 탑승 위치에 맞추세요</div>
+        <h3 id="map-modal-title">정확한 탑승 위치를 지정해주세요</h3>
+        <div class="map-modal-subtitle">지도를 드래그해 핀을 원하는 위치에 맞추세요</div>
       </div>
       <button class="map-modal-close" onclick="closeMapModal()">✕</button>
     </div>
+    <!-- 선택된 주소 표시 배너 -->
+    <div class="map-selected-addr">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span id="map-selected-addr-text">주소를 불러오는 중...</span>
+    </div>
     <div class="map-inner-bar">
-      <input class="map-inner-input" id="map-inner-input" placeholder="지도 안에서 추가 검색" onkeydown="if(event.key==='Enter')mapInnerSearch()">
+      <input class="map-inner-input" id="map-inner-input" placeholder="지도 안에서 추가 검색 (선택사항)" onkeydown="if(event.key==='Enter')mapInnerSearch()">
       <button class="map-inner-btn" onclick="mapInnerSearch()">검색</button>
     </div>
     <div class="map-container">
@@ -673,8 +627,8 @@ footer strong{color:#fff}
       <div class="map-addr-text" id="map-addr-text">지도를 이동하면 주소가 표시됩니다</div>
     </div>
     <div class="map-modal-footer">
-      <button class="map-cancel-btn" onclick="closeMapModal()">← 검색으로 돌아가기</button>
-      <button class="map-confirm-btn" onclick="confirmLocation()">이 위치로 확정</button>
+      <button class="map-back-btn" onclick="closeMapModal()">← 돌아가기</button>
+      <button class="map-confirm-btn" onclick="confirmMapLocation()">이 위치로 확정 ✓</button>
     </div>
   </div>
 </div>
@@ -682,108 +636,156 @@ footer strong{color:#fff}
 <script>
 // ── 전역 상태 ──
 var W={step:1,viaCount:0,tripType:'one',contractType:'monthly',days:['mon','tue','wed','thu','fri']};
-var RATE=2200,BASE_KM=8.2;
+var RATE=2200, BASE_KM=8.2;
 var DAY_NAMES={sun:'일',mon:'월',tue:'화',wed:'수',thu:'목',fri:'금',sat:'토'};
 var DAY_ORDER=['sun','mon','tue','wed','thu','fri','sat'];
 var stops={start:null,end:null,via:{}};
+var PIN_CFG={
+  start:{fill:'#1A6FD4',dot:'var(--primary)',label:'출발지'},
+  end:{fill:'#E24B4A',dot:'var(--red)',label:'목적지'},
+  via:{fill:'#BA7517',dot:'#BA7517',label:'경유지'}
+};
 
-// 카카오 API 인스턴스 (load 콜백 후 세팅)
-var _ps=null, _geo=null, _map=null;
-var currentTarget=null, currentCenter=null;
-var PIN_CFG={start:{fill:'#1A6FD4',dot:'var(--primary)',label:'출발지'},end:{fill:'#E24B4A',dot:'var(--red)',label:'목적지'},via:{fill:'#BA7517',dot:'#BA7517',label:'경유지'}};
+// 카카오맵 (지도 핀용)
+var _geo=null, _map=null, _ps=null;
+var mapTarget=null, mapCenter=null;
+var geoTimer=null;
 
-// 카카오 SDK 로드 완료 후 서비스 객체 생성
+// 카카오맵 SDK 로드 완료 후 서비스 객체만 생성 (지도는 모달 열릴 때 생성)
 kakao.maps.load(function(){
-  _ps  = new kakao.maps.services.Places();
   _geo = new kakao.maps.services.Geocoder();
+  _ps  = new kakao.maps.services.Places();
 });
 
 // ─────────────────────────────────────────
-// 주소 검색 모달
+// 1단계: 입력창 자동완성 (Daum 주소 DB 기반)
+// Daum Postcode API의 검색 기능을 직접 호출해
+// 결과를 드롭다운으로 표시
 // ─────────────────────────────────────────
-function openSearchModal(key){
-  currentTarget=key;
-  var cfg=PIN_CFG[key.startsWith('via')?'via':key];
-  document.getElementById('search-modal-title').textContent=cfg.label+' 검색';
-  document.getElementById('search-modal').classList.add('open');
-  setTimeout(function(){ document.getElementById('search-modal-input').focus(); },100);
-  document.getElementById('search-results').innerHTML=
-    '<div class="search-initial"><p>빠른 검색 예시</p><div class="search-quick-btns">'
-    +'<button class="search-quick-btn" onclick="setSearchAndRun(\'해운대구\')">해운대구</button>'
-    +'<button class="search-quick-btn" onclick="setSearchAndRun(\'수영구\')">수영구</button>'
-    +'<button class="search-quick-btn" onclick="setSearchAndRun(\'동래구\')">동래구</button>'
-    +'<button class="search-quick-btn" onclick="setSearchAndRun(\'부산진구\')">부산진구</button>'
-    +'<button class="search-quick-btn" onclick="setSearchAndRun(\'연제구\')">연제구</button>'
-    +'<button class="search-quick-btn" onclick="setSearchAndRun(\'기장군\')">기장군</button>'
-    +'</div></div>';
-}
-function closeSearchModal(){
-  document.getElementById('search-modal').classList.remove('open');
-  document.getElementById('search-modal-input').value='';
-}
-function setSearchAndRun(q){
-  document.getElementById('search-modal-input').value=q;
-  doSearch();
+var acTimers={}, acData={}, acIdx={}, hideTimers={};
+
+function onTypeAddr(inp, key){
+  var q=inp.value.trim();
+  clearTimeout(acTimers[key]);
+  if(!q){ closeAc(key); return; }
+  acTimers[key]=setTimeout(function(){ fetchAc(q,key); }, 300);
 }
 
-function doSearch(){
-  if(!_ps){ alert('카카오 지도 API가 아직 로드 중입니다. 잠시 후 다시 시도해주세요.'); return; }
-  var q=document.getElementById('search-modal-input').value.trim();
-  if(!q) return;
-  document.getElementById('search-results').innerHTML='<div class="search-loading">검색 중...</div>';
-  _ps.keywordSearch(q, function(data,status){
-    if(status===kakao.maps.services.Status.OK && data.length){
-      renderSearchResults(data);
-    } else {
-      // 주소 검색 fallback
-      _geo.addressSearch(q, function(res,st){
-        if(st===kakao.maps.services.Status.OK && res.length){
-          var faked=res.map(function(r){return{place_name:r.address_name,road_address_name:'',address_name:r.address_name,y:r.y,x:r.x};});
-          renderSearchResults(faked);
-        } else {
-          document.getElementById('search-results').innerHTML='<div class="search-empty">검색 결과가 없습니다.<br>다른 키워드로 시도해보세요.</div>';
-        }
+function fetchAc(q, key){
+  // Daum 우편번호 서비스의 내부 검색 API 활용
+  // new daum.Postcode로 직접 검색 결과를 가져오는 방식
+  new daum.Postcode({
+    oncomplete: function(){},  // 팝업은 열지 않음
+    onSearch: function(data){
+      // data.list: 검색 결과 배열
+      var list = data.list || [];
+      acData[key] = list.slice(0,3).map(function(item){
+        return {
+          name: item.roadAddress || item.jibunAddress,
+          addr: item.buildingName || item.autoMappingRoad || '',
+          roadAddr: item.roadAddress,
+          jibunAddr: item.jibunAddress,
+          lat: null, lng: null  // 좌표는 카카오 지오코딩으로 보완
+        };
       });
+      renderAc(key);
     }
-  });
+  }).autoSearch(q);
 }
 
-function renderSearchResults(data){
-  var html='';
-  data.slice(0,8).forEach(function(p,i){
-    var name=p.place_name;
-    var addr=p.road_address_name||p.address_name||'';
-    var lat=parseFloat(p.y), lng=parseFloat(p.x);
-    html+='<div class="search-result-item" onclick="onResultSelect('+lat+','+lng+',\''+escQ(name)+'\',\''+escQ(addr)+'\')">'
-      +'<div class="sri-name">'+name+'</div>'
-      +(addr?'<div class="sri-addr">'+addr+'</div>':'')
+function renderAc(key){
+  var drop=document.getElementById('drop-'+key);
+  var items=acData[key]||[];
+  if(!items.length){ drop.innerHTML='<div class="ac-empty">검색 결과가 없습니다</div>'; drop.classList.add('open'); return; }
+  drop.innerHTML=items.map(function(it,i){
+    return '<div class="ac-item" data-idx="'+i+'" onmousedown="pickAc(event,\''+key+'\','+i+')">'
+      +'<div class="ac-name">'+esc(it.name)+'</div>'
+      +(it.addr?'<div class="ac-addr">'+esc(it.addr)+'</div>':'')
       +'</div>';
-  });
-  document.getElementById('search-results').innerHTML=html;
+  }).join('');
+  acIdx[key]=-1;
+  drop.classList.add('open');
 }
 
-function escQ(s){ return (s||'').replace(/'/g,"\\'"); }
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-// 검색 결과 선택 → 지도 모달로 전환
-function onResultSelect(lat,lng,name,addr){
-  closeSearchModal();
-  // 표시 텍스트
-  var displayName=name||(addr||'');
-  openMapModal(lat,lng,displayName);
+function onKeyAddr(e, key){
+  var items=document.querySelectorAll('#drop-'+key+' .ac-item');
+  if(!items.length && e.key==='Enter'){ openDaumPostcode(key); return; }
+  if(e.key==='ArrowDown'){ e.preventDefault(); acIdx[key]=Math.min((acIdx[key]||0)+1,items.length-1); highlightAc(key,items); }
+  else if(e.key==='ArrowUp'){ e.preventDefault(); acIdx[key]=Math.max((acIdx[key]||0)-1,0); highlightAc(key,items); }
+  else if(e.key==='Enter'){ var idx=acIdx[key]>=0?acIdx[key]:0; if(acData[key]&&acData[key][idx]) pickAc(null,key,idx); else openDaumPostcode(key); }
+  else if(e.key==='Escape') closeAc(key);
+}
+function highlightAc(key,items){ items.forEach(function(el,i){ el.classList.toggle('focused',i===acIdx[key]); }); }
+
+function scheduleHide(key){ hideTimers[key]=setTimeout(function(){ closeAc(key); },200); }
+function closeAc(key){ var d=document.getElementById('drop-'+key); if(d){ d.classList.remove('open'); d.innerHTML=''; } }
+
+// 자동완성 항목 선택 → 지오코딩 → 지도 모달 오픈
+function pickAc(e, key, idx){
+  if(e) e.preventDefault();
+  clearTimeout(hideTimers[key]);
+  closeAc(key);
+  var item=(acData[key]||[])[idx]; if(!item) return;
+  var addrStr=item.roadAddr||item.name;
+  // 입력창에 주소 표시
+  var inp=document.getElementById('addr-'+key)||document.querySelector('#'+key+' .addr-input');
+  if(inp){ inp.value=addrStr; inp.classList.add('confirmed'); }
+  // 카카오 지오코딩으로 좌표 획득 → 지도 오픈
+  geocodeAndOpenMap(addrStr, key);
+}
+
+// ─────────────────────────────────────────
+// 2단계: 돋보기 클릭 → Daum 우편번호 팝업
+// (기존 자동완성으로 못 찾을 때 상세 검색)
+// ─────────────────────────────────────────
+function openDaumPostcode(key){
+  new daum.Postcode({
+    width:'100%', height:'500px',
+    oncomplete: function(data){
+      var addr = data.roadAddress || data.jibunAddress;
+      var inp=document.getElementById('addr-'+key)||document.querySelector('#'+key+' .addr-input');
+      if(inp){ inp.value=addr; inp.classList.add('confirmed'); }
+      closeAc(key);
+      geocodeAndOpenMap(addr, key);
+    }
+  }).open();
+}
+
+// ─────────────────────────────────────────
+// 지오코딩 → 지도 모달 오픈
+// ─────────────────────────────────────────
+function geocodeAndOpenMap(addrStr, key){
+  mapTarget=key;
+  // 지오코딩으로 좌표 획득
+  if(_geo){
+    _geo.addressSearch(addrStr, function(res, status){
+      var lat=35.1796, lng=129.0756;
+      if(status===kakao.maps.services.Status.OK && res.length){
+        lat=parseFloat(res[0].y); lng=parseFloat(res[0].x);
+      }
+      openMapModal(addrStr, lat, lng, key);
+    });
+  } else {
+    // 카카오 아직 로드 중이면 기본 좌표로 열기
+    openMapModal(addrStr, 35.1796, 129.0756, key);
+  }
 }
 
 // ─────────────────────────────────────────
 // 지도 모달
 // ─────────────────────────────────────────
-function openMapModal(lat,lng,label){
-  var typeKey=currentTarget==='start'?'start':currentTarget==='end'?'end':'via';
+function openMapModal(addrStr, lat, lng, key){
+  var typeKey=key==='start'?'start':key==='end'?'end':'via';
   var cfg=PIN_CFG[typeKey];
 
-  // 핀 색상
+  // 핀 색상 & 제목
   document.getElementById('pin-svg').querySelector('path').setAttribute('fill',cfg.fill);
   document.getElementById('map-addr-dot').style.background=cfg.dot;
   document.getElementById('map-modal-title').textContent=cfg.label+' 위치를 정확히 지정해주세요';
-  document.getElementById('map-inner-input').value=label||'';
+  document.getElementById('map-selected-addr-text').textContent=addrStr;
+  document.getElementById('map-inner-input').value='';
   document.getElementById('map-addr-text').textContent='지도를 이동하면 주소가 표시됩니다';
   document.getElementById('map-addr-text').classList.remove('loading');
 
@@ -793,108 +795,78 @@ function openMapModal(lat,lng,label){
     if(!_map){
       var container=document.getElementById('kakao-map');
       _map=new kakao.maps.Map(container,{center:new kakao.maps.LatLng(lat,lng),level:3});
-      kakao.maps.event.addListener(_map,'center_changed',onMapCenterChanged);
+      kakao.maps.event.addListener(_map,'center_changed',onMapMove);
       kakao.maps.event.addListener(_map,'drag',function(){ liftPin(true); });
-      kakao.maps.event.addListener(_map,'dragend',function(){ liftPin(false); onMapCenterChanged(); });
+      kakao.maps.event.addListener(_map,'dragend',function(){ liftPin(false); onMapMove(); });
     } else {
       _map.relayout();
       _map.setCenter(new kakao.maps.LatLng(lat,lng));
       _map.setLevel(3);
     }
-    // 첫 진입 시 주소 갱신
-    setTimeout(onMapCenterChanged,300);
-  },150);
+    setTimeout(onMapMove, 350);
+  }, 160);
 }
 
-function liftPin(up){
-  document.getElementById('map-fixed-pin').classList.toggle('lifted',up);
-}
+function liftPin(up){ document.getElementById('map-fixed-pin').classList.toggle('lifted',up); }
 
-var _geoTimer=null;
-function onMapCenterChanged(){
+function onMapMove(){
   var c=_map.getCenter();
-  currentCenter={lat:c.getLat(),lng:c.getLng()};
-  clearTimeout(_geoTimer);
-  _geoTimer=setTimeout(function(){
+  mapCenter={lat:c.getLat(),lng:c.getLng()};
+  clearTimeout(geoTimer);
+  geoTimer=setTimeout(function(){
     var el=document.getElementById('map-addr-text');
-    el.textContent='주소 불러오는 중...';
-    el.classList.add('loading');
-    _geo.coord2Address(currentCenter.lng,currentCenter.lat,function(res,status){
+    el.textContent='주소 불러오는 중...'; el.classList.add('loading');
+    _geo.coord2Address(mapCenter.lng,mapCenter.lat,function(res,status){
       el.classList.remove('loading');
-      if(status===kakao.maps.services.Status.OK&&res[0]){
-        el.textContent=res[0].road_address?res[0].road_address.address_name:res[0].address.address_name;
-      } else { el.textContent='주소를 불러올 수 없습니다'; }
+      el.textContent=(status===kakao.maps.services.Status.OK&&res[0])
+        ?(res[0].road_address?res[0].road_address.address_name:res[0].address.address_name)
+        :'주소를 불러올 수 없습니다';
     });
   },400);
 }
 
 function mapInnerSearch(){
-  var q=document.getElementById('map-inner-input').value.trim();
-  if(!q) return;
-  _ps.keywordSearch(q,function(data,status){
-    if(status===kakao.maps.services.Status.OK&&data.length){
-      _map.setCenter(new kakao.maps.LatLng(parseFloat(data[0].y),parseFloat(data[0].x)));
-      _map.setLevel(3);
-    } else {
-      _geo.addressSearch(q,function(res,st){
-        if(st===kakao.maps.services.Status.OK){
-          _map.setCenter(new kakao.maps.LatLng(parseFloat(res[0].y),parseFloat(res[0].x)));
-        } else { alert('검색 결과가 없습니다.'); }
-      });
-    }
-  });
-}
-
-function closeMapModal(){
-  document.getElementById('map-modal').classList.remove('open');
-  liftPin(false);
-}
-
-function confirmLocation(){
-  if(!currentCenter) return;
-  var addr=document.getElementById('map-addr-text').textContent;
-  if(addr==='주소 불러오는 중...'||addr==='지도를 이동하면 주소가 표시됩니다'){ alert('주소를 불러오는 중입니다. 잠시 후 다시 눌러주세요.'); return; }
-  var data={lat:currentCenter.lat,lng:currentCenter.lng,addr:addr};
-
-  if(currentTarget==='start'){
-    stops.start=data;
-    document.getElementById('display-start').value=addr;
-    document.getElementById('display-start').classList.add('confirmed');
-    renderChip('chip-start',addr,'start');
-  } else if(currentTarget==='end'){
-    stops.end=data;
-    document.getElementById('display-end').value=addr;
-    document.getElementById('display-end').classList.add('confirmed');
-    renderChip('chip-end',addr,'end');
-  } else {
-    stops.via[currentTarget]=data;
-    var inp=document.querySelector('#'+currentTarget+' .stop-text-input');
-    if(inp){ inp.value=addr; inp.classList.add('confirmed'); }
-    renderChip('chip-'+currentTarget,addr,'via');
+  var q=document.getElementById('map-inner-input').value.trim(); if(!q) return;
+  if(_ps){
+    _ps.keywordSearch(q,function(data,status){
+      if(status===kakao.maps.services.Status.OK&&data.length){ _map.setCenter(new kakao.maps.LatLng(parseFloat(data[0].y),parseFloat(data[0].x))); _map.setLevel(3); }
+      else { _geo.addressSearch(q,function(res,st){ if(st===kakao.maps.services.Status.OK){ _map.setCenter(new kakao.maps.LatLng(parseFloat(res[0].y),parseFloat(res[0].x))); } else { alert('검색 결과가 없습니다.'); } }); }
+    });
   }
+}
+
+function closeMapModal(){ document.getElementById('map-modal').classList.remove('open'); liftPin(false); }
+
+function confirmMapLocation(){
+  var addr=document.getElementById('map-addr-text').textContent;
+  if(!mapCenter||addr==='지도를 이동하면 주소가 표시됩니다'||addr==='주소 불러오는 중...'){ alert('잠시 후 다시 눌러주세요.'); return; }
+  var data={lat:mapCenter.lat,lng:mapCenter.lng,addr:addr};
+  var key=mapTarget;
+  if(key==='start'){ stops.start=data; renderChip('chip-start',addr,'start'); }
+  else if(key==='end'){ stops.end=data; renderChip('chip-end',addr,'end'); }
+  else { stops.via[key]=data; renderChip('chip-'+key,addr,'via'); }
   checkStep1();
   closeMapModal();
 }
 
 function renderChip(id,addr,type){
   var colors={start:'var(--primary)',end:'var(--red)',via:'#BA7517'};
-  var el=document.getElementById(id);
-  if(!el) return;
-  var tKey=currentTarget;
+  var el=document.getElementById(id); if(!el) return;
   el.innerHTML='<div class="addr-chip">'
     +'<div class="addr-chip-dot" style="background:'+colors[type]+'"></div>'
-    +'<span class="addr-chip-text">'+addr+'</span>'
+    +'<span class="addr-chip-text">'+esc(addr)+'</span>'
     +'<button class="addr-chip-edit" onclick="editStop(\''+id.replace('chip-','')+'\')">수정</button>'
     +'</div>';
 }
 
 function editStop(key){
-  if(key==='start'){ stops.start=null; document.getElementById('display-start').value=''; document.getElementById('display-start').classList.remove('confirmed'); document.getElementById('chip-start').innerHTML=''; }
-  else if(key==='end'){ stops.end=null; document.getElementById('display-end').value=''; document.getElementById('display-end').classList.remove('confirmed'); document.getElementById('chip-end').innerHTML=''; }
-  else { delete stops.via[key]; var inp=document.querySelector('#'+key+' .stop-text-input'); if(inp){inp.value='';inp.classList.remove('confirmed');} document.getElementById('chip-'+key).innerHTML=''; }
+  var inp=document.getElementById('addr-'+key)||document.querySelector('#'+key+' .addr-input');
+  if(inp){ inp.value=''; inp.classList.remove('confirmed'); inp.focus(); }
+  document.getElementById('chip-'+key).innerHTML='';
+  if(key==='start') stops.start=null;
+  else if(key==='end') stops.end=null;
+  else delete stops.via[key];
   checkStep1();
-  // 수정 모달 다시 열기
-  openSearchModal(key);
 }
 
 // ─────────────────────────────────────────
@@ -905,18 +877,19 @@ function addVia(){
   W.viaCount++;
   var id='via-'+W.viaCount;
   var wrap=document.getElementById('via-stops');
-  var div=document.createElement('div');
-  div.className='stop-row'; div.id=id;
+  var div=document.createElement('div'); div.className='stop-row'; div.id=id;
   div.innerHTML=
     '<div class="stop-icon-col"><div class="stop-dot stop-dot-via"></div><div class="stop-line"></div></div>'
     +'<div class="stop-input-wrap">'
       +'<div class="stop-label">경유지 '+W.viaCount+'</div>'
       +'<div class="stop-input-row">'
-        +'<input class="stop-text-input" id="display-'+id+'" placeholder="경유지 주소 또는 장소명" readonly onclick="openSearchModal(\''+id+'\')">'
-        +'<button class="search-icon-btn" onclick="openSearchModal(\''+id+'\')" title="주소 검색">'
-          +'<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'
+        +'<input class="addr-input" id="addr-'+id+'" placeholder="경유지 주소 또는 장소명 입력" autocomplete="off"'
+        +' oninput="onTypeAddr(this,\''+id+'\')" onkeydown="onKeyAddr(event,\''+id+'\')" onblur="scheduleHide(\''+id+'\')">'
+        +'<button class="search-icon-btn" onclick="openDaumPostcode(\''+id+'\')" title="주소 검색">'
+          +'<svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'
         +'</button>'
       +'</div>'
+      +'<div class="autocomplete-drop" id="drop-'+id+'"></div>'
       +'<div id="chip-'+id+'"></div>'
     +'</div>'
     +'<button class="remove-stop" onclick="removeVia(\''+id+'\')">✕</button>';
@@ -931,9 +904,7 @@ function removeVia(id){
   checkStep1();
 }
 
-function checkStep1(){
-  document.getElementById('step1-next').disabled=!(stops.start&&stops.end);
-}
+function checkStep1(){ document.getElementById('step1-next').disabled=!(stops.start&&stops.end); }
 
 // ─────────────────────────────────────────
 // 위저드
@@ -942,46 +913,22 @@ function goStep(n){
   if(n>1&&!(stops.start&&stops.end)){ alert('출발지와 목적지를 모두 설정해주세요.'); return; }
   document.querySelectorAll('.wpane').forEach(function(p,i){ p.classList.toggle('active',i+1===n); });
   ['ws1','ws2','ws3','ws4'].forEach(function(id,i){
-    var el=document.getElementById(id);
-    el.classList.remove('active','done');
-    if(i+1===n) el.classList.add('active');
-    else if(i+1<n) el.classList.add('done');
+    var el=document.getElementById(id); el.classList.remove('active','done');
+    if(i+1===n) el.classList.add('active'); else if(i+1<n) el.classList.add('done');
   });
-  W.step=n;
-  if(n===4) buildFare();
+  W.step=n; if(n===4) buildFare();
 }
+function toggleDay(btn,day){ btn.classList.toggle('selected'); var idx=W.days.indexOf(day); if(idx>-1) W.days.splice(idx,1); else W.days.push(day); }
+function selectTrip(btn,type){ W.tripType=type; document.querySelectorAll('.trip-opt').forEach(function(b){ b.classList.remove('selected'); }); btn.classList.add('selected'); document.getElementById('ret-time-wrap').style.display=type==='both'?'block':'none'; }
+function selectContract(el,type){ W.contractType=type; document.querySelectorAll('.wcontract-opt').forEach(function(e){ e.classList.remove('selected'); }); el.classList.add('selected'); }
 
-function toggleDay(btn,day){
-  btn.classList.toggle('selected');
-  var idx=W.days.indexOf(day);
-  if(idx>-1) W.days.splice(idx,1); else W.days.push(day);
-}
-function selectTrip(btn,type){
-  W.tripType=type;
-  document.querySelectorAll('.trip-opt').forEach(function(b){ b.classList.remove('selected'); });
-  btn.classList.add('selected');
-  document.getElementById('ret-time-wrap').style.display=type==='both'?'block':'none';
-}
-function selectContract(el,type){
-  W.contractType=type;
-  document.querySelectorAll('.wcontract-opt').forEach(function(e){ e.classList.remove('selected'); });
-  el.classList.add('selected');
-}
-
-function haversine(lat1,lon1,lat2,lon2){
-  var R=6371,dLat=(lat2-lat1)*Math.PI/180,dLon=(lon2-lon1)*Math.PI/180;
-  var a=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)*Math.sin(dLon/2);
-  return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
-}
-function shortAddr(s){ return(!s||s.length<=22)?s:s.substring(0,22)+'…'; }
+function haversine(a,b,c,d){ var R=6371,dL=(c-a)*Math.PI/180,dN=(d-b)*Math.PI/180,e=Math.sin(dL/2)*Math.sin(dL/2)+Math.cos(a*Math.PI/180)*Math.cos(c*Math.PI/180)*Math.sin(dN/2)*Math.sin(dN/2); return R*2*Math.atan2(Math.sqrt(e),Math.sqrt(1-e)); }
+function shortAddr(s){ return(!s||s.length<=24)?s:s.substring(0,24)+'…'; }
 
 function buildFare(){
   var vk=Object.keys(stops.via);
   var km=BASE_KM;
-  if(stops.start&&stops.end){
-    km=haversine(stops.start.lat,stops.start.lng,stops.end.lat,stops.end.lng);
-    km+=vk.length*1.5; km=Math.max(km,2);
-  }
+  if(stops.start&&stops.end){ km=haversine(stops.start.lat,stops.start.lng,stops.end.lat,stops.end.lng); km+=vk.length*1.5; km=Math.max(km,2); }
   var rsm=document.getElementById('fare-route-summary');
   rsm.innerHTML='<div class="rsm-dot" style="background:var(--primary)"></div><span class="rsm-stop">'+shortAddr(stops.start?stops.start.addr:'출발지')+'</span>';
   vk.forEach(function(k){ rsm.innerHTML+='<span class="rsm-arrow">›</span><span class="rsm-via">▸ '+shortAddr(stops.via[k].addr)+'</span>'; });
@@ -1004,7 +951,7 @@ function buildFare(){
   document.getElementById('f-discount-label').textContent={monthly:'월정기 10% 할인',weekly:'주단위 5% 할인',single:''}[W.contractType];
   document.getElementById('f-discount').textContent='-'+discountAmt.toLocaleString()+'원';
   document.getElementById('f-total').textContent=total.toLocaleString()+'원';
-  document.getElementById('f-note').textContent='※ 실제 요금은 기사님과 확정 후 안내됩니다. 직선거리 약 '+km.toFixed(1)+'km 기준 예상 금액입니다.';
+  document.getElementById('f-note').textContent='※ 직선거리 약 '+km.toFixed(1)+'km 기준 예상 금액. 실제 요금은 기사님과 확정 후 안내됩니다.';
 }
 
 function handleWizardSubmit(){ alert('코스 설정 완료!\n기사님 매칭 요청이 등록되었습니다.\n(베타: 실제 매칭은 백엔드 연동 후 활성화됩니다)'); document.getElementById('drivers').scrollIntoView({behavior:'smooth'}); }
