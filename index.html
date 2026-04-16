@@ -7,333 +7,277 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --green: #1D9E75;
-  --green-light: #E1F5EE;
-  --green-dark: #0F6E56;
-  --blue: #185FA5;
-  --blue-light: #E6F1FB;
-  --blue-dark: #0C447C;
-  --amber: #BA7517;
-  --amber-light: #FAEEDA;
-  --gray-50: #F8F9FA;
-  --gray-100: #F1F3F5;
-  --gray-200: #E9ECEF;
-  --gray-300: #DEE2E6;
-  --gray-400: #CED4DA;
-  --gray-500: #ADB5BD;
-  --gray-600: #6C757D;
-  --gray-700: #495057;
-  --gray-800: #343A40;
-  --gray-900: #212529;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
-  --shadow-lg: 0 12px 32px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.04);
+  --green: #1D9E75; --green-light: #E1F5EE; --green-dark: #0F6E56;
+  --blue: #185FA5; --blue-light: #E6F1FB; --blue-dark: #0C447C;
+  --amber: #BA7517; --amber-light: #FAEEDA;
+  --gray-50: #F8F9FA; --gray-100: #F1F3F5; --gray-200: #E9ECEF;
+  --gray-300: #DEE2E6; --gray-400: #CED4DA; --gray-500: #ADB5BD;
+  --gray-600: #6C757D; --gray-700: #495057; --gray-800: #343A40; --gray-900: #212529;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08); --shadow-md: 0 4px 12px rgba(0,0,0,0.09);
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans KR', sans-serif; color: var(--gray-800); background: #fff; line-height: 1.6; }
 
-body {
-  font-family: 'Noto Sans KR', sans-serif;
-  color: var(--gray-800);
-  background: #fff;
-  line-height: 1.6;
-}
-
-/* ── NAV ── */
+/* NAV */
 nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(12px);
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--gray-200);
-  padding: 0 1.5rem;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 60px;
+  padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 60px;
 }
 .nav-logo { font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 600; color: var(--gray-900); }
 .nav-logo span { color: var(--green); }
-.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.nav-links { display: flex; gap: 1.25rem; }
 .nav-links a { font-size: 14px; color: var(--gray-600); text-decoration: none; }
 .nav-links a:hover { color: var(--gray-900); }
-.nav-cta { background: var(--green); color: #fff; padding: 8px 18px; border-radius: 20px; font-size: 14px; font-weight: 500; text-decoration: none; }
-.nav-cta:hover { background: var(--green-dark); color: #fff; }
-
-/* ── HERO ── */
-.hero {
-  padding: 5rem 1.5rem 4rem;
-  text-align: center;
-  background: linear-gradient(180deg, #f0faf5 0%, #fff 100%);
-  position: relative; overflow: hidden;
+.nav-driver-btn {
+  font-size: 13px; font-weight: 500; color: var(--blue-dark);
+  background: var(--blue-light); border: 1px solid rgba(24,95,165,0.2);
+  padding: 7px 14px; border-radius: 20px; cursor: pointer;
+  text-decoration: none; transition: background 0.15s;
 }
-.hero::before {
-  content: '';
-  position: absolute; top: -80px; right: -80px;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(29,158,117,0.08) 0%, transparent 70%);
-  pointer-events: none;
+.nav-driver-btn:hover { background: #d4e8f8; }
+.nav-cta {
+  background: var(--green); color: #fff; padding: 8px 18px;
+  border-radius: 20px; font-size: 14px; font-weight: 500;
+  text-decoration: none; cursor: pointer; border: none; transition: background 0.15s;
+}
+.nav-cta:hover { background: var(--green-dark); }
+@media (max-width: 600px) { .nav-links { display: none; } }
+
+/* HERO */
+.hero {
+  padding: 4.5rem 1.5rem 0;
+  background: linear-gradient(170deg, #f0faf6 0%, #fff 60%);
+  text-align: center; overflow: hidden;
 }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 6px;
   background: var(--green-light); color: var(--green-dark);
-  font-size: 12px; font-weight: 500;
-  border-radius: 20px; padding: 5px 14px; margin-bottom: 1.5rem;
+  font-size: 12px; font-weight: 500; border-radius: 20px;
+  padding: 5px 14px; margin-bottom: 1.25rem;
 }
 .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
 .hero h1 {
-  font-size: clamp(28px, 5vw, 46px);
-  font-weight: 700; line-height: 1.25;
-  color: var(--gray-900); margin-bottom: 1rem;
+  font-size: clamp(26px, 5vw, 46px); font-weight: 700;
+  line-height: 1.25; color: var(--gray-900); margin-bottom: 1rem;
 }
 .hero h1 em { color: var(--green); font-style: normal; }
-.hero p { font-size: 16px; color: var(--gray-600); max-width: 500px; margin: 0 auto 2rem; line-height: 1.8; }
-.hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
-.btn { padding: 13px 28px; border-radius: var(--radius-xl); font-size: 15px; font-weight: 500; cursor: pointer; border: none; text-decoration: none; display: inline-block; transition: transform 0.15s, box-shadow 0.15s; }
-.btn:hover { transform: translateY(-1px); }
-.btn-green { background: var(--green); color: #fff; box-shadow: 0 4px 14px rgba(29,158,117,0.3); }
-.btn-green:hover { background: var(--green-dark); box-shadow: 0 6px 20px rgba(29,158,117,0.4); }
-.btn-blue { background: var(--blue); color: #fff; box-shadow: 0 4px 14px rgba(24,95,165,0.3); }
-.btn-blue:hover { background: var(--blue-dark); box-shadow: 0 6px 20px rgba(24,95,165,0.4); }
-.btn-outline { background: #fff; color: var(--gray-700); border: 1.5px solid var(--gray-300); }
-.btn-outline:hover { border-color: var(--gray-500); }
-.hero-stats { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
-.hero-stat { text-align: center; }
-.hero-stat strong { display: block; font-size: 24px; font-weight: 700; color: var(--gray-900); }
-.hero-stat span { font-size: 13px; color: var(--gray-500); }
+.hero-sub { font-size: 15px; color: var(--gray-600); max-width: 460px; margin: 0 auto 2rem; line-height: 1.8; }
+.hero-main-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green); color: #fff;
+  padding: 15px 36px; border-radius: var(--radius-xl);
+  font-size: 16px; font-weight: 700; cursor: pointer; border: none;
+  box-shadow: 0 6px 20px rgba(29,158,117,0.35);
+  transition: transform 0.15s, box-shadow 0.15s; margin-bottom: 1rem;
+  font-family: inherit;
+}
+.hero-main-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(29,158,117,0.4); }
+.hero-trust { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+.trust-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--gray-500); }
+.trust-item span { color: var(--green); font-weight: 600; }
 
-/* ── SECTION COMMON ── */
+/* COURSE WIZARD */
+.wizard-card {
+  max-width: 680px; margin: 0 auto;
+  background: #fff; border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border: 1px solid var(--gray-200); border-bottom: none;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.07); overflow: hidden;
+}
+.wizard-steps-bar { display: flex; border-bottom: 1px solid var(--gray-100); background: var(--gray-50); }
+.wstep {
+  flex: 1; padding: 10px 4px; text-align: center;
+  font-size: 11px; font-weight: 500; color: var(--gray-400);
+  border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.15s;
+}
+.wstep.done { color: var(--green); }
+.wstep.active { color: var(--green-dark); border-bottom-color: var(--green); font-weight: 700; }
+.wstep-num {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--gray-200); color: var(--gray-500);
+  font-size: 11px; font-weight: 700; display: inline-flex;
+  align-items: center; justify-content: center; margin-bottom: 3px;
+}
+.wstep.done .wstep-num { background: var(--green); color: #fff; }
+.wstep.active .wstep-num { background: var(--green-dark); color: #fff; }
+.wpane { display: none; padding: 1.5rem; }
+.wpane.active { display: block; }
+.wpane-title { font-size: 15px; font-weight: 700; color: var(--gray-900); margin-bottom: 1.25rem; }
+
+/* STOP ROWS */
+.stop-row { display: flex; align-items: flex-start; gap: 10px; }
+.stop-icon-col { display: flex; flex-direction: column; align-items: center; width: 20px; flex-shrink: 0; padding-top: 22px; }
+.stop-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.stop-dot-start { background: var(--green); }
+.stop-dot-end { background: var(--blue); border-radius: 3px; }
+.stop-dot-via { background: #fff; border: 2px solid var(--amber); }
+.stop-line { width: 2px; height: 28px; background: var(--gray-200); }
+.stop-input-wrap { flex: 1; margin-bottom: 8px; }
+.stop-label { font-size: 10px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+.stop-input {
+  width: 100%; padding: 10px 14px;
+  border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm);
+  font-size: 14px; font-family: inherit; color: var(--gray-800);
+  background: var(--gray-50); transition: border-color 0.15s, background 0.15s;
+}
+.stop-input:focus { outline: none; border-color: var(--green); background: #fff; }
+.stop-input.filled { border-color: #a8dcc8; background: #fff; }
+.remove-stop {
+  width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--gray-200);
+  background: #fff; color: var(--gray-400); font-size: 14px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  margin-top: 20px; transition: all 0.15s;
+}
+.remove-stop:hover { background: #fff0f0; border-color: #f09595; color: #E24B4A; }
+.add-via-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 500; color: var(--green);
+  background: var(--green-light); border: none; border-radius: 20px;
+  padding: 5px 12px; cursor: pointer; margin: 4px 0 12px 30px;
+  font-family: inherit; transition: background 0.15s;
+}
+.add-via-btn:hover { background: #c8eee1; }
+
+/* ROUTE SUMMARY */
+.route-summary {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  background: var(--gray-50); border-radius: var(--radius-md);
+  padding: 10px 14px; margin-bottom: 1.25rem; font-size: 13px;
+}
+.rsm-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.rsm-arrow { color: var(--gray-400); font-size: 12px; }
+.rsm-stop { font-weight: 500; color: var(--gray-800); }
+.rsm-via { font-size: 12px; color: var(--amber); font-weight: 500; }
+
+/* SCHEDULE */
+.days-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 6px; margin-bottom: 1.25rem; }
+.day-btn {
+  padding: 8px 0; text-align: center; font-size: 13px; font-weight: 500;
+  border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm);
+  cursor: pointer; background: #fff; color: var(--gray-500);
+  transition: all 0.15s; font-family: inherit;
+}
+.day-btn.selected { background: var(--green-light); border-color: var(--green); color: var(--green-dark); }
+.day-btn.sun { color: #E24B4A; }
+.day-btn.sat { color: var(--blue); }
+.day-btn.sun.selected { background: #fcebeb; border-color: #E24B4A; color: #A32D2D; }
+.day-btn.sat.selected { background: var(--blue-light); border-color: var(--blue); color: var(--blue-dark); }
+.time-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.25rem; }
+.time-field label { font-size: 12px; font-weight: 600; color: var(--gray-500); display: block; margin-bottom: 5px; }
+.time-field select {
+  width: 100%; padding: 9px 12px;
+  border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm);
+  font-size: 14px; font-family: inherit; background: var(--gray-50); cursor: pointer;
+}
+.time-field select:focus { outline: none; border-color: var(--green); }
+.trip-toggle { display: flex; gap: 8px; margin-bottom: 1.25rem; }
+.trip-opt {
+  flex: 1; padding: 10px; text-align: center;
+  border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm);
+  font-size: 13px; font-weight: 500; cursor: pointer;
+  background: #fff; color: var(--gray-600); font-family: inherit; transition: all 0.15s;
+}
+.trip-opt.selected { border-color: var(--green); background: var(--green-light); color: var(--green-dark); }
+
+/* CONTRACT */
+.wcontract-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 1.25rem; }
+.wcontract-opt {
+  padding: 12px 6px; text-align: center;
+  border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm);
+  cursor: pointer; transition: all 0.15s; font-family: inherit; background: #fff;
+}
+.wcontract-opt h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; color: var(--gray-800); }
+.wcontract-opt p { font-size: 11px; color: var(--gray-500); line-height: 1.4; }
+.wcontract-opt.selected { border-color: var(--green); background: var(--green-light); }
+.wcontract-opt.selected h4 { color: var(--green-dark); }
+
+/* FARE */
+.fare-panel {
+  background: linear-gradient(135deg, #e8f8f2, #d4f1e6);
+  border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.25rem;
+}
+.fare-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.fare-label { font-size: 12px; color: var(--green-dark); }
+.fare-value { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--green-dark); }
+.fare-divider { height: 1px; background: rgba(29,158,117,0.2); margin: 10px 0; }
+.fare-total-label { font-size: 13px; font-weight: 700; color: var(--green-dark); }
+.fare-total-value { font-family: 'DM Sans', sans-serif; font-size: 26px; font-weight: 700; color: var(--green-dark); }
+.fare-note { font-size: 11px; color: var(--green); margin-top: 6px; }
+
+/* WIZARD BUTTONS */
+.wizard-nav { display: flex; gap: 10px; }
+.w-btn-back {
+  padding: 11px 20px; border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm);
+  background: #fff; font-size: 14px; font-weight: 500; cursor: pointer;
+  color: var(--gray-600); font-family: inherit; transition: all 0.15s;
+}
+.w-btn-back:hover { border-color: var(--gray-400); }
+.w-btn-next, .w-btn-submit {
+  flex: 1; padding: 12px; border: none; border-radius: var(--radius-sm);
+  background: var(--green); color: #fff; font-size: 14px; font-weight: 700;
+  cursor: pointer; font-family: inherit; transition: background 0.15s;
+}
+.w-btn-next:hover, .w-btn-submit:hover { background: var(--green-dark); }
+.w-btn-next:disabled { background: var(--gray-300); cursor: not-allowed; }
+
+/* SECTIONS */
 section { padding: 4rem 1.5rem; }
 .section-inner { max-width: 900px; margin: 0 auto; }
 .section-label { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); margin-bottom: 0.75rem; }
-.section-title { font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: var(--gray-900); margin-bottom: 0.75rem; }
-.section-desc { font-size: 15px; color: var(--gray-600); line-height: 1.8; margin-bottom: 2.5rem; }
-
-/* ── USER TYPE ── */
-.user-type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-@media (max-width: 640px) { .user-type-grid { grid-template-columns: 1fr; } }
-.user-card {
-  border: 1.5px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  padding: 2rem; cursor: pointer;
-  transition: all 0.2s;
-  text-decoration: none; color: inherit;
-  display: block;
-}
-.user-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-.user-card.green { border-top: 4px solid var(--green); }
-.user-card.blue { border-top: 4px solid var(--blue); }
-.user-card-icon { font-size: 36px; margin-bottom: 1rem; }
-.user-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 0.5rem; }
-.user-card p { font-size: 14px; color: var(--gray-600); line-height: 1.7; margin-bottom: 1.25rem; }
-.user-card-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; }
-.user-card.green .user-card-tag { color: var(--green); }
-.user-card.blue .user-card-tag { color: var(--blue); }
-
-/* ── TABS ── */
-.tabs-wrap { background: var(--gray-50); border-bottom: 1px solid var(--gray-200); position: sticky; top: 60px; z-index: 90; }
-.tabs { max-width: 900px; margin: 0 auto; display: flex; }
-.tab-btn { flex: 1; padding: 1rem; text-align: center; font-size: 14px; font-weight: 500; cursor: pointer; color: var(--gray-500); border: none; background: transparent; border-bottom: 3px solid transparent; transition: all 0.15s; }
-.tab-btn:hover { color: var(--gray-800); }
-.tab-btn.active-p { color: var(--green-dark); border-bottom-color: var(--green); }
-.tab-btn.active-d { color: var(--blue-dark); border-bottom-color: var(--blue); }
-.tab-pane { display: none; }
-.tab-pane.active { display: block; }
-
-/* ── HOW IT WORKS ── */
+.section-title { font-size: clamp(22px, 3vw, 30px); font-weight: 700; color: var(--gray-900); margin-bottom: 0.75rem; }
 .how-bg { background: var(--gray-50); }
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 2rem; }
-.step-card {
-  background: #fff; border-radius: var(--radius-md);
-  border: 1px solid var(--gray-200);
-  padding: 1.5rem; position: relative;
-}
-.step-num {
-  width: 32px; height: 32px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 600; margin-bottom: 1rem;
-}
-.step-num-p { background: var(--green-light); color: var(--green-dark); }
-.step-num-d { background: var(--blue-light); color: var(--blue-dark); }
+.steps { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 16px; }
+.step-card { background: #fff; border-radius: var(--radius-md); border: 1px solid var(--gray-200); padding: 1.5rem; }
+.step-num { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; margin-bottom: 1rem; background: var(--green-light); color: var(--green-dark); }
 .step-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 0.4rem; }
 .step-card p { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
-
-/* ── ROUTE CALC ── */
-.route-box {
-  background: #fff; border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg); padding: 1.5rem;
-  box-shadow: var(--shadow-sm); margin-bottom: 2rem;
-}
-.route-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.route-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
-.route-dot-green { background: var(--green); }
-.route-dot-blue { background: var(--blue); }
-.route-connector { width: 1.5px; height: 18px; background: var(--gray-300); margin: 0 5px 10px; }
-.route-input {
-  flex: 1; padding: 10px 14px;
-  border: 1px solid var(--gray-200); border-radius: var(--radius-sm);
-  font-size: 14px; font-family: inherit;
-  background: var(--gray-50); color: var(--gray-800);
-  transition: border-color 0.15s;
-}
-.route-input:focus { outline: none; border-color: var(--green); background: #fff; }
-.route-options { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 1rem 0; }
-@media (max-width: 500px) { .route-options { grid-template-columns: 1fr; } }
-.route-option label { font-size: 12px; color: var(--gray-600); display: block; margin-bottom: 4px; }
-.route-option select {
-  width: 100%; padding: 8px 10px;
-  border: 1px solid var(--gray-200); border-radius: var(--radius-sm);
-  font-size: 13px; font-family: inherit; background: var(--gray-50); cursor: pointer;
-}
-.route-option select:focus { outline: none; border-color: var(--green); }
-.fare-result {
-  background: linear-gradient(135deg, var(--green-light), #d8f5ec);
-  border-radius: var(--radius-md); padding: 1.25rem 1.5rem;
-  display: flex; justify-content: space-between; align-items: center;
-  margin-top: 1rem;
-}
-.fare-info { font-size: 13px; color: var(--green-dark); }
-.fare-info strong { display: block; font-size: 11px; font-weight: 500; opacity: 0.8; margin-bottom: 2px; }
-.fare-amount { font-size: 26px; font-weight: 700; color: var(--green-dark); }
-.fare-per { font-size: 12px; color: var(--green); }
-.calc-btn {
-  width: 100%; padding: 12px; margin-top: 12px;
-  background: var(--green); color: #fff;
-  border: none; border-radius: var(--radius-sm);
-  font-size: 14px; font-weight: 500; cursor: pointer;
-  font-family: inherit; transition: background 0.15s;
-}
-.calc-btn:hover { background: var(--green-dark); }
-
-/* ── DRIVER PROFILE ── */
+.filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.filter-btn { padding: 6px 14px; border-radius: 20px; border: 1px solid var(--gray-200); background: #fff; font-size: 12px; font-weight: 500; cursor: pointer; color: var(--gray-600); font-family: inherit; transition: all 0.15s; }
+.filter-btn.active { background: var(--gray-800); color: #fff; border-color: var(--gray-800); }
 .profile-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 2rem; }
-.profile-card {
-  background: #fff; border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg); padding: 1.25rem;
-  display: flex; align-items: flex-start; gap: 14px;
-  box-shadow: var(--shadow-sm); transition: all 0.2s;
-}
-.profile-card:hover { box-shadow: var(--shadow-md); border-color: var(--gray-300); }
+.profile-card { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 1.25rem; display: flex; align-items: flex-start; gap: 14px; box-shadow: var(--shadow-sm); transition: all 0.2s; }
+.profile-card:hover { box-shadow: var(--shadow-md); }
 .profile-card.selected { border-color: var(--green); box-shadow: 0 0 0 3px rgba(29,158,117,0.12); }
-.avatar {
-  width: 52px; height: 52px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px; font-weight: 700; flex-shrink: 0;
-}
+.avatar { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; flex-shrink: 0; }
 .avatar-blue { background: var(--blue-light); color: var(--blue-dark); }
 .avatar-green { background: var(--green-light); color: var(--green-dark); }
 .avatar-amber { background: var(--amber-light); color: var(--amber); }
 .profile-info { flex: 1; min-width: 0; }
 .profile-name { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
 .profile-stars { color: var(--amber); font-size: 14px; display: inline-flex; align-items: center; gap: 4px; }
-.profile-stars span { font-size: 12px; color: var(--gray-500); font-family: 'DM Sans', sans-serif; }
+.profile-stars span { font-size: 12px; color: var(--gray-500); }
 .profile-badges { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
 .badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 500; }
 .badge-green { background: var(--green-light); color: var(--green-dark); }
 .badge-blue { background: var(--blue-light); color: var(--blue-dark); }
 .badge-gray { background: var(--gray-100); color: var(--gray-600); }
 .profile-stats { display: flex; gap: 1rem; margin-top: 10px; }
-.pstat { text-align: center; }
 .pstat strong { display: block; font-size: 14px; font-weight: 700; color: var(--gray-900); }
 .pstat span { font-size: 11px; color: var(--gray-500); }
-.select-btn {
-  padding: 8px 16px; border-radius: 20px;
-  border: 1.5px solid var(--green); color: var(--green);
-  background: transparent; font-size: 13px; font-weight: 500;
-  cursor: pointer; font-family: inherit; white-space: nowrap;
-  transition: all 0.15s;
-}
+.select-btn { padding: 8px 16px; border-radius: 20px; border: 1.5px solid var(--green); color: var(--green); background: transparent; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; white-space: nowrap; transition: all 0.15s; }
 .select-btn:hover, .select-btn.selected { background: var(--green); color: #fff; }
-
-/* ── SORT FILTER ── */
-.filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.25rem; }
-.filter-btn {
-  padding: 6px 14px; border-radius: 20px;
-  border: 1px solid var(--gray-200); background: #fff;
-  font-size: 12px; font-weight: 500; cursor: pointer;
-  color: var(--gray-600); font-family: inherit;
-  transition: all 0.15s;
-}
-.filter-btn.active { background: var(--gray-800); color: #fff; border-color: var(--gray-800); }
-.filter-btn:hover:not(.active) { border-color: var(--gray-400); }
-
-/* ── FEATURES ── */
-.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-.feat-card {
-  background: #fff; border: 1px solid var(--gray-200);
-  border-radius: var(--radius-md); padding: 1.5rem;
-  transition: box-shadow 0.2s;
-}
+.reviews-list { display: grid; gap: 12px; }
+.review-card { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 1.25rem; }
+.review-top { display: flex; align-items: center; gap: 10px; margin-bottom: 0.75rem; }
+.review-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--gray-100); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--gray-600); }
+.review-name { font-size: 13px; font-weight: 500; }
+.review-date { font-size: 11px; color: var(--gray-400); }
+.review-stars { color: var(--amber); font-size: 13px; margin-left: auto; }
+.review-text { font-size: 13px; color: var(--gray-600); line-height: 1.7; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 16px; }
+.feat-card { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 1.5rem; transition: box-shadow 0.2s; }
 .feat-card:hover { box-shadow: var(--shadow-md); }
-.feat-icon { font-size: 28px; margin-bottom: 0.75rem; }
+.feat-icon { font-size: 26px; margin-bottom: 0.75rem; }
 .feat-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 0.4rem; }
 .feat-card p { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
 
-/* ── DRIVER PANEL ── */
-.notif-card {
-  background: #fff; border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 1.5rem;
-}
-.notif-header {
-  padding: 1rem 1.25rem; background: var(--blue-light);
-  display: flex; align-items: center; justify-content: space-between;
-}
-.notif-header h3 { font-size: 14px; font-weight: 700; color: var(--blue-dark); }
-.notif-header span { font-size: 12px; background: #E24B4A; color: #fff; padding: 2px 8px; border-radius: 10px; }
-.notif-item {
-  padding: 1rem 1.25rem; border-bottom: 1px solid var(--gray-100);
-  display: flex; align-items: flex-start; gap: 12px;
-}
-.notif-item:last-child { border-bottom: none; }
-.notif-dot-live { width: 8px; height: 8px; border-radius: 50%; background: #E24B4A; flex-shrink: 0; margin-top: 5px; animation: pulse 1.5s infinite; }
-.notif-dot-done { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; margin-top: 5px; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-.notif-body { flex: 1; }
-.notif-route { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
-.notif-detail { font-size: 12px; color: var(--gray-500); margin-bottom: 6px; }
-.notif-actions { display: flex; gap: 8px; }
-.notif-accept { padding: 6px 14px; background: var(--blue); color: #fff; border: none; border-radius: 6px; font-size: 12px; font-weight: 500; cursor: pointer; font-family: inherit; }
-.notif-decline { padding: 6px 12px; background: transparent; color: var(--gray-500); border: 1px solid var(--gray-200); border-radius: 6px; font-size: 12px; cursor: pointer; font-family: inherit; }
-.notif-time { font-size: 11px; color: var(--gray-400); white-space: nowrap; }
-
-/* ── EARNINGS ── */
-.earnings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
-.earning-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 1rem; text-align: center; }
-.earning-card .val { font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 600; color: var(--gray-900); }
-.earning-card .lbl { font-size: 11px; color: var(--gray-500); margin-top: 3px; }
-
-/* ── SCHEDULE ── */
-.schedule-grid { display: grid; gap: 10px; margin-bottom: 1.5rem; }
-.schedule-item {
-  background: #fff; border: 1px solid var(--gray-200);
-  border-radius: var(--radius-md); padding: 1rem 1.25rem;
-  display: flex; align-items: center; gap: 14px;
-}
-.schedule-time { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--gray-800); min-width: 70px; }
-.schedule-bar { width: 4px; height: 36px; border-radius: 2px; flex-shrink: 0; }
-.schedule-info h4 { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
-.schedule-info p { font-size: 12px; color: var(--gray-500); }
-.schedule-fare { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--blue-dark); margin-left: auto; }
-
-/* ── CONTRACT ── */
-.contract-types { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 1.5rem; }
-@media (max-width: 500px) { .contract-types { grid-template-columns: 1fr; } }
-.contract-type {
-  border: 1.5px solid var(--gray-200); border-radius: var(--radius-md);
-  padding: 1.25rem; text-align: center; cursor: pointer; transition: all 0.15s;
-}
-.contract-type:hover { border-color: var(--green); }
-.contract-type.selected { border-color: var(--green); background: var(--green-light); }
-.contract-type h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
-.contract-type p { font-size: 12px; color: var(--gray-600); }
-.contract-type .ct-icon { font-size: 24px; margin-bottom: 8px; }
-
-/* ── ADMIN ── */
+/* ADMIN */
 .admin-section { background: var(--gray-900); color: #fff; }
-.admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 2rem; }
+.admin-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 12px; margin-bottom: 2rem; }
 .admin-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 1.25rem; }
 .admin-card .val { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 600; color: #fff; }
 .admin-card .lbl { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
@@ -346,81 +290,38 @@ section { padding: 4rem 1.5rem; }
 .status-pending { background: rgba(186,117,23,0.2); color: #FAC775; }
 .status-done { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
 
-/* ── AUTH MODAL ── */
-.modal-overlay {
-  display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,0.5); z-index: 200;
-  align-items: center; justify-content: center; padding: 1rem;
-}
-.modal-overlay.open { display: flex; }
-.modal {
-  background: #fff; border-radius: var(--radius-xl); padding: 2rem;
-  width: 100%; max-width: 420px;
-  animation: slideUp 0.2s ease;
-}
-@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-.modal-header h2 { font-size: 18px; font-weight: 700; }
-.modal-close { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--gray-400); }
-.modal-tabs { display: flex; gap: 0; margin-bottom: 1.5rem; background: var(--gray-100); border-radius: var(--radius-sm); padding: 3px; }
-.modal-tab { flex: 1; padding: 8px; text-align: center; font-size: 13px; font-weight: 500; cursor: pointer; border-radius: 6px; border: none; background: transparent; color: var(--gray-500); font-family: inherit; transition: all 0.15s; }
-.modal-tab.active { background: #fff; color: var(--gray-900); box-shadow: var(--shadow-sm); }
-.form-group { margin-bottom: 1rem; }
-.form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--gray-700); margin-bottom: 5px; }
-.form-group input, .form-group select {
-  width: 100%; padding: 10px 14px;
-  border: 1px solid var(--gray-200); border-radius: var(--radius-sm);
-  font-size: 14px; font-family: inherit; color: var(--gray-800);
-  transition: border-color 0.15s;
-}
-.form-group input:focus, .form-group select:focus { outline: none; border-color: var(--green); }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.form-submit {
-  width: 100%; padding: 12px; background: var(--green); color: #fff;
-  border: none; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500;
-  cursor: pointer; font-family: inherit; margin-top: 0.5rem;
-}
-.form-submit-blue { background: var(--blue); }
-.form-submit:hover { opacity: 0.9; }
-.modal-divider { text-align: center; font-size: 12px; color: var(--gray-400); margin: 1rem 0; position: relative; }
-.modal-divider::before, .modal-divider::after { content: ''; position: absolute; top: 50%; width: 40%; height: 1px; background: var(--gray-200); }
-.modal-divider::before { left: 0; }
-.modal-divider::after { right: 0; }
-.user-type-toggle { display: flex; gap: 8px; margin-bottom: 1rem; }
-.type-btn { flex: 1; padding: 10px; border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm); text-align: center; cursor: pointer; font-size: 13px; font-weight: 500; background: #fff; font-family: inherit; transition: all 0.15s; }
-.type-btn.active-p { border-color: var(--green); color: var(--green); background: var(--green-light); }
-.type-btn.active-d { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
-
-/* ── REVIEW ── */
-.reviews-list { display: grid; gap: 12px; margin-bottom: 1.5rem; }
-.review-card { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 1.25rem; }
-.review-top { display: flex; align-items: center; gap: 10px; margin-bottom: 0.75rem; }
-.review-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--gray-100); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--gray-600); flex-shrink: 0; }
-.review-meta { flex: 1; }
-.review-name { font-size: 13px; font-weight: 500; }
-.review-date { font-size: 11px; color: var(--gray-400); }
-.review-stars { color: var(--amber); font-size: 13px; }
-.review-text { font-size: 13px; color: var(--gray-600); line-height: 1.7; }
-
-/* ── BETA SIGNUP ── */
+/* BETA / FOOTER / MODAL */
 .beta-section { background: linear-gradient(135deg, var(--green-dark), var(--green)); color: #fff; text-align: center; }
 .beta-section h2 { font-size: 26px; font-weight: 700; margin-bottom: 0.75rem; }
 .beta-section p { font-size: 15px; opacity: 0.85; margin-bottom: 2rem; }
 .beta-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; flex-wrap: wrap; }
 .beta-input { flex: 1; min-width: 200px; padding: 12px 16px; border: none; border-radius: var(--radius-md); font-size: 14px; font-family: inherit; }
 .beta-input:focus { outline: 3px solid rgba(255,255,255,0.4); }
-.beta-submit { padding: 12px 24px; background: #fff; color: var(--green-dark); border: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
-.beta-submit:hover { opacity: 0.9; }
-
-/* ── FOOTER ── */
+.beta-submit { padding: 12px 24px; background: #fff; color: var(--green-dark); border: none; border-radius: var(--radius-md); font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; }
 footer { background: var(--gray-900); color: rgba(255,255,255,0.5); padding: 2rem 1.5rem; text-align: center; font-size: 13px; }
 footer strong { color: #fff; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 640px) {
-  .nav-links { display: none; }
-  .route-options { grid-template-columns: 1fr 1fr; }
-}
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 300; align-items: center; justify-content: center; padding: 1rem; }
+.modal-overlay.open { display: flex; }
+.modal { background: #fff; border-radius: var(--radius-xl); padding: 2rem; width: 100%; max-width: 420px; animation: slideUp 0.2s ease; }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.modal-header h2 { font-size: 18px; font-weight: 700; }
+.modal-close { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--gray-400); }
+.modal-tabs { display: flex; margin-bottom: 1.5rem; background: var(--gray-100); border-radius: var(--radius-sm); padding: 3px; }
+.modal-tab { flex: 1; padding: 8px; text-align: center; font-size: 13px; font-weight: 500; cursor: pointer; border-radius: 6px; border: none; background: transparent; color: var(--gray-500); font-family: inherit; transition: all 0.15s; }
+.modal-tab.active { background: #fff; color: var(--gray-900); box-shadow: var(--shadow-sm); }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--gray-700); margin-bottom: 5px; }
+.form-group input, .form-group select { width: 100%; padding: 10px 14px; border: 1px solid var(--gray-200); border-radius: var(--radius-sm); font-size: 14px; font-family: inherit; color: var(--gray-800); }
+.form-group input:focus, .form-group select:focus { outline: none; border-color: var(--green); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.form-submit { width: 100%; padding: 12px; background: var(--green); color: #fff; border: none; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; cursor: pointer; font-family: inherit; margin-top: 0.5rem; }
+.form-submit-blue { background: var(--blue); }
+.form-submit:hover { opacity: 0.9; }
+.user-type-toggle { display: flex; gap: 8px; margin-bottom: 1rem; }
+.type-btn { flex: 1; padding: 10px; border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm); text-align: center; cursor: pointer; font-size: 13px; font-weight: 500; background: #fff; font-family: inherit; transition: all 0.15s; }
+.type-btn.active-p { border-color: var(--green); color: var(--green); background: var(--green-light); }
+.type-btn.active-d { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
 </style>
 </head>
 <body>
@@ -428,421 +329,295 @@ footer strong { color: #fff; }
 <!-- NAV -->
 <nav>
   <div class="nav-logo">School<span>Pick</span></div>
-  <div class="nav-links">
-    <a href="#how">이용방법</a>
-    <a href="#features">기능</a>
-    <a href="#admin">관리자</a>
-    <a href="#beta-signup">베타신청</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#how">이용방법</a>
+      <a href="#drivers">기사님 찾기</a>
+      <a href="#beta-signup">베타신청</a>
+    </div>
+    <a class="nav-driver-btn" href="#" onclick="openModal('driver'); return false;">🚐 기사님으로 등록하기</a>
+    <button class="nav-cta" onclick="openModal('parent')">시작하기</button>
   </div>
-  <a class="nav-cta" href="#" onclick="openModal(); return false;">시작하기</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<div class="hero">
   <div class="hero-badge">🚐 베타 서비스 오픈</div>
-  <h1>우리 아이 통학,<br><em>믿을 수 있는 기사님</em>과 연결</h1>
-  <p>학원차 기사님과 학부모를 직접 매칭하는 플랫폼. 구간 정액 요금, 경력·평점 검증으로 안심하고 맡기세요.</p>
-  <div class="hero-btns">
-    <button class="btn btn-green" onclick="openModal('parent')">학부모로 시작하기</button>
-    <button class="btn btn-blue" onclick="openModal('driver')">기사님으로 등록하기</button>
+  <h1>우리 아이 통학,<br><em>코스부터 기사님까지</em><br>직접 설정하세요</h1>
+  <p class="hero-sub">출발지·경유지·목적지를 설정하면<br>정액 요금과 검증된 기사님을 바로 연결해드립니다.</p>
+  <button class="hero-main-btn" onclick="document.getElementById('wizard-section').scrollIntoView({behavior:'smooth'})">
+    코스 설정하고 기사님 찾기 →
+  </button>
+  <div class="hero-trust">
+    <div class="trust-item"><span>✓</span> 경력 인증 기사님</div>
+    <div class="trust-item"><span>✓</span> 범죄경력 조회 완료</div>
+    <div class="trust-item"><span>✓</span> 구간 정액 요금</div>
+    <div class="trust-item"><span>✓</span> 실시간 운행 알림</div>
   </div>
-  <div class="hero-stats">
-    <div class="hero-stat"><strong>0원</strong><span>가입비 / 이용료</span></div>
-    <div class="hero-stat"><strong>100%</strong><span>경력 인증 기사</span></div>
-    <div class="hero-stat"><strong>투명</strong><span>정액 구간 요금</span></div>
-  </div>
-</section>
 
-<!-- WHO -->
-<section id="who">
-  <div class="section-inner">
-    <div class="section-label">누구를 위한 서비스인가요</div>
-    <div class="section-title">수요자와 공급자를 직접 연결합니다</div>
-    <div class="user-type-grid">
-      <a class="user-card green" href="#" onclick="switchTab('parent'); return false;">
-        <div class="user-card-icon">👨‍👩‍👧</div>
-        <h3>학부모 (수요자)</h3>
-        <p>원거리 학교·학원 통학이 필요한 자녀를 둔 부모님. 검증된 기사님을 직접 선택하고 안심하세요.</p>
-        <div class="user-card-tag">학부모 기능 보기 →</div>
-      </a>
-      <a class="user-card blue" href="#" onclick="switchTab('driver'); return false;">
-        <div class="user-card-icon">🚐</div>
-        <h3>운전기사 (공급자)</h3>
-        <p>학원차 운전 경력이 있는 기사님. 원하는 구간·시간대 요청을 선택해 추가 수익을 올리세요.</p>
-        <div class="user-card-tag">기사님 기능 보기 →</div>
-      </a>
+  <!-- COURSE WIZARD -->
+  <div class="wizard-card" id="wizard-section">
+    <div class="wizard-steps-bar">
+      <div class="wstep active" id="ws1"><div class="wstep-num">1</div><div>코스 설정</div></div>
+      <div class="wstep" id="ws2"><div class="wstep-num">2</div><div>요일·시간</div></div>
+      <div class="wstep" id="ws3"><div class="wstep-num">3</div><div>계약 유형</div></div>
+      <div class="wstep" id="ws4"><div class="wstep-num">4</div><div>요금 확인</div></div>
     </div>
-  </div>
-</section>
 
-<!-- TABS -->
-<div class="tabs-wrap" id="how">
-  <div class="tabs">
-    <button class="tab-btn active-p" id="tab-parent" onclick="switchTab('parent')">👨‍👩‍👧 학부모 기능</button>
-    <button class="tab-btn" id="tab-driver" onclick="switchTab('driver')">🚐 기사님 기능</button>
-  </div>
-</div>
-
-<!-- ===================== PARENT PANE ===================== -->
-<div class="tab-pane active" id="pane-parent">
-
-  <!-- HOW -->
-  <section class="how-bg">
-    <div class="section-inner">
-      <div class="section-label">이용 방법</div>
-      <div class="section-title">4단계로 간단하게</div>
-      <div class="steps">
-        <div class="step-card">
-          <div class="step-num step-num-p">1</div>
-          <h4>구간 검색</h4>
-          <p>출발지·도착지 입력, 운행 유형과 요일을 선택하면 정액 요금이 자동 계산됩니다.</p>
+    <!-- STEP 1 -->
+    <div class="wpane active" id="wpane-1">
+      <div class="wpane-title">📍 코스를 설정해주세요</div>
+      <div id="stops-list">
+        <div class="stop-row">
+          <div class="stop-icon-col">
+            <div class="stop-dot stop-dot-start"></div>
+            <div class="stop-line"></div>
+          </div>
+          <div class="stop-input-wrap">
+            <div class="stop-label">출발지</div>
+            <input class="stop-input" id="input-start" placeholder="출발지 주소 입력 (예: 부산 해운대구 좌동)" oninput="checkStep1()">
+          </div>
         </div>
-        <div class="step-card">
-          <div class="step-num step-num-p">2</div>
-          <h4>기사님 선택</h4>
-          <p>운전경력, 범죄경력 조회 여부, 평점·리뷰를 비교해 원하는 기사님을 선택하세요.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num step-num-p">3</div>
-          <h4>매칭 & 계약</h4>
-          <p>기사님이 요청을 수락하면 연결 완료. 편도·왕복·월정기 계약 유형을 선택할 수 있습니다.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num step-num-p">4</div>
-          <h4>운행 & 평가</h4>
-          <p>운행 완료 후 평점과 리뷰를 남겨 다른 학부모를 도와주세요.</p>
+        <div id="via-stops"></div>
+        <div class="stop-row">
+          <div class="stop-icon-col" style="padding-top:22px">
+            <div class="stop-dot stop-dot-end"></div>
+          </div>
+          <div class="stop-input-wrap">
+            <div class="stop-label">최종 목적지</div>
+            <input class="stop-input" id="input-end" placeholder="도착지 주소 입력 (학교·학원 이름)" oninput="checkStep1()">
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ROUTE CALC -->
-  <section>
-    <div class="section-inner">
-      <div class="section-label">요금 계산</div>
-      <div class="section-title">구간 정액 요금 계산기</div>
-      <div class="section-desc">km당 고정 단가로 투명하게 계산됩니다. 협상 없이 바로 확인하세요.</div>
-      <div class="route-box">
-        <div class="route-row">
-          <div class="route-dot route-dot-green"></div>
-          <input class="route-input" id="from-addr" placeholder="출발지 주소 입력 (예: 부산 해운대구 좌동)" value="부산 해운대구 좌동">
-        </div>
-        <div class="route-connector" style="margin-left:5px"></div>
-        <div class="route-row">
-          <div class="route-dot route-dot-blue"></div>
-          <input class="route-input" id="to-addr" placeholder="도착지 주소 입력 (예: 부산 수영구 광안동)" value="부산 수영구 광안동 ○○학원">
-        </div>
-        <div class="route-options">
-          <div class="route-option">
-            <label>운행 유형</label>
-            <select id="trip-type" onchange="calcFare()">
-              <option value="1">편도</option>
-              <option value="2">왕복</option>
-            </select>
-          </div>
-          <div class="route-option">
-            <label>계약 유형</label>
-            <select id="contract-type" onchange="calcFare()">
-              <option value="monthly">월정기</option>
-              <option value="weekly">주단위</option>
-              <option value="single">단건</option>
-            </select>
-          </div>
-          <div class="route-option">
-            <label>운행 요일</label>
-            <select id="days" onchange="calcFare()">
-              <option value="5">월~금 (5일)</option>
-              <option value="6">월~토 (6일)</option>
-              <option value="3">월·수·금 (3일)</option>
-            </select>
-          </div>
-        </div>
-        <div class="fare-result">
-          <div class="fare-info">
-            <strong>월 총 요금</strong>
-            <span id="fare-distance">약 8.2km · 편도 18,000원</span>
-          </div>
-          <div>
-            <div class="fare-amount" id="fare-amount">360,000원</div>
-            <div class="fare-per" id="fare-per">1회 18,000원 × 20회</div>
-          </div>
-        </div>
-        <button class="calc-btn" onclick="calcFare()">요금 다시 계산하기</button>
+      <button class="add-via-btn" onclick="addVia()">+ 경유지 추가 (최대 3개)</button>
+      <div class="wizard-nav">
+        <button class="w-btn-next" id="step1-next" onclick="goStep(2)" disabled>다음 — 요일·시간 설정 →</button>
       </div>
+    </div>
 
-      <!-- CONTRACT TYPES -->
-      <div class="section-label">계약 유형 선택</div>
-      <div class="contract-types">
-        <div class="contract-type selected" onclick="selectContract(this)">
-          <div class="ct-icon">📅</div>
+    <!-- STEP 2 -->
+    <div class="wpane" id="wpane-2">
+      <div class="wpane-title">📅 운행 요일과 시간을 선택해주세요</div>
+      <div style="font-size:12px;color:var(--gray-500);margin-bottom:8px">운행 요일</div>
+      <div class="days-grid">
+        <button class="day-btn sun" onclick="toggleDay(this,'sun')">일</button>
+        <button class="day-btn selected" onclick="toggleDay(this,'mon')">월</button>
+        <button class="day-btn selected" onclick="toggleDay(this,'tue')">화</button>
+        <button class="day-btn selected" onclick="toggleDay(this,'wed')">수</button>
+        <button class="day-btn selected" onclick="toggleDay(this,'thu')">목</button>
+        <button class="day-btn selected" onclick="toggleDay(this,'fri')">금</button>
+        <button class="day-btn sat" onclick="toggleDay(this,'sat')">토</button>
+      </div>
+      <div style="font-size:12px;color:var(--gray-500);margin-bottom:8px">운행 방향</div>
+      <div class="trip-toggle">
+        <button class="trip-opt selected" onclick="selectTrip(this,'one')">편도 (등원만)</button>
+        <button class="trip-opt" onclick="selectTrip(this,'both')">왕복 (등·하원)</button>
+      </div>
+      <div class="time-grid">
+        <div class="time-field">
+          <label>등원 출발 시간</label>
+          <select id="dep-time">
+            <option>오전 7:00</option><option>오전 7:30</option>
+            <option>오전 8:00</option><option selected>오전 8:30</option>
+            <option>오전 9:00</option><option>오후 1:00</option>
+            <option>오후 1:30</option><option>오후 2:00</option>
+            <option>오후 2:30</option><option>오후 3:00</option>
+          </select>
+        </div>
+        <div class="time-field" id="ret-time-wrap" style="display:none">
+          <label>하원 출발 시간</label>
+          <select id="ret-time">
+            <option>오후 4:00</option><option>오후 4:30</option>
+            <option selected>오후 5:00</option><option>오후 5:30</option>
+            <option>오후 6:00</option><option>오후 6:30</option><option>오후 7:00</option>
+          </select>
+        </div>
+      </div>
+      <div class="wizard-nav">
+        <button class="w-btn-back" onclick="goStep(1)">← 이전</button>
+        <button class="w-btn-next" onclick="goStep(3)">다음 — 계약 유형 선택 →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="wpane" id="wpane-3">
+      <div class="wpane-title">📋 계약 유형을 선택해주세요</div>
+      <div class="wcontract-grid">
+        <div class="wcontract-opt selected" onclick="selectContract(this,'monthly')">
+          <div style="font-size:22px;margin-bottom:6px">📅</div>
           <h4>월정기</h4>
-          <p>한 달 단위 계약, 10% 할인</p>
+          <p>한 달 단위<br><strong style="color:var(--green-dark)">10% 할인</strong></p>
         </div>
-        <div class="contract-type" onclick="selectContract(this)">
-          <div class="ct-icon">📆</div>
+        <div class="wcontract-opt" onclick="selectContract(this,'weekly')">
+          <div style="font-size:22px;margin-bottom:6px">📆</div>
           <h4>주단위</h4>
-          <p>1주 단위 계약, 5% 할인</p>
+          <p>1주 단위<br><strong style="color:var(--green-dark)">5% 할인</strong></p>
         </div>
-        <div class="contract-type" onclick="selectContract(this)">
-          <div class="ct-icon">🎫</div>
+        <div class="wcontract-opt" onclick="selectContract(this,'single')">
+          <div style="font-size:22px;margin-bottom:6px">🎫</div>
           <h4>단건</h4>
-          <p>1회성 이용, 정가 적용</p>
+          <p>1회성<br><span style="color:var(--gray-500)">정가 적용</span></p>
         </div>
+      </div>
+      <div style="background:var(--gray-50);border-radius:var(--radius-md);padding:12px 14px;font-size:13px;color:var(--gray-600);line-height:1.6;margin-bottom:1.25rem">
+        💡 <strong>월정기</strong>가 가장 많이 선택됩니다. 매달 자동 갱신되며 언제든 해지 가능합니다.
+      </div>
+      <div class="wizard-nav">
+        <button class="w-btn-back" onclick="goStep(2)">← 이전</button>
+        <button class="w-btn-next" onclick="goStep(4)">다음 — 요금 확인 →</button>
       </div>
     </div>
-  </section>
 
-  <!-- DRIVER LIST -->
-  <section class="how-bg">
-    <div class="section-inner">
-      <div class="section-label">기사님 선택</div>
-      <div class="section-title">검증된 기사님을 직접 선택하세요</div>
-      <div class="filter-row">
-        <button class="filter-btn active" onclick="setFilter(this)">전체</button>
-        <button class="filter-btn" onclick="setFilter(this)">평점 높은 순</button>
-        <button class="filter-btn" onclick="setFilter(this)">경력 많은 순</button>
-        <button class="filter-btn" onclick="setFilter(this)">범죄경력 조회 완료</button>
+    <!-- STEP 4 -->
+    <div class="wpane" id="wpane-4">
+      <div class="wpane-title">💰 예상 요금을 확인하세요</div>
+      <div class="route-summary" id="fare-route-summary"></div>
+      <div class="fare-panel">
+        <div class="fare-row"><span class="fare-label">편도 기본 요금</span><span class="fare-value" id="f-oneway">-</span></div>
+        <div class="fare-row" id="f-row-return" style="display:none"><span class="fare-label">왕복 적용 (×2)</span><span class="fare-value" id="f-return">-</span></div>
+        <div class="fare-row" id="f-row-via" style="display:none"><span class="fare-label">경유지 추가 요금</span><span class="fare-value" id="f-via">-</span></div>
+        <div class="fare-row"><span class="fare-label">월 운행 횟수</span><span class="fare-value" id="f-count">-</span></div>
+        <div class="fare-row" id="f-row-discount" style="display:none">
+          <span class="fare-label" id="f-discount-label">할인</span>
+          <span class="fare-value" id="f-discount">-</span>
+        </div>
+        <div class="fare-divider"></div>
+        <div class="fare-row">
+          <span class="fare-total-label">월 예상 총 요금</span>
+          <span class="fare-total-value" id="f-total">-</span>
+        </div>
+        <div class="fare-note" id="f-note"></div>
       </div>
-      <div class="profile-list">
-        <div class="profile-card selected">
-          <div class="avatar avatar-blue">김</div>
-          <div class="profile-info">
-            <div class="profile-name">김○○ 기사님</div>
-            <div class="profile-stars">★★★★★ <span>4.9 (리뷰 47개)</span></div>
-            <div class="profile-badges">
-              <span class="badge badge-green">✓ 경력 12년</span>
-              <span class="badge badge-green">✓ 범죄경력 조회 완료</span>
-              <span class="badge badge-blue">✓ 안전교육 수료</span>
-            </div>
-            <div class="profile-stats">
-              <div class="pstat"><strong>234</strong><span>총 운행</span></div>
-              <div class="pstat"><strong>100%</strong><span>정시 도착</span></div>
-              <div class="pstat"><strong>3년</strong><span>플랫폼 이용</span></div>
-            </div>
-          </div>
-          <button class="select-btn selected" onclick="toggleSelect(this)">선택됨</button>
-        </div>
-        <div class="profile-card">
-          <div class="avatar avatar-green">박</div>
-          <div class="profile-info">
-            <div class="profile-name">박○○ 기사님</div>
-            <div class="profile-stars">★★★★☆ <span>4.7 (리뷰 32개)</span></div>
-            <div class="profile-badges">
-              <span class="badge badge-green">✓ 경력 8년</span>
-              <span class="badge badge-green">✓ 범죄경력 조회 완료</span>
-              <span class="badge badge-gray">안전교육 예정</span>
-            </div>
-            <div class="profile-stats">
-              <div class="pstat"><strong>156</strong><span>총 운행</span></div>
-              <div class="pstat"><strong>98%</strong><span>정시 도착</span></div>
-              <div class="pstat"><strong>2년</strong><span>플랫폼 이용</span></div>
-            </div>
-          </div>
-          <button class="select-btn" onclick="toggleSelect(this)">선택하기</button>
-        </div>
-        <div class="profile-card">
-          <div class="avatar avatar-amber">이</div>
-          <div class="profile-info">
-            <div class="profile-name">이○○ 기사님</div>
-            <div class="profile-stars">★★★★☆ <span>4.6 (리뷰 18개)</span></div>
-            <div class="profile-badges">
-              <span class="badge badge-green">✓ 경력 5년</span>
-              <span class="badge badge-green">✓ 범죄경력 조회 완료</span>
-            </div>
-            <div class="profile-stats">
-              <div class="pstat"><strong>89</strong><span>총 운행</span></div>
-              <div class="pstat"><strong>96%</strong><span>정시 도착</span></div>
-              <div class="pstat"><strong>1년</strong><span>플랫폼 이용</span></div>
-            </div>
-          </div>
-          <button class="select-btn" onclick="toggleSelect(this)">선택하기</button>
-        </div>
-      </div>
-
-      <!-- REVIEWS -->
-      <div class="section-label" style="margin-top:2rem">최근 리뷰</div>
-      <div class="reviews-list">
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar">이</div>
-            <div class="review-meta">
-              <div class="review-name">이○○ 학부모</div>
-              <div class="review-date">2024.11.15</div>
-            </div>
-            <div class="review-stars">★★★★★</div>
-          </div>
-          <div class="review-text">항상 정시에 데려다주시고 아이가 기사님을 매우 좋아해요. 안전 운전 하셔서 믿고 맡길 수 있습니다.</div>
-        </div>
-        <div class="review-card">
-          <div class="review-top">
-            <div class="review-avatar">최</div>
-            <div class="review-meta">
-              <div class="review-name">최○○ 학부모</div>
-              <div class="review-date">2024.11.02</div>
-            </div>
-            <div class="review-stars">★★★★★</div>
-          </div>
-          <div class="review-text">갑작스러운 일정 변경에도 유연하게 대응해주셨어요. 소통이 원활해서 너무 좋습니다.</div>
-        </div>
+      <div class="wizard-nav">
+        <button class="w-btn-back" onclick="goStep(3)">← 이전</button>
+        <button class="w-btn-submit" onclick="handleWizardSubmit()">이 코스로 기사님 찾기 →</button>
       </div>
     </div>
-  </section>
-
-  <!-- PARENT FEATURES -->
-  <section id="features">
-    <div class="section-inner">
-      <div class="section-label">학부모 주요 기능</div>
-      <div class="section-title">필요한 모든 것을 한 곳에</div>
-      <div class="features-grid">
-        <div class="feat-card"><div class="feat-icon">🔍</div><h3>구간 정액 요금</h3><p>km당 고정 단가로 투명한 요금, 불필요한 협상 없이 바로 확인</p></div>
-        <div class="feat-card"><div class="feat-icon">⭐</div><h3>평점 & 리뷰</h3><p>실제 이용 학부모의 리뷰로 믿을 수 있는 기사님 선택</p></div>
-        <div class="feat-card"><div class="feat-icon">🛡️</div><h3>범죄경력 조회</h3><p>범죄경력 조회 동의·완료 기사님만 배지로 표시, 안심 선택</p></div>
-        <div class="feat-card"><div class="feat-icon">🔔</div><h3>실시간 알림</h3><p>기사님 출발·도착 알림으로 아이 위치를 언제든 확인</p></div>
-        <div class="feat-card"><div class="feat-icon">📋</div><h3>계약 관리</h3><p>편도·왕복·월정기 계약 선택, 운행 내역 한눈에 관리</p></div>
-        <div class="feat-card"><div class="feat-icon">💳</div><h3>간편 결제</h3><p>월별 자동 결제, 영수증 및 내역 조회 지원 예정</p></div>
-      </div>
-    </div>
-  </section>
+  </div>
 </div>
 
-<!-- ===================== DRIVER PANE ===================== -->
-<div class="tab-pane" id="pane-driver">
-
-  <!-- HOW -->
-  <section class="how-bg">
-    <div class="section-inner">
-      <div class="section-label">이용 방법</div>
-      <div class="section-title">4단계로 수익 창출</div>
-      <div class="steps">
-        <div class="step-card">
-          <div class="step-num step-num-d">1</div>
-          <h4>프로필 등록</h4>
-          <p>운전경력, 차량 정보, 범죄경력 조회 동의서를 업로드해 인증 배지를 획득하세요.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num step-num-d">2</div>
-          <h4>알람 수신 & 수락</h4>
-          <p>선호 구간·시간대 설정 후 매칭 요청 알람을 받고 원하는 것만 수락하세요.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num step-num-d">3</div>
-          <h4>스케줄 관리</h4>
-          <p>수락한 계약의 일정을 캘린더로 확인하고 학부모와 소통하세요.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num step-num-d">4</div>
-          <h4>운행 & 자동 정산</h4>
-          <p>운행 완료 후 자동 정산. 월 수익 리포트로 수입을 한눈에 확인하세요.</p>
-        </div>
-      </div>
+<!-- HOW -->
+<section class="how-bg" id="how">
+  <div class="section-inner">
+    <div class="section-label">이용 방법</div>
+    <div class="section-title">4단계로 간단하게</div>
+    <div class="steps">
+      <div class="step-card"><div class="step-num">1</div><h4>코스 설정</h4><p>출발지·경유지·도착지를 입력하고 요일, 시간, 계약 유형을 선택하세요.</p></div>
+      <div class="step-card"><div class="step-num">2</div><h4>기사님 선택</h4><p>경력, 범죄경력 조회, 평점·리뷰를 비교해 원하는 기사님을 선택하세요.</p></div>
+      <div class="step-card"><div class="step-num">3</div><h4>매칭 & 계약</h4><p>기사님이 요청을 수락하면 연결 완료. 일정과 조건을 최종 확인하세요.</p></div>
+      <div class="step-card"><div class="step-num">4</div><h4>운행 & 평가</h4><p>운행 후 평점·리뷰를 남겨 다른 학부모를 도와주세요.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- NOTIFICATIONS -->
-  <section>
-    <div class="section-inner">
-      <div class="section-label">매칭 알람</div>
-      <div class="section-title">새 요청을 실시간으로 받아보세요</div>
-      <div class="section-desc">내 위치와 선호 구간에 맞는 요청이 오면 즉시 알림을 받습니다.</div>
-      <div class="notif-card">
-        <div class="notif-header">
-          <h3>🔔 새 매칭 요청</h3>
-          <span>2 NEW</span>
-        </div>
-        <div class="notif-item">
-          <div class="notif-dot-live"></div>
-          <div class="notif-body">
-            <div class="notif-route">해운대 좌동 → 수영구 광안동</div>
-            <div class="notif-detail">편도 8.2km · 월정기 · 월~금 오후 2:00 · 18,000원/회</div>
-            <div class="notif-actions">
-              <button class="notif-accept" onclick="this.textContent='수락됨'; this.style.background='#0F6E56'">수락하기</button>
-              <button class="notif-decline">거절</button>
-            </div>
+<!-- DRIVER LIST -->
+<section id="drivers">
+  <div class="section-inner">
+    <div class="section-label">기사님 선택</div>
+    <div class="section-title">검증된 기사님을 직접 선택하세요</div>
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="setFilter(this)">전체</button>
+      <button class="filter-btn" onclick="setFilter(this)">평점 높은 순</button>
+      <button class="filter-btn" onclick="setFilter(this)">경력 많은 순</button>
+      <button class="filter-btn" onclick="setFilter(this)">범죄경력 조회 완료</button>
+    </div>
+    <div class="profile-list">
+      <div class="profile-card selected">
+        <div class="avatar avatar-blue">김</div>
+        <div class="profile-info">
+          <div class="profile-name">김○○ 기사님</div>
+          <div class="profile-stars">★★★★★ <span>4.9 (리뷰 47개)</span></div>
+          <div class="profile-badges">
+            <span class="badge badge-green">✓ 경력 12년</span>
+            <span class="badge badge-green">✓ 범죄경력 조회 완료</span>
+            <span class="badge badge-blue">✓ 안전교육 수료</span>
           </div>
-          <div class="notif-time">방금 전</div>
-        </div>
-        <div class="notif-item">
-          <div class="notif-dot-live"></div>
-          <div class="notif-body">
-            <div class="notif-route">연제구 연산동 → 동래구 온천동</div>
-            <div class="notif-detail">왕복 5.4km · 주단위 · 월·수·금 오전 8:00 · 13,000원/회</div>
-            <div class="notif-actions">
-              <button class="notif-accept" onclick="this.textContent='수락됨'; this.style.background='#0F6E56'">수락하기</button>
-              <button class="notif-decline">거절</button>
-            </div>
+          <div class="profile-stats">
+            <div class="pstat"><strong>234</strong><span>총 운행</span></div>
+            <div class="pstat"><strong>100%</strong><span>정시 도착</span></div>
+            <div class="pstat"><strong>3년</strong><span>플랫폼 이용</span></div>
           </div>
-          <div class="notif-time">5분 전</div>
         </div>
-        <div class="notif-item">
-          <div class="notif-dot-done"></div>
-          <div class="notif-body">
-            <div class="notif-route">남구 대연동 → 부산진구 전포동</div>
-            <div class="notif-detail">14,000원 정산 완료</div>
+        <button class="select-btn selected" onclick="toggleSelect(this)">선택됨</button>
+      </div>
+      <div class="profile-card">
+        <div class="avatar avatar-green">박</div>
+        <div class="profile-info">
+          <div class="profile-name">박○○ 기사님</div>
+          <div class="profile-stars">★★★★☆ <span>4.7 (리뷰 32개)</span></div>
+          <div class="profile-badges">
+            <span class="badge badge-green">✓ 경력 8년</span>
+            <span class="badge badge-green">✓ 범죄경력 조회 완료</span>
           </div>
-          <div class="notif-time">오늘 10:32</div>
+          <div class="profile-stats">
+            <div class="pstat"><strong>156</strong><span>총 운행</span></div>
+            <div class="pstat"><strong>98%</strong><span>정시 도착</span></div>
+            <div class="pstat"><strong>2년</strong><span>플랫폼 이용</span></div>
+          </div>
         </div>
+        <button class="select-btn" onclick="toggleSelect(this)">선택하기</button>
+      </div>
+      <div class="profile-card">
+        <div class="avatar avatar-amber">이</div>
+        <div class="profile-info">
+          <div class="profile-name">이○○ 기사님</div>
+          <div class="profile-stars">★★★★☆ <span>4.6 (리뷰 18개)</span></div>
+          <div class="profile-badges">
+            <span class="badge badge-green">✓ 경력 5년</span>
+            <span class="badge badge-green">✓ 범죄경력 조회 완료</span>
+          </div>
+          <div class="profile-stats">
+            <div class="pstat"><strong>89</strong><span>총 운행</span></div>
+            <div class="pstat"><strong>96%</strong><span>정시 도착</span></div>
+            <div class="pstat"><strong>1년</strong><span>플랫폼 이용</span></div>
+          </div>
+        </div>
+        <button class="select-btn" onclick="toggleSelect(this)">선택하기</button>
       </div>
     </div>
-  </section>
-
-  <!-- EARNINGS & SCHEDULE -->
-  <section class="how-bg">
-    <div class="section-inner">
-      <div class="section-label">수익 현황</div>
-      <div class="section-title">내 수익을 한눈에</div>
-      <div class="earnings-grid">
-        <div class="earning-card"><div class="val">1,240,000원</div><div class="lbl">이번 달 수익</div></div>
-        <div class="earning-card"><div class="val">62회</div><div class="lbl">이번 달 운행</div></div>
-        <div class="earning-card"><div class="val">4.9</div><div class="lbl">내 평균 평점</div></div>
-        <div class="earning-card"><div class="val">3건</div><div class="lbl">진행 중 계약</div></div>
+    <div class="section-label">최근 리뷰</div>
+    <div class="reviews-list">
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">이</div>
+          <div><div class="review-name">이○○ 학부모</div><div class="review-date">2025.03.15</div></div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <div class="review-text">항상 정시에 데려다주시고 아이가 기사님을 매우 좋아해요. 안전 운전 하셔서 믿고 맡길 수 있습니다.</div>
       </div>
-
-      <div class="section-label" style="margin-top:2rem">오늘 운행 일정</div>
-      <div class="schedule-grid">
-        <div class="schedule-item">
-          <div class="schedule-time">08:00</div>
-          <div class="schedule-bar" style="background:var(--blue)"></div>
-          <div class="schedule-info"><h4>연산동 → 온천동</h4><p>왕복 · 김○○ 학생</p></div>
-          <div class="schedule-fare">13,000원</div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">최</div>
+          <div><div class="review-name">최○○ 학부모</div><div class="review-date">2025.03.02</div></div>
+          <div class="review-stars">★★★★★</div>
         </div>
-        <div class="schedule-item">
-          <div class="schedule-time">14:00</div>
-          <div class="schedule-bar" style="background:var(--green)"></div>
-          <div class="schedule-info"><h4>좌동 → 광안동</h4><p>편도 · 이○○ 학생</p></div>
-          <div class="schedule-fare">18,000원</div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time">17:30</div>
-          <div class="schedule-bar" style="background:var(--amber)"></div>
-          <div class="schedule-info"><h4>광안동 → 좌동</h4><p>귀가편 · 이○○ 학생</p></div>
-          <div class="schedule-fare">18,000원</div>
-        </div>
+        <div class="review-text">갑작스러운 일정 변경에도 유연하게 대응해주셨어요. 소통이 원활해서 너무 좋습니다.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- DRIVER FEATURES -->
-  <section>
-    <div class="section-inner">
-      <div class="section-label">기사님 주요 기능</div>
-      <div class="section-title">원하는 만큼, 유연하게</div>
-      <div class="features-grid">
-        <div class="feat-card"><div class="feat-icon">🔔</div><h3>구간 알람 필터</h3><p>원하는 구간·시간대 요청만 알림 받도록 세밀하게 설정</p></div>
-        <div class="feat-card"><div class="feat-icon">📅</div><h3>스케줄 캘린더</h3><p>계약 중인 학생별 운행 일정을 캘린더로 한눈에 관리</p></div>
-        <div class="feat-card"><div class="feat-icon">💳</div><h3>자동 정산</h3><p>운행 완료 후 자동 정산, 월 수익 리포트 제공</p></div>
-        <div class="feat-card"><div class="feat-icon">🛡️</div><h3>인증 배지</h3><p>경력·범죄경력 조회 배지로 신뢰도를 높여 매칭률 향상</p></div>
-        <div class="feat-card"><div class="feat-icon">⭐</div><h3>평점 관리</h3><p>내 평점과 리뷰를 확인하고 서비스 품질을 개선하세요</p></div>
-        <div class="feat-card"><div class="feat-icon">📊</div><h3>수익 분석</h3><p>주별·월별 수익 추이와 운행 통계를 그래프로 확인</p></div>
-      </div>
+<!-- FEATURES -->
+<section class="how-bg">
+  <div class="section-inner">
+    <div class="section-label">주요 기능</div>
+    <div class="section-title">필요한 모든 것을 한 곳에</div>
+    <div class="features-grid">
+      <div class="feat-card"><div class="feat-icon">🗺️</div><h3>코스 직접 설정</h3><p>출발지, 경유지, 목적지를 자유롭게 설정. 정류장 추가도 간편하게</p></div>
+      <div class="feat-card"><div class="feat-icon">💰</div><h3>구간 정액 요금</h3><p>km당 고정 단가로 투명하게 계산. 협상 없이 바로 확인</p></div>
+      <div class="feat-card"><div class="feat-icon">🛡️</div><h3>범죄경력 조회</h3><p>조회 완료 기사님만 배지로 표시. 안심하고 선택하세요</p></div>
+      <div class="feat-card"><div class="feat-icon">⭐</div><h3>평점 & 리뷰</h3><p>실제 이용 학부모의 리뷰로 믿을 수 있는 기사님 선택</p></div>
+      <div class="feat-card"><div class="feat-icon">🔔</div><h3>실시간 알림</h3><p>기사님 출발·도착 알림으로 아이 위치를 언제든 확인</p></div>
+      <div class="feat-card"><div class="feat-icon">📋</div><h3>계약 관리</h3><p>편도·왕복·월정기 계약 내역을 한눈에 관리</p></div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
-<!-- ADMIN DASHBOARD -->
+<!-- ADMIN -->
 <section class="admin-section" id="admin">
   <div class="section-inner">
-    <div style="color:rgba(255,255,255,0.5); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.75rem">관리자 대시보드 (미리보기)</div>
-    <div class="section-title" style="color:#fff; margin-bottom:2rem">플랫폼 현황</div>
+    <div style="color:rgba(255,255,255,0.5);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.75rem">관리자 대시보드 (미리보기)</div>
+    <div class="section-title" style="color:#fff;margin-bottom:2rem">플랫폼 현황</div>
     <div class="admin-grid">
       <div class="admin-card"><div class="val">128</div><div class="lbl">가입 학부모</div><div class="delta">▲ 12 이번 주</div></div>
       <div class="admin-card"><div class="val">47</div><div class="lbl">등록 기사님</div><div class="delta">▲ 5 이번 주</div></div>
@@ -850,20 +625,18 @@ footer strong { color: #fff; }
       <div class="admin-card"><div class="val">4.8</div><div class="lbl">평균 평점</div><div class="delta">stable</div></div>
     </div>
     <table class="admin-table">
-      <thead>
-        <tr><th>학부모</th><th>기사님</th><th>구간</th><th>계약 유형</th><th>상태</th></tr>
-      </thead>
+      <thead><tr><th>학부모</th><th>기사님</th><th>구간</th><th>계약</th><th>상태</th></tr></thead>
       <tbody>
-        <tr><td>이○○ 학부모</td><td>김○○ 기사님</td><td>해운대 좌동 → 광안동</td><td>월정기·편도</td><td><span class="status-pill status-active">운행 중</span></td></tr>
-        <tr><td>박○○ 학부모</td><td>박○○ 기사님</td><td>연산동 → 온천동</td><td>주단위·왕복</td><td><span class="status-pill status-active">운행 중</span></td></tr>
-        <tr><td>최○○ 학부모</td><td>매칭 대기</td><td>남구 대연동 → 전포동</td><td>월정기·편도</td><td><span class="status-pill status-pending">매칭 대기</span></td></tr>
-        <tr><td>정○○ 학부모</td><td>이○○ 기사님</td><td>기장군 → 수영구</td><td>단건</td><td><span class="status-pill status-done">완료</span></td></tr>
+        <tr><td>이○○</td><td>김○○ 기사님</td><td>해운대 좌동 → 광안동</td><td>월정기·편도</td><td><span class="status-pill status-active">운행 중</span></td></tr>
+        <tr><td>박○○</td><td>박○○ 기사님</td><td>연산동 → 온천동</td><td>주단위·왕복</td><td><span class="status-pill status-active">운행 중</span></td></tr>
+        <tr><td>최○○</td><td>매칭 대기</td><td>대연동 → 전포동</td><td>월정기·편도</td><td><span class="status-pill status-pending">매칭 대기</span></td></tr>
+        <tr><td>정○○</td><td>이○○ 기사님</td><td>기장군 → 수영구</td><td>단건</td><td><span class="status-pill status-done">완료</span></td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- BETA SIGNUP -->
+<!-- BETA -->
 <section class="beta-section" id="beta-signup">
   <div class="section-inner">
     <h2>베타 테스터로 참여하세요</h2>
@@ -875,22 +648,21 @@ footer strong { color: #fff; }
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <p><strong>SchoolPick</strong> · 베타 v0.1 · 2024 · <a href="mailto:contact@schoolpick.kr" style="color:rgba(255,255,255,0.5)">contact@schoolpick.kr</a></p>
-  <p style="margin-top:8px; font-size:12px">개인정보처리방침 · 서비스 이용약관</p>
+  <p><strong>SchoolPick</strong> · 베타 v0.1 · 2025 · <a href="mailto:contact@schoolpick.kr" style="color:rgba(255,255,255,0.5)">contact@schoolpick.kr</a></p>
+  <p style="margin-top:8px;font-size:12px">개인정보처리방침 · 서비스 이용약관</p>
 </footer>
 
-<!-- AUTH MODAL -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
   <div class="modal">
     <div class="modal-header">
-      <h2 id="modal-title">시작하기</h2>
+      <h2>시작하기</h2>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-tabs">
-      <button class="modal-tab active" onclick="switchModalTab('login', this)">로그인</button>
-      <button class="modal-tab" onclick="switchModalTab('signup', this)">회원가입</button>
+      <button class="modal-tab active" onclick="switchModalTab('login',this)">로그인</button>
+      <button class="modal-tab" onclick="switchModalTab('signup',this)">회원가입</button>
     </div>
     <div id="modal-login">
       <div class="form-group"><label>이메일</label><input type="email" placeholder="이메일 입력"></div>
@@ -908,12 +680,8 @@ footer strong { color: #fff; }
       </div>
       <div class="form-group"><label>이메일</label><input type="email" placeholder="이메일 입력"></div>
       <div class="form-group"><label>비밀번호</label><input type="password" placeholder="8자 이상"></div>
-      <div class="form-group" id="child-field">
-        <label>자녀 이름 (학부모)</label>
-        <input type="text" placeholder="자녀 이름">
-      </div>
-      <div class="form-group" id="exp-field" style="display:none">
-        <label>운전 경력</label>
+      <div class="form-group" id="child-field"><label>자녀 이름</label><input type="text" placeholder="자녀 이름"></div>
+      <div class="form-group" id="exp-field" style="display:none"><label>운전 경력</label>
         <select><option>1~3년</option><option>3~5년</option><option>5~10년</option><option>10년 이상</option></select>
       </div>
       <button class="form-submit" onclick="handleSignup()">회원가입</button>
@@ -922,64 +690,126 @@ footer strong { color: #fff; }
 </div>
 
 <script>
-// ── TAB ──
-function switchTab(who) {
-  document.getElementById('pane-parent').classList.remove('active');
-  document.getElementById('pane-driver').classList.remove('active');
-  var tp = document.getElementById('tab-parent');
-  var td = document.getElementById('tab-driver');
-  tp.className = 'tab-btn'; td.className = 'tab-btn';
-  if (who === 'parent') {
-    document.getElementById('pane-parent').classList.add('active');
-    tp.classList.add('active-p');
-  } else {
-    document.getElementById('pane-driver').classList.add('active');
-    td.classList.add('active-d');
+var W = { step: 1, viaCount: 0, tripType: 'one', contractType: 'monthly', days: ['mon','tue','wed','thu','fri'] };
+var RATE = 2200, BASE_KM = 8.2;
+var DAY_NAMES = {sun:'일',mon:'월',tue:'화',wed:'수',thu:'목',fri:'금',sat:'토'};
+var DAY_ORDER = ['sun','mon','tue','wed','thu','fri','sat'];
+
+function goStep(n) {
+  if (n > 1) {
+    var s = document.getElementById('input-start').value.trim();
+    var e = document.getElementById('input-end').value.trim();
+    if (!s || !e) { alert('출발지와 목적지를 모두 입력해주세요.'); goStep(1); return; }
   }
-  document.getElementById('how').scrollIntoView({ behavior: 'smooth' });
+  document.querySelectorAll('.wpane').forEach(function(p,i){ p.classList.toggle('active', i+1===n); });
+  ['ws1','ws2','ws3','ws4'].forEach(function(id,i){
+    var el = document.getElementById(id);
+    el.classList.remove('active','done');
+    if (i+1===n) el.classList.add('active');
+    else if (i+1<n) el.classList.add('done');
+  });
+  W.step = n;
+  if (n===4) buildFare();
 }
 
-// ── FARE CALC ──
-var BASE_KM = 8.2, RATE = 2195;
-function calcFare() {
-  var type = parseInt(document.getElementById('trip-type').value);
-  var contract = document.getElementById('contract-type').value;
-  var days = parseInt(document.getElementById('days').value);
-  var weeks = 4;
-  var oneway = Math.round(BASE_KM * RATE / 100) * 100;
-  var perTrip = oneway * type;
-  var count = days * weeks;
-  var discount = contract === 'monthly' ? 0.9 : contract === 'weekly' ? 0.95 : 1.0;
-  var total = Math.round(perTrip * count * discount / 100) * 100;
-  var label = type === 1 ? '편도' : '왕복';
-  document.getElementById('fare-distance').textContent = '약 ' + BASE_KM + 'km · ' + label + ' ' + perTrip.toLocaleString() + '원';
-  document.getElementById('fare-amount').textContent = total.toLocaleString() + '원';
-  document.getElementById('fare-per').textContent = '1회 ' + perTrip.toLocaleString() + '원 × ' + count + '회' + (discount < 1 ? ' (' + Math.round((1-discount)*100) + '% 할인)' : '');
+function checkStep1() {
+  var s = document.getElementById('input-start').value.trim();
+  var e = document.getElementById('input-end').value.trim();
+  document.getElementById('step1-next').disabled = !(s && e);
+  if (s) document.getElementById('input-start').classList.add('filled');
+  if (e) document.getElementById('input-end').classList.add('filled');
 }
 
-// ── CONTRACT ──
-function selectContract(el) {
-  document.querySelectorAll('.contract-type').forEach(function(e){ e.classList.remove('selected'); });
+function addVia() {
+  if (W.viaCount >= 3) { alert('경유지는 최대 3개까지 추가할 수 있습니다.'); return; }
+  W.viaCount++;
+  var id = 'via-' + W.viaCount;
+  var wrap = document.getElementById('via-stops');
+  var div = document.createElement('div');
+  div.className = 'stop-row'; div.id = id;
+  div.innerHTML =
+    '<div class="stop-icon-col"><div class="stop-dot stop-dot-via"></div><div class="stop-line"></div></div>' +
+    '<div class="stop-input-wrap"><div class="stop-label">경유지 ' + W.viaCount + '</div>' +
+    '<input class="stop-input" placeholder="경유지 주소 입력 (예: ○○초등학교)"></div>' +
+    '<button class="remove-stop" onclick="removeVia(\'' + id + '\')">✕</button>';
+  wrap.appendChild(div);
+}
+function removeVia(id) {
+  var el = document.getElementById(id); if (el) el.remove();
+  W.viaCount = document.querySelectorAll('#via-stops .stop-row').length;
+  document.querySelectorAll('#via-stops .stop-label').forEach(function(l,i){ l.textContent = '경유지 ' + (i+1); });
+}
+
+function toggleDay(btn, day) {
+  btn.classList.toggle('selected');
+  var idx = W.days.indexOf(day);
+  if (idx > -1) W.days.splice(idx, 1); else W.days.push(day);
+}
+function selectTrip(btn, type) {
+  W.tripType = type;
+  document.querySelectorAll('.trip-opt').forEach(function(b){ b.classList.remove('selected'); });
+  btn.classList.add('selected');
+  document.getElementById('ret-time-wrap').style.display = type === 'both' ? 'block' : 'none';
+}
+function selectContract(el, type) {
+  W.contractType = type;
+  document.querySelectorAll('.wcontract-opt').forEach(function(e){ e.classList.remove('selected'); });
   el.classList.add('selected');
 }
 
-// ── FILTER ──
+function buildFare() {
+  var start = document.getElementById('input-start').value.trim() || '출발지';
+  var end = document.getElementById('input-end').value.trim() || '목적지';
+  var viaInputs = document.querySelectorAll('#via-stops .stop-input');
+  var rsm = document.getElementById('fare-route-summary');
+  rsm.innerHTML = '<div class="rsm-dot" style="background:var(--green)"></div><span class="rsm-stop">' + start + '</span>';
+  viaInputs.forEach(function(inp){
+    var v = inp.value.trim() || '경유지';
+    rsm.innerHTML += '<span class="rsm-arrow">›</span><span class="rsm-via">▸ ' + v + '</span>';
+  });
+  rsm.innerHTML += '<span class="rsm-arrow">›</span><div class="rsm-dot" style="background:var(--blue);border-radius:3px"></div><span class="rsm-stop">' + end + '</span>';
+
+  var km = BASE_KM + W.viaCount * 1.5;
+  var oneway = Math.round(km * RATE / 500) * 500;
+  var viaFee = W.viaCount * 2000;
+  var perTrip = (W.tripType === 'both' ? oneway * 2 : oneway) + viaFee;
+  var count = W.days.length * 4;
+  var discount = W.contractType === 'monthly' ? 0.10 : W.contractType === 'weekly' ? 0.05 : 0;
+  var subtotal = perTrip * count;
+  var discountAmt = Math.round(subtotal * discount / 100) * 100;
+  var total = subtotal - discountAmt;
+
+  document.getElementById('f-oneway').textContent = oneway.toLocaleString() + '원';
+  document.getElementById('f-row-return').style.display = W.tripType === 'both' ? 'flex' : 'none';
+  document.getElementById('f-return').textContent = (oneway * 2).toLocaleString() + '원';
+  document.getElementById('f-row-via').style.display = W.viaCount > 0 ? 'flex' : 'none';
+  document.getElementById('f-via').textContent = '+' + viaFee.toLocaleString() + '원 (경유지 ' + W.viaCount + '곳)';
+  var sorted = DAY_ORDER.filter(function(d){ return W.days.indexOf(d) > -1; });
+  document.getElementById('f-count').textContent = sorted.map(function(d){ return DAY_NAMES[d]; }).join('·') + ' × 4주 = ' + count + '회';
+  document.getElementById('f-row-discount').style.display = discount > 0 ? 'flex' : 'none';
+  document.getElementById('f-discount-label').textContent = {monthly:'월정기 10% 할인', weekly:'주단위 5% 할인', single:''}[W.contractType];
+  document.getElementById('f-discount').textContent = '-' + discountAmt.toLocaleString() + '원';
+  document.getElementById('f-total').textContent = total.toLocaleString() + '원';
+  document.getElementById('f-note').textContent = '※ 실제 요금은 기사님과 확정 후 안내됩니다. 약 ' + km.toFixed(1) + 'km 기준 예상 금액입니다.';
+}
+
+function handleWizardSubmit() {
+  alert('코스 설정이 완료되었습니다!\n기사님 매칭 요청을 등록했어요.\n(베타: 실제 매칭은 백엔드 연동 후 활성화됩니다)');
+  document.getElementById('drivers').scrollIntoView({ behavior: 'smooth' });
+}
+
 function setFilter(el) {
   document.querySelectorAll('.filter-btn').forEach(function(e){ e.classList.remove('active'); });
   el.classList.add('active');
 }
-
-// ── SELECT DRIVER ──
 function toggleSelect(btn) {
   var card = btn.closest('.profile-card');
-  var isSelected = card.classList.contains('selected');
+  var was = card.classList.contains('selected');
   document.querySelectorAll('.profile-card').forEach(function(c){ c.classList.remove('selected'); });
   document.querySelectorAll('.select-btn').forEach(function(b){ b.classList.remove('selected'); b.textContent = '선택하기'; });
-  if (!isSelected) { card.classList.add('selected'); btn.classList.add('selected'); btn.textContent = '선택됨'; }
+  if (!was) { card.classList.add('selected'); btn.classList.add('selected'); btn.textContent = '선택됨'; }
 }
 
-// ── MODAL ──
-var currentUserType = 'p';
 function openModal(type) {
   document.getElementById('modal').classList.add('open');
   if (type === 'driver') {
@@ -996,27 +826,21 @@ function switchModalTab(tab, el) {
   document.getElementById('modal-signup').style.display = tab === 'signup' ? 'block' : 'none';
 }
 function selectUserType(btn, type) {
-  currentUserType = type;
   document.querySelectorAll('.type-btn').forEach(function(b){ b.className = 'type-btn'; });
   btn.classList.add(type === 'p' ? 'active-p' : 'active-d');
   document.getElementById('child-field').style.display = type === 'p' ? 'block' : 'none';
   document.getElementById('exp-field').style.display = type === 'd' ? 'block' : 'none';
-  var sb = document.querySelector('.form-submit');
-  sb.className = 'form-submit' + (type === 'd' ? ' form-submit-blue' : '');
+  document.querySelector('#modal-signup .form-submit').className = 'form-submit' + (type === 'd' ? ' form-submit-blue' : '');
   document.getElementById('login-btn').className = 'form-submit' + (type === 'd' ? ' form-submit-blue' : '');
 }
 function handleLogin() { alert('로그인 기능은 백엔드 연동 후 활성화됩니다. (베타)'); closeModal(); }
 function handleSignup() { alert('가입해주셔서 감사합니다! 베타 오픈 시 안내드리겠습니다.'); closeModal(); }
-
-// ── BETA SIGNUP ──
 function betaSignup() {
   var input = document.querySelector('.beta-input');
   if (input.value && input.value.includes('@')) {
-    alert('베타 신청이 완료되었습니다! (' + input.value + ')\n오픈 시 이메일로 안내드리겠습니다.');
+    alert('베타 신청 완료! (' + input.value + ')\n오픈 시 이메일로 안내드리겠습니다.');
     input.value = '';
-  } else {
-    alert('올바른 이메일 주소를 입력해주세요.');
-  }
+  } else { alert('올바른 이메일 주소를 입력해주세요.'); }
 }
 </script>
 </body>
