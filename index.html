@@ -6,29 +6,29 @@
 <title>SchoolPick · 우리 아이 통학 매칭 플랫폼</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --primary: #1A6FD4; --primary-light: #E8F1FC; --primary-dark: #1050A0; --primary-mid: #2C85E8;
-  --accent: #0EA5E9; --accent-light: #E0F5FE;
-  --amber: #BA7517; --amber-light: #FAEEDA; --red: #E24B4A;
-  --gray-50:#F8F9FA; --gray-100:#F1F3F5; --gray-200:#E9ECEF; --gray-300:#DEE2E6;
-  --gray-400:#CED4DA; --gray-500:#ADB5BD; --gray-600:#6C757D; --gray-700:#495057;
-  --gray-800:#343A40; --gray-900:#212529;
-  --radius-sm:8px; --radius-md:12px; --radius-lg:16px; --radius-xl:24px;
-  --shadow-sm:0 1px 3px rgba(0,0,0,0.08); --shadow-md:0 4px 12px rgba(0,0,0,0.09);
+:root{
+  --primary:#1A6FD4;--primary-light:#E8F1FC;--primary-dark:#1050A0;--primary-mid:#2C85E8;
+  --accent:#0EA5E9;--accent-light:#E0F5FE;
+  --amber:#BA7517;--amber-light:#FAEEDA;--red:#E24B4A;
+  --gray-50:#F8F9FA;--gray-100:#F1F3F5;--gray-200:#E9ECEF;--gray-300:#DEE2E6;
+  --gray-400:#CED4DA;--gray-500:#ADB5BD;--gray-600:#6C757D;--gray-700:#495057;
+  --gray-800:#343A40;--gray-900:#212529;
+  --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:24px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.08);--shadow-md:0 4px 12px rgba(0,0,0,.10);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Noto Sans KR',sans-serif;color:var(--gray-800);background:#fff;line-height:1.6}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:60px}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:60px}
 .nav-logo{font-family:'DM Sans',sans-serif;font-size:20px;font-weight:600;color:var(--gray-900)}
 .nav-logo span{color:var(--primary)}
 .nav-right{display:flex;align-items:center;gap:12px}
 .nav-links{display:flex;gap:1.25rem}
 .nav-links a{font-size:14px;color:var(--gray-600);text-decoration:none}
 .nav-links a:hover{color:var(--gray-900)}
-.nav-driver-btn{font-size:13px;font-weight:500;color:var(--primary-dark);background:var(--primary-light);border:1px solid rgba(26,111,212,0.2);padding:7px 14px;border-radius:20px;cursor:pointer;text-decoration:none;transition:background .15s}
+.nav-driver-btn{font-size:13px;font-weight:500;color:var(--primary-dark);background:var(--primary-light);border:1px solid rgba(26,111,212,.2);padding:7px 14px;border-radius:20px;cursor:pointer;text-decoration:none;transition:background .15s}
 .nav-driver-btn:hover{background:#d0e4f8}
 .nav-cta{background:var(--primary);color:#fff;padding:8px 18px;border-radius:20px;font-size:14px;font-weight:500;cursor:pointer;border:none;transition:background .15s;font-family:inherit}
 .nav-cta:hover{background:var(--primary-dark)}
@@ -49,8 +49,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.96);backdrop
 .trust-item span{color:var(--primary);font-weight:600}
 
 /* WIZARD CARD */
-.wizard-card{max-width:700px;margin:0 auto;background:#fff;border-radius:var(--radius-lg) var(--radius-lg) 0 0;border:1px solid var(--gray-200);border-bottom:none;box-shadow:0 -4px 24px rgba(0,0,0,.07);overflow:visible}
-.wizard-steps-bar{display:flex;border-bottom:1px solid var(--gray-100);background:var(--gray-50);border-radius:var(--radius-lg) var(--radius-lg) 0 0;overflow:hidden}
+.wizard-card{max-width:700px;margin:0 auto;background:#fff;border-radius:var(--radius-lg) var(--radius-lg) 0 0;border:1px solid var(--gray-200);border-bottom:none;box-shadow:0 -4px 24px rgba(0,0,0,.07);overflow:hidden}
+.wizard-steps-bar{display:flex;border-bottom:1px solid var(--gray-100);background:var(--gray-50)}
 .wstep{flex:1;padding:10px 4px;text-align:center;font-size:11px;font-weight:500;color:var(--gray-400);border-bottom:2px solid transparent;cursor:pointer;transition:all .15s}
 .wstep.done{color:var(--primary)}
 .wstep.active{color:var(--primary-dark);border-bottom-color:var(--primary);font-weight:700}
@@ -62,111 +62,111 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.96);backdrop
 .wpane-title{font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:1.25rem}
 
 /* STOP ROWS */
-.stop-row{display:flex;align-items:flex-start;gap:10px;position:relative}
+.stop-row{display:flex;align-items:flex-start;gap:10px}
 .stop-icon-col{display:flex;flex-direction:column;align-items:center;width:20px;flex-shrink:0;padding-top:22px}
 .stop-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
 .stop-dot-start{background:var(--primary)}
 .stop-dot-end{background:var(--red);border-radius:3px}
 .stop-dot-via{background:#fff;border:2px solid var(--amber)}
 .stop-line{width:2px;height:28px;background:var(--gray-200)}
-.stop-input-wrap{flex:1;margin-bottom:8px;position:relative}
-.stop-label{font-size:10px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.stop-input-wrap{flex:1;margin-bottom:10px}
+.stop-label{font-size:10px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
 
-/* 주소 검색 입력창 */
-.addr-search-wrap{position:relative}
-.addr-search-input{
-  width:100%;padding:10px 14px;
+/* 주소 입력 행 */
+.stop-input-row{display:flex;gap:6px;align-items:stretch}
+.stop-text-input{
+  flex:1;padding:10px 14px;
   border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);
   font-size:14px;font-family:inherit;color:var(--gray-800);
   background:#fff;transition:border-color .15s;
 }
-.addr-search-input:focus{outline:none;border-color:var(--primary)}
-.addr-search-input.has-value{border-color:#a0c4f0;background:#fafcff}
-.addr-search-input::placeholder{color:var(--gray-400)}
+.stop-text-input:focus{outline:none;border-color:var(--primary)}
+.stop-text-input.confirmed{border-color:#a0c4f0;background:#fafcff;color:var(--gray-700)}
+.stop-text-input::placeholder{color:var(--gray-400)}
 
-/* 자동완성 드롭다운 */
-.autocomplete-list{
-  position:absolute;top:calc(100% + 4px);left:0;right:0;
-  background:#fff;border:1.5px solid var(--primary-light);
-  border-radius:var(--radius-md);box-shadow:var(--shadow-md);
-  z-index:400;max-height:220px;overflow-y:auto;display:none;
+/* 돋보기 버튼 */
+.search-icon-btn{
+  width:42px;flex-shrink:0;
+  border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);
+  background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .15s;
 }
-.autocomplete-list.open{display:block}
-.autocomplete-item{
-  padding:10px 14px;font-size:13px;cursor:pointer;
-  display:flex;flex-direction:column;gap:2px;
-  border-bottom:1px solid var(--gray-100);transition:background .1s;
-}
-.autocomplete-item:last-child{border-bottom:none}
-.autocomplete-item:hover,.autocomplete-item.focused{background:var(--primary-light)}
-.autocomplete-name{font-weight:500;color:var(--gray-900)}
-.autocomplete-addr{font-size:11px;color:var(--gray-500)}
-.autocomplete-empty{padding:12px 14px;font-size:13px;color:var(--gray-400);text-align:center}
+.search-icon-btn:hover{background:var(--primary-light);border-color:var(--primary)}
+.search-icon-btn svg{width:18px;height:18px;stroke:var(--gray-500);transition:stroke .15s}
+.search-icon-btn:hover svg{stroke:var(--primary)}
 
-/* 선택된 위치 칩 */
-.addr-chip{
-  display:inline-flex;align-items:center;gap:6px;
-  background:var(--primary-light);color:var(--primary-dark);
-  border-radius:6px;padding:5px 10px;font-size:12px;
-  margin-top:5px;max-width:100%;
-  border:1px solid rgba(26,111,212,.15);
-}
-.addr-chip-icon{font-size:13px;flex-shrink:0}
-.addr-chip-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
-.addr-chip-edit{
-  font-size:11px;color:var(--primary);cursor:pointer;
-  border:none;background:none;padding:0 2px;white-space:nowrap;
-  font-family:inherit;font-weight:500;flex-shrink:0;
-}
+/* 선택된 주소 칩 */
+.addr-chip{display:inline-flex;align-items:center;gap:6px;background:var(--primary-light);border:1px solid rgba(26,111,212,.15);border-radius:6px;padding:5px 10px;font-size:12px;margin-top:5px;max-width:100%}
+.addr-chip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.addr-chip-text{color:var(--primary-dark);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.addr-chip-edit{font-size:11px;color:var(--primary);cursor:pointer;border:none;background:none;padding:0 2px;font-family:inherit;font-weight:500;flex-shrink:0;white-space:nowrap}
 .addr-chip-edit:hover{text-decoration:underline}
 
-.remove-stop{width:24px;height:24px;border-radius:50%;border:1px solid var(--gray-200);background:#fff;color:var(--gray-400);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:20px;transition:all .15s}
+.remove-stop{width:42px;height:42px;border-radius:var(--radius-sm);border:1px solid var(--gray-200);background:#fff;color:var(--gray-400);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:20px;transition:all .15s}
 .remove-stop:hover{background:#fff0f0;border-color:#f09595;color:var(--red)}
-.add-via-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--primary);background:var(--primary-light);border:none;border-radius:20px;padding:5px 12px;cursor:pointer;margin:4px 0 12px 30px;font-family:inherit;transition:background .15s}
+.add-via-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--primary);background:var(--primary-light);border:none;border-radius:20px;padding:5px 14px;cursor:pointer;margin:2px 0 12px 30px;font-family:inherit;transition:background .15s}
 .add-via-btn:hover{background:#d0e4f8}
+.step1-hint{font-size:12px;color:var(--gray-400);margin-bottom:1rem;padding-left:30px;line-height:1.6}
 
-/* MAP MODAL — 지도 핀 미세조정 */
-.map-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;align-items:center;justify-content:center;padding:1rem}
+/* ── 주소검색 모달 ── */
+.search-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:600;align-items:center;justify-content:center;padding:1rem}
+.search-modal-overlay.open{display:flex}
+.search-modal{background:#fff;border-radius:var(--radius-lg);width:100%;max-width:480px;max-height:80vh;display:flex;flex-direction:column;animation:slideUp .2s ease;overflow:hidden}
+@keyframes slideUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+.search-modal-header{padding:1rem 1.25rem;border-bottom:1px solid var(--gray-100);display:flex;align-items:center;gap:10px}
+.search-modal-header h3{font-size:15px;font-weight:700;flex:none}
+.search-modal-input-wrap{flex:1;display:flex;gap:8px}
+.search-modal-input{flex:1;padding:9px 14px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);font-size:14px;font-family:inherit}
+.search-modal-input:focus{outline:none;border-color:var(--primary)}
+.search-modal-btn{padding:9px 16px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+.search-modal-btn:hover{background:var(--primary-dark)}
+.search-modal-close{width:30px;height:30px;border-radius:50%;border:1px solid var(--gray-200);background:#fff;font-size:16px;cursor:pointer;color:var(--gray-500);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.search-results{flex:1;overflow-y:auto}
+.search-result-item{padding:12px 1.25rem;border-bottom:1px solid var(--gray-100);cursor:pointer;transition:background .1s}
+.search-result-item:hover{background:var(--primary-light)}
+.sri-name{font-size:14px;font-weight:500;color:var(--gray-900);margin-bottom:2px}
+.sri-addr{font-size:12px;color:var(--gray-500)}
+.search-empty{padding:2rem 1.25rem;text-align:center;color:var(--gray-400);font-size:14px}
+.search-loading{padding:2rem 1.25rem;text-align:center;color:var(--gray-400);font-size:14px}
+.search-initial{padding:1.5rem 1.25rem}
+.search-initial p{font-size:13px;color:var(--gray-500);margin-bottom:1rem}
+.search-quick-btns{display:flex;flex-wrap:wrap;gap:8px}
+.search-quick-btn{padding:6px 12px;border:1px solid var(--gray-200);border-radius:20px;font-size:12px;background:#fff;cursor:pointer;color:var(--gray-600);font-family:inherit;transition:all .15s}
+.search-quick-btn:hover{border-color:var(--primary);color:var(--primary)}
+
+/* ── 지도 모달 ── */
+.map-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:700;align-items:center;justify-content:center;padding:1rem}
 .map-modal-overlay.open{display:flex}
 .map-modal{background:#fff;border-radius:var(--radius-lg);width:100%;max-width:600px;display:flex;flex-direction:column;max-height:92vh;overflow:hidden;animation:slideUp .2s ease}
-@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
-
-.map-modal-header{padding:.875rem 1.25rem;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;gap:10px}
+.map-modal-header{padding:.875rem 1.25rem;border-bottom:1px solid var(--gray-200);display:flex;align-items:flex-start;gap:10px}
 .map-modal-title-col{flex:1}
 .map-modal-title-col h3{font-size:15px;font-weight:700}
-.map-modal-subtitle{font-size:12px;color:var(--gray-500);margin-top:1px}
-.map-modal-close{width:32px;height:32px;border-radius:50%;border:1px solid var(--gray-200);background:#fff;font-size:16px;cursor:pointer;color:var(--gray-500);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-
-/* 지도 안 검색바 */
-.map-inner-search{padding:.75rem 1rem;background:var(--gray-50);border-bottom:1px solid var(--gray-200);display:flex;gap:8px}
-.map-inner-input{flex:1;padding:8px 12px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);font-size:13px;font-family:inherit;background:#fff}
+.map-modal-subtitle{font-size:12px;color:var(--gray-500);margin-top:2px}
+.map-modal-close{width:30px;height:30px;border-radius:50%;border:1px solid var(--gray-200);background:#fff;font-size:16px;cursor:pointer;color:var(--gray-500);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.map-inner-bar{padding:.6rem 1rem;background:var(--gray-50);border-bottom:1px solid var(--gray-200);display:flex;gap:8px}
+.map-inner-input{flex:1;padding:7px 12px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);font-size:13px;font-family:inherit;background:#fff}
 .map-inner-input:focus{outline:none;border-color:var(--primary)}
-.map-inner-btn{padding:8px 16px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+.map-inner-btn{padding:7px 14px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
 .map-inner-btn:hover{background:var(--primary-dark)}
-
-.map-container{position:relative;flex:1;min-height:320px}
-#kakao-map{width:100%;height:100%;min-height:320px}
-
-/* 고정 중앙 핀 */
-.map-fixed-pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);pointer-events:none;z-index:10;display:flex;flex-direction:column;align-items:center;transition:transform .08s}
-.map-fixed-pin.lifted{transform:translate(-50%,-110%)}
-.map-pin-svg{width:32px;height:40px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.35))}
-.map-pin-shadow{width:12px;height:4px;background:rgba(0,0,0,.2);border-radius:50%;margin-top:-2px;transition:all .08s}
-.map-fixed-pin.lifted .map-pin-shadow{width:8px;opacity:.5}
-
-/* 현재 주소 표시바 */
+.map-container{position:relative;flex:1;min-height:300px}
+#kakao-map{width:100%;height:100%;min-height:300px}
+/* 고정 핀 */
+.map-fixed-pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);pointer-events:none;z-index:10;display:flex;flex-direction:column;align-items:center;transition:transform .1s}
+.map-fixed-pin.lifted{transform:translate(-50%,-112%)}
+.pin-svg{width:30px;height:38px;filter:drop-shadow(0 3px 5px rgba(0,0,0,.3))}
+.pin-shadow{width:10px;height:4px;background:rgba(0,0,0,.18);border-radius:50%;margin-top:-1px;transition:all .1s}
+.map-fixed-pin.lifted .pin-shadow{width:6px;opacity:.4}
 .map-addr-bar{padding:10px 1rem;background:#fff;border-top:1px solid var(--gray-200);display:flex;align-items:center;gap:8px;min-height:44px}
 .map-addr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .map-addr-text{flex:1;font-size:13px;color:var(--gray-700);line-height:1.4}
 .map-addr-text.loading{color:var(--gray-400)}
-
 .map-modal-footer{padding:.875rem 1rem;border-top:1px solid var(--gray-200);display:flex;gap:10px}
 .map-cancel-btn{padding:10px 20px;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);background:#fff;font-size:14px;font-weight:500;cursor:pointer;color:var(--gray-600);font-family:inherit}
 .map-cancel-btn:hover{border-color:var(--gray-400)}
 .map-confirm-btn{flex:1;padding:10px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s}
 .map-confirm-btn:hover{background:var(--primary-dark)}
 
-/* SCHEDULE / CONTRACT / FARE (unchanged) */
+/* SCHEDULE / CONTRACT / FARE */
 .days-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:1.25rem}
 .day-btn{padding:8px 0;text-align:center;font-size:13px;font-weight:500;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);cursor:pointer;background:#fff;color:var(--gray-500);transition:all .15s;font-family:inherit}
 .day-btn.selected{background:var(--primary-light);border-color:var(--primary);color:var(--primary-dark)}
@@ -263,7 +263,7 @@ section{padding:4rem 1.5rem}
 .admin-card .lbl{font-size:12px;color:rgba(255,255,255,.5);margin-top:4px}
 .admin-card .delta{font-size:11px;color:#60c4f8;margin-top:2px}
 .admin-table{width:100%;border-collapse:collapse;font-size:13px}
-.admin-table th{padding:10px 12px;background:rgba(255,255,255,.06);text-align:left;font-weight:500;color:rgba(255,255,255,.5);font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+.admin-table th{padding:10px 12px;background:rgba(255,255,255,.06);text-align:left;font-weight:500;color:rgba(255,255,255,.5);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
 .admin-table td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.85)}
 .status-pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:500}
 .status-active{background:rgba(26,111,212,.25);color:#60c4f8}
@@ -278,7 +278,8 @@ section{padding:4rem 1.5rem}
 .beta-submit{padding:12px 24px;background:#fff;color:var(--primary-dark);border:none;border-radius:var(--radius-md);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
 footer{background:#0a1628;color:rgba(255,255,255,.45);padding:2rem 1.5rem;text-align:center;font-size:13px}
 footer strong{color:#fff}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;align-items:center;justify-content:center;padding:1rem}
+/* AUTH MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:center;justify-content:center;padding:1rem}
 .modal-overlay.open{display:flex}
 .modal{background:#fff;border-radius:var(--radius-xl);padding:2rem;width:100%;max-width:420px;animation:slideUp .2s ease}
 .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
@@ -302,6 +303,7 @@ footer strong{color:#fff}
 </head>
 <body>
 
+<!-- 카카오 API: autoload=false로 로드 후 kakao.maps.load()에서 초기화 -->
 <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=6c56d2eedeb2fd8d5ab3f4775401be97&libraries=services&autoload=false"></script>
 
 <!-- NAV -->
@@ -313,8 +315,8 @@ footer strong{color:#fff}
       <a href="#drivers">기사님 찾기</a>
       <a href="#beta-signup">베타신청</a>
     </div>
-    <a class="nav-driver-btn" href="#" onclick="openModal('driver');return false;">🚐 기사님으로 등록하기</a>
-    <button class="nav-cta" onclick="openModal('parent')">시작하기</button>
+    <a class="nav-driver-btn" href="#" onclick="openAuthModal('driver');return false;">🚐 기사님으로 등록하기</a>
+    <button class="nav-cta" onclick="openAuthModal('parent')">시작하기</button>
   </div>
 </nav>
 
@@ -346,7 +348,6 @@ footer strong{color:#fff}
     <div class="wpane active" id="wpane-1">
       <div class="wpane-title">📍 코스를 설정해주세요</div>
       <div id="stops-list">
-
         <!-- 출발지 -->
         <div class="stop-row">
           <div class="stop-icon-col">
@@ -355,18 +356,17 @@ footer strong{color:#fff}
           </div>
           <div class="stop-input-wrap">
             <div class="stop-label">출발지</div>
-            <div class="addr-search-wrap">
-              <input class="addr-search-input" id="input-start" placeholder="주소 또는 장소명 입력 (예: 해운대구 좌동)" autocomplete="off"
-                oninput="onAddrInput(this,'start')" onkeydown="onAddrKeydown(event,'start')" onfocus="showDropdown('start')" onblur="hideDropdown('start')">
-              <div class="autocomplete-list" id="drop-start"></div>
+            <div class="stop-input-row">
+              <input class="stop-text-input" id="display-start" placeholder="주소 또는 장소명 입력 후 돋보기 클릭" readonly onclick="openSearchModal('start')">
+              <button class="search-icon-btn" onclick="openSearchModal('start')" title="주소 검색">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </button>
             </div>
             <div id="chip-start"></div>
           </div>
         </div>
-
         <!-- 경유지 영역 -->
         <div id="via-stops"></div>
-
         <!-- 목적지 -->
         <div class="stop-row">
           <div class="stop-icon-col" style="padding-top:22px">
@@ -374,20 +374,18 @@ footer strong{color:#fff}
           </div>
           <div class="stop-input-wrap">
             <div class="stop-label">최종 목적지</div>
-            <div class="addr-search-wrap">
-              <input class="addr-search-input" id="input-end" placeholder="학교·학원 이름 또는 주소 입력" autocomplete="off"
-                oninput="onAddrInput(this,'end')" onkeydown="onAddrKeydown(event,'end')" onfocus="showDropdown('end')" onblur="hideDropdown('end')">
-              <div class="autocomplete-list" id="drop-end"></div>
+            <div class="stop-input-row">
+              <input class="stop-text-input" id="display-end" placeholder="학교·학원 이름 또는 주소 입력 후 돋보기 클릭" readonly onclick="openSearchModal('end')">
+              <button class="search-icon-btn" onclick="openSearchModal('end')" title="주소 검색">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </button>
             </div>
             <div id="chip-end"></div>
           </div>
         </div>
-
       </div>
       <button class="add-via-btn" onclick="addVia()">+ 경유지 추가 (최대 3개)</button>
-      <div style="font-size:12px;color:var(--gray-400);margin-bottom:1rem;padding-left:30px">
-        💡 검색 후 목록에서 선택하면 지도가 열립니다. 핀을 드래그해 정확한 탑승 위치를 지정하세요.
-      </div>
+      <p class="step1-hint">💡 돋보기를 클릭하면 주소 검색창이 열립니다. 검색 후 목록을 선택하면 지도에서 정확한 위치를 핀으로 지정할 수 있어요.</p>
       <div class="wizard-nav">
         <button class="w-btn-next" id="step1-next" onclick="goStep(2)" disabled>다음 — 요일·시간 설정 →</button>
       </div>
@@ -412,23 +410,11 @@ footer strong{color:#fff}
         <button class="trip-opt" onclick="selectTrip(this,'both')">왕복 (등·하원)</button>
       </div>
       <div class="time-grid">
-        <div class="time-field">
-          <label>등원 출발 시간</label>
-          <select id="dep-time">
-            <option>오전 7:00</option><option>오전 7:30</option>
-            <option>오전 8:00</option><option selected>오전 8:30</option>
-            <option>오전 9:00</option><option>오후 1:00</option>
-            <option>오후 1:30</option><option>오후 2:00</option>
-            <option>오후 2:30</option><option>오후 3:00</option>
-          </select>
+        <div class="time-field"><label>등원 출발 시간</label>
+          <select><option>오전 7:00</option><option>오전 7:30</option><option>오전 8:00</option><option selected>오전 8:30</option><option>오전 9:00</option><option>오후 1:00</option><option>오후 1:30</option><option>오후 2:00</option><option>오후 2:30</option><option>오후 3:00</option></select>
         </div>
-        <div class="time-field" id="ret-time-wrap" style="display:none">
-          <label>하원 출발 시간</label>
-          <select>
-            <option>오후 4:00</option><option>오후 4:30</option>
-            <option selected>오후 5:00</option><option>오후 5:30</option>
-            <option>오후 6:00</option><option>오후 6:30</option><option>오후 7:00</option>
-          </select>
+        <div class="time-field" id="ret-time-wrap" style="display:none"><label>하원 출발 시간</label>
+          <select><option>오후 4:00</option><option>오후 4:30</option><option selected>오후 5:00</option><option>오후 5:30</option><option>오후 6:00</option><option>오후 6:30</option><option>오후 7:00</option></select>
         </div>
       </div>
       <div class="wizard-nav">
@@ -441,18 +427,9 @@ footer strong{color:#fff}
     <div class="wpane" id="wpane-3">
       <div class="wpane-title">📋 계약 유형을 선택해주세요</div>
       <div class="wcontract-grid">
-        <div class="wcontract-opt selected" onclick="selectContract(this,'monthly')">
-          <div style="font-size:22px;margin-bottom:6px">📅</div>
-          <h4>월정기</h4><p>한 달 단위<br><strong style="color:var(--primary-dark)">10% 할인</strong></p>
-        </div>
-        <div class="wcontract-opt" onclick="selectContract(this,'weekly')">
-          <div style="font-size:22px;margin-bottom:6px">📆</div>
-          <h4>주단위</h4><p>1주 단위<br><strong style="color:var(--primary-dark)">5% 할인</strong></p>
-        </div>
-        <div class="wcontract-opt" onclick="selectContract(this,'single')">
-          <div style="font-size:22px;margin-bottom:6px">🎫</div>
-          <h4>단건</h4><p>1회성<br><span style="color:var(--gray-500)">정가 적용</span></p>
-        </div>
+        <div class="wcontract-opt selected" onclick="selectContract(this,'monthly')"><div style="font-size:22px;margin-bottom:6px">📅</div><h4>월정기</h4><p>한 달 단위<br><strong style="color:var(--primary-dark)">10% 할인</strong></p></div>
+        <div class="wcontract-opt" onclick="selectContract(this,'weekly')"><div style="font-size:22px;margin-bottom:6px">📆</div><h4>주단위</h4><p>1주 단위<br><strong style="color:var(--primary-dark)">5% 할인</strong></p></div>
+        <div class="wcontract-opt" onclick="selectContract(this,'single')"><div style="font-size:22px;margin-bottom:6px">🎫</div><h4>단건</h4><p>1회성<br><span style="color:var(--gray-500)">정가 적용</span></p></div>
       </div>
       <div style="background:var(--gray-50);border-radius:var(--radius-md);padding:12px 14px;font-size:13px;color:var(--gray-600);line-height:1.6;margin-bottom:1.25rem">
         💡 <strong>월정기</strong>가 가장 많이 선택됩니다. 매달 자동 갱신되며 언제든 해지 가능합니다.
@@ -472,14 +449,9 @@ footer strong{color:#fff}
         <div class="fare-row" id="f-row-return" style="display:none"><span class="fare-label">왕복 적용 (×2)</span><span class="fare-value" id="f-return">-</span></div>
         <div class="fare-row" id="f-row-via" style="display:none"><span class="fare-label">경유지 추가 요금</span><span class="fare-value" id="f-via">-</span></div>
         <div class="fare-row"><span class="fare-label">월 운행 횟수</span><span class="fare-value" id="f-count">-</span></div>
-        <div class="fare-row" id="f-row-discount" style="display:none">
-          <span class="fare-label" id="f-discount-label">할인</span><span class="fare-value" id="f-discount">-</span>
-        </div>
+        <div class="fare-row" id="f-row-discount" style="display:none"><span class="fare-label" id="f-discount-label">할인</span><span class="fare-value" id="f-discount">-</span></div>
         <div class="fare-divider"></div>
-        <div class="fare-row">
-          <span class="fare-total-label">월 예상 총 요금</span>
-          <span class="fare-total-value" id="f-total">-</span>
-        </div>
+        <div class="fare-row"><span class="fare-total-label">월 예상 총 요금</span><span class="fare-total-value" id="f-total">-</span></div>
         <div class="fare-note" id="f-note"></div>
       </div>
       <div class="wizard-nav">
@@ -496,8 +468,8 @@ footer strong{color:#fff}
     <div class="section-label">이용 방법</div>
     <div class="section-title">4단계로 간단하게</div>
     <div class="steps">
-      <div class="step-card"><div class="step-num">1</div><h4>주소 검색</h4><p>장소명이나 주소를 입력하면 자동완성 목록이 나와요. 선택하면 지도가 열립니다.</p></div>
-      <div class="step-card"><div class="step-num">2</div><h4>핀으로 정확 지정</h4><p>지도를 움직여 핀을 정확한 탑승 위치에 맞추고 확정하세요.</p></div>
+      <div class="step-card"><div class="step-num">1</div><h4>주소 검색</h4><p>돋보기 버튼으로 검색창을 열고 장소명이나 주소를 입력하세요.</p></div>
+      <div class="step-card"><div class="step-num">2</div><h4>핀으로 정확 지정</h4><p>검색 결과 선택 후 지도 핀을 정확한 탑승 위치에 맞추세요.</p></div>
       <div class="step-card"><div class="step-num">3</div><h4>기사님 선택</h4><p>경력·범죄경력 조회·평점을 비교해 원하는 기사님을 선택하세요.</p></div>
       <div class="step-card"><div class="step-num">4</div><h4>매칭 & 운행</h4><p>기사님 수락 후 연결 완료. 운행 후 평점을 남겨주세요.</p></div>
     </div>
@@ -521,16 +493,8 @@ footer strong{color:#fff}
         <div class="profile-info">
           <div class="profile-name">김○○ 기사님</div>
           <div class="profile-stars">★★★★★ <span>4.9 (리뷰 47개)</span></div>
-          <div class="profile-badges">
-            <span class="badge badge-blue">✓ 경력 12년</span>
-            <span class="badge badge-blue">✓ 범죄경력 조회 완료</span>
-            <span class="badge badge-accent">✓ 안전교육 수료</span>
-          </div>
-          <div class="profile-stats">
-            <div class="pstat"><strong>234</strong><span>총 운행</span></div>
-            <div class="pstat"><strong>100%</strong><span>정시 도착</span></div>
-            <div class="pstat"><strong>3년</strong><span>플랫폼 이용</span></div>
-          </div>
+          <div class="profile-badges"><span class="badge badge-blue">✓ 경력 12년</span><span class="badge badge-blue">✓ 범죄경력 조회 완료</span><span class="badge badge-accent">✓ 안전교육 수료</span></div>
+          <div class="profile-stats"><div class="pstat"><strong>234</strong><span>총 운행</span></div><div class="pstat"><strong>100%</strong><span>정시 도착</span></div><div class="pstat"><strong>3년</strong><span>플랫폼 이용</span></div></div>
         </div>
         <button class="select-btn selected" onclick="toggleSelect(this)">선택됨</button>
       </div>
@@ -539,15 +503,8 @@ footer strong{color:#fff}
         <div class="profile-info">
           <div class="profile-name">박○○ 기사님</div>
           <div class="profile-stars">★★★★☆ <span>4.7 (리뷰 32개)</span></div>
-          <div class="profile-badges">
-            <span class="badge badge-blue">✓ 경력 8년</span>
-            <span class="badge badge-blue">✓ 범죄경력 조회 완료</span>
-          </div>
-          <div class="profile-stats">
-            <div class="pstat"><strong>156</strong><span>총 운행</span></div>
-            <div class="pstat"><strong>98%</strong><span>정시 도착</span></div>
-            <div class="pstat"><strong>2년</strong><span>플랫폼 이용</span></div>
-          </div>
+          <div class="profile-badges"><span class="badge badge-blue">✓ 경력 8년</span><span class="badge badge-blue">✓ 범죄경력 조회 완료</span></div>
+          <div class="profile-stats"><div class="pstat"><strong>156</strong><span>총 운행</span></div><div class="pstat"><strong>98%</strong><span>정시 도착</span></div><div class="pstat"><strong>2년</strong><span>플랫폼 이용</span></div></div>
         </div>
         <button class="select-btn" onclick="toggleSelect(this)">선택하기</button>
       </div>
@@ -556,37 +513,16 @@ footer strong{color:#fff}
         <div class="profile-info">
           <div class="profile-name">이○○ 기사님</div>
           <div class="profile-stars">★★★★☆ <span>4.6 (리뷰 18개)</span></div>
-          <div class="profile-badges">
-            <span class="badge badge-blue">✓ 경력 5년</span>
-            <span class="badge badge-blue">✓ 범죄경력 조회 완료</span>
-          </div>
-          <div class="profile-stats">
-            <div class="pstat"><strong>89</strong><span>총 운행</span></div>
-            <div class="pstat"><strong>96%</strong><span>정시 도착</span></div>
-            <div class="pstat"><strong>1년</strong><span>플랫폼 이용</span></div>
-          </div>
+          <div class="profile-badges"><span class="badge badge-blue">✓ 경력 5년</span><span class="badge badge-blue">✓ 범죄경력 조회 완료</span></div>
+          <div class="profile-stats"><div class="pstat"><strong>89</strong><span>총 운행</span></div><div class="pstat"><strong>96%</strong><span>정시 도착</span></div><div class="pstat"><strong>1년</strong><span>플랫폼 이용</span></div></div>
         </div>
         <button class="select-btn" onclick="toggleSelect(this)">선택하기</button>
       </div>
     </div>
     <div class="section-label">최근 리뷰</div>
     <div class="reviews-list">
-      <div class="review-card">
-        <div class="review-top">
-          <div class="review-avatar">이</div>
-          <div><div class="review-name">이○○ 학부모</div><div class="review-date">2025.03.15</div></div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-        <div class="review-text">항상 정시에 데려다주시고 아이가 기사님을 매우 좋아해요. 안전 운전 하셔서 믿고 맡길 수 있습니다.</div>
-      </div>
-      <div class="review-card">
-        <div class="review-top">
-          <div class="review-avatar">최</div>
-          <div><div class="review-name">최○○ 학부모</div><div class="review-date">2025.03.02</div></div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-        <div class="review-text">갑작스러운 일정 변경에도 유연하게 대응해주셨어요. 소통이 원활해서 너무 좋습니다.</div>
-      </div>
+      <div class="review-card"><div class="review-top"><div class="review-avatar">이</div><div><div class="review-name">이○○ 학부모</div><div class="review-date">2025.03.15</div></div><div class="review-stars">★★★★★</div></div><div class="review-text">항상 정시에 데려다주시고 아이가 기사님을 매우 좋아해요. 안전 운전 하셔서 믿고 맡길 수 있습니다.</div></div>
+      <div class="review-card"><div class="review-top"><div class="review-avatar">최</div><div><div class="review-name">최○○ 학부모</div><div class="review-date">2025.03.02</div></div><div class="review-stars">★★★★★</div></div><div class="review-text">갑작스러운 일정 변경에도 유연하게 대응해주셨어요. 소통이 원활해서 너무 좋습니다.</div></div>
     </div>
   </div>
 </section>
@@ -648,9 +584,9 @@ footer strong{color:#fff}
 </footer>
 
 <!-- AUTH MODAL -->
-<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+<div class="modal-overlay" id="auth-modal" onclick="if(event.target===this)closeAuthModal()">
   <div class="modal">
-    <div class="modal-header"><h2>시작하기</h2><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="modal-header"><h2>시작하기</h2><button class="modal-close" onclick="closeAuthModal()">✕</button></div>
     <div class="modal-tabs">
       <button class="modal-tab active" onclick="switchModalTab('login',this)">로그인</button>
       <button class="modal-tab" onclick="switchModalTab('signup',this)">회원가입</button>
@@ -658,7 +594,7 @@ footer strong{color:#fff}
     <div id="modal-login">
       <div class="form-group"><label>이메일</label><input type="email" placeholder="이메일 입력"></div>
       <div class="form-group"><label>비밀번호</label><input type="password" placeholder="비밀번호 입력"></div>
-      <button class="form-submit" id="login-btn" onclick="handleLogin()">로그인</button>
+      <button class="form-submit" onclick="handleLogin()">로그인</button>
     </div>
     <div id="modal-signup" style="display:none">
       <div class="user-type-toggle">
@@ -680,29 +616,56 @@ footer strong{color:#fff}
   </div>
 </div>
 
-<!-- MAP MODAL -->
-<div class="map-modal-overlay" id="map-modal" onclick="closeMapOutside(event)">
+<!-- 주소 검색 모달 -->
+<div class="search-modal-overlay" id="search-modal" onclick="if(event.target===this)closeSearchModal()">
+  <div class="search-modal">
+    <div class="search-modal-header">
+      <h3 id="search-modal-title">주소 검색</h3>
+      <div class="search-modal-input-wrap">
+        <input class="search-modal-input" id="search-modal-input" placeholder="장소명 또는 주소 입력"
+          onkeydown="if(event.key==='Enter')doSearch()">
+        <button class="search-modal-btn" onclick="doSearch()">검색</button>
+      </div>
+      <button class="search-modal-close" onclick="closeSearchModal()">✕</button>
+    </div>
+    <div class="search-results" id="search-results">
+      <div class="search-initial">
+        <p>빠른 검색 예시</p>
+        <div class="search-quick-btns">
+          <button class="search-quick-btn" onclick="setSearchAndRun('해운대구')">해운대구</button>
+          <button class="search-quick-btn" onclick="setSearchAndRun('수영구')">수영구</button>
+          <button class="search-quick-btn" onclick="setSearchAndRun('동래구')">동래구</button>
+          <button class="search-quick-btn" onclick="setSearchAndRun('부산진구')">부산진구</button>
+          <button class="search-quick-btn" onclick="setSearchAndRun('연제구')">연제구</button>
+          <button class="search-quick-btn" onclick="setSearchAndRun('기장군')">기장군</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 지도 모달 (핀 미세조정) -->
+<div class="map-modal-overlay" id="map-modal" onclick="if(event.target===this)closeMapModal()">
   <div class="map-modal">
     <div class="map-modal-header">
       <div class="map-modal-title-col">
         <h3 id="map-modal-title">정확한 위치를 지정해주세요</h3>
-        <div class="map-modal-subtitle">지도를 움직여 핀을 탑승 위치에 맞추세요</div>
+        <div class="map-modal-subtitle">지도를 드래그해 핀을 탑승 위치에 맞추세요</div>
       </div>
       <button class="map-modal-close" onclick="closeMapModal()">✕</button>
     </div>
-    <div class="map-inner-search">
+    <div class="map-inner-bar">
       <input class="map-inner-input" id="map-inner-input" placeholder="지도 안에서 추가 검색" onkeydown="if(event.key==='Enter')mapInnerSearch()">
       <button class="map-inner-btn" onclick="mapInnerSearch()">검색</button>
     </div>
     <div class="map-container">
       <div id="kakao-map"></div>
-      <!-- 고정 중앙 핀 -->
       <div class="map-fixed-pin" id="map-fixed-pin">
-        <svg class="map-pin-svg" id="map-pin-svg" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 0C9.37 0 4 5.37 4 12C4 21 16 40 16 40C16 40 28 21 28 12C28 5.37 22.63 0 16 0Z" fill="#1A6FD4"/>
-          <circle cx="16" cy="12" r="5" fill="white"/>
+        <svg class="pin-svg" id="pin-svg" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 1C8.82 1 3 6.82 3 14C3 24.5 16 41 16 41C16 41 29 24.5 29 14C29 6.82 23.18 1 16 1Z" fill="#1A6FD4" stroke="white" stroke-width="1.5"/>
+          <circle cx="16" cy="14" r="5.5" fill="white"/>
         </svg>
-        <div class="map-pin-shadow"></div>
+        <div class="pin-shadow"></div>
       </div>
     </div>
     <div class="map-addr-bar">
@@ -710,7 +673,7 @@ footer strong{color:#fff}
       <div class="map-addr-text" id="map-addr-text">지도를 이동하면 주소가 표시됩니다</div>
     </div>
     <div class="map-modal-footer">
-      <button class="map-cancel-btn" onclick="closeMapModal()">취소</button>
+      <button class="map-cancel-btn" onclick="closeMapModal()">← 검색으로 돌아가기</button>
       <button class="map-confirm-btn" onclick="confirmLocation()">이 위치로 확정</button>
     </div>
   </div>
@@ -718,240 +681,227 @@ footer strong{color:#fff}
 
 <script>
 // ── 전역 상태 ──
-var W = { step:1, viaCount:0, tripType:'one', contractType:'monthly', days:['mon','tue','wed','thu','fri'] };
-var RATE=2200, BASE_KM=8.2;
+var W={step:1,viaCount:0,tripType:'one',contractType:'monthly',days:['mon','tue','wed','thu','fri']};
+var RATE=2200,BASE_KM=8.2;
 var DAY_NAMES={sun:'일',mon:'월',tue:'화',wed:'수',thu:'목',fri:'금',sat:'토'};
 var DAY_ORDER=['sun','mon','tue','wed','thu','fri','sat'];
-var stops={start:null, end:null, via:{}};
+var stops={start:null,end:null,via:{}};
 
-// 카카오 API
-var mapInstance=null, geocoder=null, psService=null;
-var currentMapTarget=null, currentMapCenter=null;
-var searchTimers={};
-var dropdownData={};   // { 'start': [{name,addr,lat,lng},...] }
-var focusedIdx={};     // 키보드 선택 인덱스
-var hideTimers={};
+// 카카오 API 인스턴스 (load 콜백 후 세팅)
+var _ps=null, _geo=null, _map=null;
+var currentTarget=null, currentCenter=null;
+var PIN_CFG={start:{fill:'#1A6FD4',dot:'var(--primary)',label:'출발지'},end:{fill:'#E24B4A',dot:'var(--red)',label:'목적지'},via:{fill:'#BA7517',dot:'#BA7517',label:'경유지'}};
 
+// 카카오 SDK 로드 완료 후 서비스 객체 생성
 kakao.maps.load(function(){
-  geocoder = new kakao.maps.services.Geocoder();
-  psService = new kakao.maps.services.Places();
+  _ps  = new kakao.maps.services.Places();
+  _geo = new kakao.maps.services.Geocoder();
 });
 
-// ── 주소 자동완성 ──
-function onAddrInput(inp, key) {
-  var q = inp.value.trim();
-  inp.classList.remove('has-value');
-  clearTimeout(searchTimers[key]);
-  if (!q) { closeDropdown(key); return; }
-  searchTimers[key] = setTimeout(function(){ searchKeyword(q, key); }, 280);
+// ─────────────────────────────────────────
+// 주소 검색 모달
+// ─────────────────────────────────────────
+function openSearchModal(key){
+  currentTarget=key;
+  var cfg=PIN_CFG[key.startsWith('via')?'via':key];
+  document.getElementById('search-modal-title').textContent=cfg.label+' 검색';
+  document.getElementById('search-modal').classList.add('open');
+  setTimeout(function(){ document.getElementById('search-modal-input').focus(); },100);
+  document.getElementById('search-results').innerHTML=
+    '<div class="search-initial"><p>빠른 검색 예시</p><div class="search-quick-btns">'
+    +'<button class="search-quick-btn" onclick="setSearchAndRun(\'해운대구\')">해운대구</button>'
+    +'<button class="search-quick-btn" onclick="setSearchAndRun(\'수영구\')">수영구</button>'
+    +'<button class="search-quick-btn" onclick="setSearchAndRun(\'동래구\')">동래구</button>'
+    +'<button class="search-quick-btn" onclick="setSearchAndRun(\'부산진구\')">부산진구</button>'
+    +'<button class="search-quick-btn" onclick="setSearchAndRun(\'연제구\')">연제구</button>'
+    +'<button class="search-quick-btn" onclick="setSearchAndRun(\'기장군\')">기장군</button>'
+    +'</div></div>';
+}
+function closeSearchModal(){
+  document.getElementById('search-modal').classList.remove('open');
+  document.getElementById('search-modal-input').value='';
+}
+function setSearchAndRun(q){
+  document.getElementById('search-modal-input').value=q;
+  doSearch();
 }
 
-function searchKeyword(q, key) {
-  psService.keywordSearch(q, function(data, status) {
-    if (status === kakao.maps.services.Status.OK) {
-      dropdownData[key] = data.slice(0,6).map(function(p){
-        return { name:p.place_name, addr:p.road_address_name||p.address_name, lat:parseFloat(p.y), lng:parseFloat(p.x) };
-      });
+function doSearch(){
+  if(!_ps){ alert('카카오 지도 API가 아직 로드 중입니다. 잠시 후 다시 시도해주세요.'); return; }
+  var q=document.getElementById('search-modal-input').value.trim();
+  if(!q) return;
+  document.getElementById('search-results').innerHTML='<div class="search-loading">검색 중...</div>';
+  _ps.keywordSearch(q, function(data,status){
+    if(status===kakao.maps.services.Status.OK && data.length){
+      renderSearchResults(data);
     } else {
       // 주소 검색 fallback
-      geocoder.addressSearch(q, function(res, st) {
-        dropdownData[key] = st===kakao.maps.services.Status.OK
-          ? res.slice(0,4).map(function(r){ return {name:r.address_name,addr:'',lat:parseFloat(r.y),lng:parseFloat(r.x)}; })
-          : [];
+      _geo.addressSearch(q, function(res,st){
+        if(st===kakao.maps.services.Status.OK && res.length){
+          var faked=res.map(function(r){return{place_name:r.address_name,road_address_name:'',address_name:r.address_name,y:r.y,x:r.x};});
+          renderSearchResults(faked);
+        } else {
+          document.getElementById('search-results').innerHTML='<div class="search-empty">검색 결과가 없습니다.<br>다른 키워드로 시도해보세요.</div>';
+        }
       });
     }
-    renderDropdown(key);
   });
 }
 
-function renderDropdown(key) {
-  var drop = document.getElementById('drop-'+key);
-  var items = dropdownData[key]||[];
-  if (!items.length) {
-    drop.innerHTML='<div class="autocomplete-empty">검색 결과가 없습니다</div>';
-    drop.classList.add('open'); return;
-  }
-  drop.innerHTML = items.map(function(it,i){
-    return '<div class="autocomplete-item" data-idx="'+i+'" onmousedown="selectAddrItem(event,\''+key+'\','+i+')">'
-      +'<span class="autocomplete-name">'+it.name+'</span>'
-      +(it.addr?'<span class="autocomplete-addr">'+it.addr+'</span>':'')
+function renderSearchResults(data){
+  var html='';
+  data.slice(0,8).forEach(function(p,i){
+    var name=p.place_name;
+    var addr=p.road_address_name||p.address_name||'';
+    var lat=parseFloat(p.y), lng=parseFloat(p.x);
+    html+='<div class="search-result-item" onclick="onResultSelect('+lat+','+lng+',\''+escQ(name)+'\',\''+escQ(addr)+'\')">'
+      +'<div class="sri-name">'+name+'</div>'
+      +(addr?'<div class="sri-addr">'+addr+'</div>':'')
       +'</div>';
-  }).join('');
-  focusedIdx[key] = -1;
-  drop.classList.add('open');
+  });
+  document.getElementById('search-results').innerHTML=html;
 }
 
-function showDropdown(key) {
-  clearTimeout(hideTimers[key]);
-  if (dropdownData[key] && dropdownData[key].length) renderDropdown(key);
-}
-function hideDropdown(key) {
-  hideTimers[key] = setTimeout(function(){ closeDropdown(key); }, 200);
-}
-function closeDropdown(key) {
-  var drop = document.getElementById('drop-'+key);
-  if (drop) { drop.classList.remove('open'); drop.innerHTML=''; }
+function escQ(s){ return (s||'').replace(/'/g,"\\'"); }
+
+// 검색 결과 선택 → 지도 모달로 전환
+function onResultSelect(lat,lng,name,addr){
+  closeSearchModal();
+  // 표시 텍스트
+  var displayName=name||(addr||'');
+  openMapModal(lat,lng,displayName);
 }
 
-// 키보드 탐색
-function onAddrKeydown(e, key) {
-  var items = document.querySelectorAll('#drop-'+key+' .autocomplete-item');
-  if (!items.length) return;
-  if (e.key==='ArrowDown') {
-    e.preventDefault();
-    focusedIdx[key] = Math.min((focusedIdx[key]||0)+1, items.length-1);
-    items.forEach(function(el,i){ el.classList.toggle('focused', i===focusedIdx[key]); });
-  } else if (e.key==='ArrowUp') {
-    e.preventDefault();
-    focusedIdx[key] = Math.max((focusedIdx[key]||0)-1, 0);
-    items.forEach(function(el,i){ el.classList.toggle('focused', i===focusedIdx[key]); });
-  } else if (e.key==='Enter') {
-    var idx = focusedIdx[key]>=0 ? focusedIdx[key] : 0;
-    var data = (dropdownData[key]||[])[idx];
-    if (data) selectAddrItem(null, key, idx);
-  } else if (e.key==='Escape') { closeDropdown(key); }
-}
+// ─────────────────────────────────────────
+// 지도 모달
+// ─────────────────────────────────────────
+function openMapModal(lat,lng,label){
+  var typeKey=currentTarget==='start'?'start':currentTarget==='end'?'end':'via';
+  var cfg=PIN_CFG[typeKey];
 
-// 목록에서 선택 → 지도 모달 열기
-function selectAddrItem(e, key, idx) {
-  if (e) e.preventDefault();
-  clearTimeout(hideTimers[key]);
-  var item = (dropdownData[key]||[])[idx];
-  if (!item) return;
-  closeDropdown(key);
-  // 입력창에 이름 채움
-  var inp = document.getElementById('input-'+key) || document.querySelector('#'+key+' .addr-search-input');
-  if (inp) { inp.value = item.name; inp.classList.add('has-value'); }
-  // 지도 모달 열기 (해당 좌표로)
-  openMapModal(key, item.lat, item.lng, item.name);
-}
-
-// ── 지도 모달 ──
-var PIN_COLORS = {
-  start: {fill:'#1A6FD4', label:'출발지'},
-  end:   {fill:'#E24B4A', label:'목적지'},
-  via:   {fill:'#BA7517', label:'경유지'}
-};
-
-function openMapModal(key, lat, lng, label) {
-  currentMapTarget = key;
-  var typeKey = key==='start'?'start':key==='end'?'end':'via';
-  var cfg = PIN_COLORS[typeKey];
-
-  // 핀 색상 업데이트
-  document.getElementById('map-pin-svg').querySelector('path').setAttribute('fill', cfg.fill);
-  document.getElementById('map-addr-dot').style.background = cfg.fill;
-  document.getElementById('map-modal-title').textContent = cfg.label+' 위치를 정확히 지정해주세요';
+  // 핀 색상
+  document.getElementById('pin-svg').querySelector('path').setAttribute('fill',cfg.fill);
+  document.getElementById('map-addr-dot').style.background=cfg.dot;
+  document.getElementById('map-modal-title').textContent=cfg.label+' 위치를 정확히 지정해주세요';
+  document.getElementById('map-inner-input').value=label||'';
+  document.getElementById('map-addr-text').textContent='지도를 이동하면 주소가 표시됩니다';
+  document.getElementById('map-addr-text').classList.remove('loading');
 
   document.getElementById('map-modal').classList.add('open');
-  document.getElementById('map-inner-input').value = label||'';
 
   setTimeout(function(){
-    if (!mapInstance) {
-      var container = document.getElementById('kakao-map');
-      var opts = {center: new kakao.maps.LatLng(lat||35.1796, lng||129.0756), level:3};
-      mapInstance = new kakao.maps.Map(container, opts);
-      kakao.maps.event.addListener(mapInstance, 'center_changed', onMapMove);
-      kakao.maps.event.addListener(mapInstance, 'drag', function(){ liftPin(true); });
-      kakao.maps.event.addListener(mapInstance, 'dragend', function(){ liftPin(false); onMapMove(); });
+    if(!_map){
+      var container=document.getElementById('kakao-map');
+      _map=new kakao.maps.Map(container,{center:new kakao.maps.LatLng(lat,lng),level:3});
+      kakao.maps.event.addListener(_map,'center_changed',onMapCenterChanged);
+      kakao.maps.event.addListener(_map,'drag',function(){ liftPin(true); });
+      kakao.maps.event.addListener(_map,'dragend',function(){ liftPin(false); onMapCenterChanged(); });
     } else {
-      mapInstance.relayout();
-      mapInstance.setCenter(new kakao.maps.LatLng(lat||35.1796, lng||129.0756));
-      mapInstance.setLevel(3);
+      _map.relayout();
+      _map.setCenter(new kakao.maps.LatLng(lat,lng));
+      _map.setLevel(3);
     }
-    onMapMove();
-  }, 120);
+    // 첫 진입 시 주소 갱신
+    setTimeout(onMapCenterChanged,300);
+  },150);
 }
 
-function liftPin(up) {
-  document.getElementById('map-fixed-pin').classList.toggle('lifted', up);
+function liftPin(up){
+  document.getElementById('map-fixed-pin').classList.toggle('lifted',up);
 }
 
-function onMapMove() {
-  var c = mapInstance.getCenter();
-  currentMapCenter = {lat:c.getLat(), lng:c.getLng()};
-  var addrEl = document.getElementById('map-addr-text');
-  addrEl.textContent = '주소 불러오는 중...';
-  addrEl.classList.add('loading');
-  geocoder.coord2Address(c.getLng(), c.getLat(), function(res, status){
-    addrEl.classList.remove('loading');
-    if (status===kakao.maps.services.Status.OK && res[0]) {
-      addrEl.textContent = res[0].road_address
-        ? res[0].road_address.address_name
-        : res[0].address.address_name;
-    } else { addrEl.textContent = '주소를 불러올 수 없습니다'; }
-  });
+var _geoTimer=null;
+function onMapCenterChanged(){
+  var c=_map.getCenter();
+  currentCenter={lat:c.getLat(),lng:c.getLng()};
+  clearTimeout(_geoTimer);
+  _geoTimer=setTimeout(function(){
+    var el=document.getElementById('map-addr-text');
+    el.textContent='주소 불러오는 중...';
+    el.classList.add('loading');
+    _geo.coord2Address(currentCenter.lng,currentCenter.lat,function(res,status){
+      el.classList.remove('loading');
+      if(status===kakao.maps.services.Status.OK&&res[0]){
+        el.textContent=res[0].road_address?res[0].road_address.address_name:res[0].address.address_name;
+      } else { el.textContent='주소를 불러올 수 없습니다'; }
+    });
+  },400);
 }
 
-function mapInnerSearch() {
-  var q = document.getElementById('map-inner-input').value.trim();
-  if (!q) return;
-  psService.keywordSearch(q, function(data, status){
-    if (status===kakao.maps.services.Status.OK && data.length) {
-      mapInstance.setCenter(new kakao.maps.LatLng(parseFloat(data[0].y), parseFloat(data[0].x)));
-      mapInstance.setLevel(3);
+function mapInnerSearch(){
+  var q=document.getElementById('map-inner-input').value.trim();
+  if(!q) return;
+  _ps.keywordSearch(q,function(data,status){
+    if(status===kakao.maps.services.Status.OK&&data.length){
+      _map.setCenter(new kakao.maps.LatLng(parseFloat(data[0].y),parseFloat(data[0].x)));
+      _map.setLevel(3);
     } else {
-      geocoder.addressSearch(q, function(res, st){
-        if (st===kakao.maps.services.Status.OK) {
-          mapInstance.setCenter(new kakao.maps.LatLng(parseFloat(res[0].y), parseFloat(res[0].x)));
+      _geo.addressSearch(q,function(res,st){
+        if(st===kakao.maps.services.Status.OK){
+          _map.setCenter(new kakao.maps.LatLng(parseFloat(res[0].y),parseFloat(res[0].x)));
         } else { alert('검색 결과가 없습니다.'); }
       });
     }
   });
 }
 
-function confirmLocation() {
-  if (!currentMapCenter) return;
-  var addr = document.getElementById('map-addr-text').textContent;
-  var data = {lat:currentMapCenter.lat, lng:currentMapCenter.lng, addr:addr};
-  var key = currentMapTarget;
+function closeMapModal(){
+  document.getElementById('map-modal').classList.remove('open');
+  liftPin(false);
+}
 
-  if (key==='start') {
-    stops.start = data;
-    renderChip('chip-start', addr, 'start');
-  } else if (key==='end') {
-    stops.end = data;
-    renderChip('chip-end', addr, 'end');
+function confirmLocation(){
+  if(!currentCenter) return;
+  var addr=document.getElementById('map-addr-text').textContent;
+  if(addr==='주소 불러오는 중...'||addr==='지도를 이동하면 주소가 표시됩니다'){ alert('주소를 불러오는 중입니다. 잠시 후 다시 눌러주세요.'); return; }
+  var data={lat:currentCenter.lat,lng:currentCenter.lng,addr:addr};
+
+  if(currentTarget==='start'){
+    stops.start=data;
+    document.getElementById('display-start').value=addr;
+    document.getElementById('display-start').classList.add('confirmed');
+    renderChip('chip-start',addr,'start');
+  } else if(currentTarget==='end'){
+    stops.end=data;
+    document.getElementById('display-end').value=addr;
+    document.getElementById('display-end').classList.add('confirmed');
+    renderChip('chip-end',addr,'end');
   } else {
-    stops.via[key] = data;
-    renderChip('chip-'+key, addr, 'via');
+    stops.via[currentTarget]=data;
+    var inp=document.querySelector('#'+currentTarget+' .stop-text-input');
+    if(inp){ inp.value=addr; inp.classList.add('confirmed'); }
+    renderChip('chip-'+currentTarget,addr,'via');
   }
   checkStep1();
   closeMapModal();
 }
 
-function renderChip(chipId, addr, type) {
-  var icons={start:'🔵',end:'🔴',via:'🟡'};
-  var el=document.getElementById(chipId);
-  if (!el) return;
+function renderChip(id,addr,type){
+  var colors={start:'var(--primary)',end:'var(--red)',via:'#BA7517'};
+  var el=document.getElementById(id);
+  if(!el) return;
+  var tKey=currentTarget;
   el.innerHTML='<div class="addr-chip">'
-    +'<span class="addr-chip-icon">'+icons[type]+'</span>'
+    +'<div class="addr-chip-dot" style="background:'+colors[type]+'"></div>'
     +'<span class="addr-chip-text">'+addr+'</span>'
-    +'<button class="addr-chip-edit" onmousedown="editStop(\''+chipId.replace('chip-','')+'\')">수정</button>'
+    +'<button class="addr-chip-edit" onclick="editStop(\''+id.replace('chip-','')+'\')">수정</button>'
     +'</div>';
 }
 
-function editStop(key) {
-  // 수정 버튼: 입력창 초기화 후 재검색 가능하게
-  var inp = document.getElementById('input-'+key);
-  if (inp) { inp.value=''; inp.classList.remove('has-value'); inp.focus(); }
-  var chip = document.getElementById('chip-'+key);
-  if (chip) chip.innerHTML='';
-  if (key==='start') stops.start=null;
-  else if (key==='end') stops.end=null;
-  else delete stops.via[key];
+function editStop(key){
+  if(key==='start'){ stops.start=null; document.getElementById('display-start').value=''; document.getElementById('display-start').classList.remove('confirmed'); document.getElementById('chip-start').innerHTML=''; }
+  else if(key==='end'){ stops.end=null; document.getElementById('display-end').value=''; document.getElementById('display-end').classList.remove('confirmed'); document.getElementById('chip-end').innerHTML=''; }
+  else { delete stops.via[key]; var inp=document.querySelector('#'+key+' .stop-text-input'); if(inp){inp.value='';inp.classList.remove('confirmed');} document.getElementById('chip-'+key).innerHTML=''; }
   checkStep1();
+  // 수정 모달 다시 열기
+  openSearchModal(key);
 }
 
-function closeMapModal() {
-  document.getElementById('map-modal').classList.remove('open');
-  liftPin(false);
-}
-function closeMapOutside(e){ if(e.target===document.getElementById('map-modal')) closeMapModal(); }
-
-// ── 경유지 ──
-function addVia() {
-  if(W.viaCount>=3){alert('경유지는 최대 3개까지 추가할 수 있습니다.');return;}
+// ─────────────────────────────────────────
+// 경유지
+// ─────────────────────────────────────────
+function addVia(){
+  if(W.viaCount>=3){ alert('경유지는 최대 3개까지 추가할 수 있습니다.'); return; }
   W.viaCount++;
   var id='via-'+W.viaCount;
   var wrap=document.getElementById('via-stops');
@@ -961,17 +911,19 @@ function addVia() {
     '<div class="stop-icon-col"><div class="stop-dot stop-dot-via"></div><div class="stop-line"></div></div>'
     +'<div class="stop-input-wrap">'
       +'<div class="stop-label">경유지 '+W.viaCount+'</div>'
-      +'<div class="addr-search-wrap">'
-        +'<input class="addr-search-input" id="input-'+id+'" placeholder="경유지 주소 또는 장소명 입력" autocomplete="off"'
-        +' oninput="onAddrInput(this,\''+id+'\')" onkeydown="onAddrKeydown(event,\''+id+'\')" onfocus="showDropdown(\''+id+'\')" onblur="hideDropdown(\''+id+'\')">'
-        +'<div class="autocomplete-list" id="drop-'+id+'"></div>'
+      +'<div class="stop-input-row">'
+        +'<input class="stop-text-input" id="display-'+id+'" placeholder="경유지 주소 또는 장소명" readonly onclick="openSearchModal(\''+id+'\')">'
+        +'<button class="search-icon-btn" onclick="openSearchModal(\''+id+'\')" title="주소 검색">'
+          +'<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'
+        +'</button>'
       +'</div>'
       +'<div id="chip-'+id+'"></div>'
     +'</div>'
     +'<button class="remove-stop" onclick="removeVia(\''+id+'\')">✕</button>';
   wrap.appendChild(div);
 }
-function removeVia(id) {
+
+function removeVia(id){
   delete stops.via[id];
   var el=document.getElementById(id); if(el) el.remove();
   W.viaCount=document.querySelectorAll('#via-stops .stop-row').length;
@@ -979,13 +931,15 @@ function removeVia(id) {
   checkStep1();
 }
 
-function checkStep1() {
-  document.getElementById('step1-next').disabled=!(stops.start && stops.end);
+function checkStep1(){
+  document.getElementById('step1-next').disabled=!(stops.start&&stops.end);
 }
 
-// ── 위저드 ──
-function goStep(n) {
-  if(n>1&&!(stops.start&&stops.end)){ alert('출발지와 목적지를 모두 입력해주세요.'); return; }
+// ─────────────────────────────────────────
+// 위저드
+// ─────────────────────────────────────────
+function goStep(n){
+  if(n>1&&!(stops.start&&stops.end)){ alert('출발지와 목적지를 모두 설정해주세요.'); return; }
   document.querySelectorAll('.wpane').forEach(function(p,i){ p.classList.toggle('active',i+1===n); });
   ['ws1','ws2','ws3','ws4'].forEach(function(id,i){
     var el=document.getElementById(id);
@@ -1014,39 +968,36 @@ function selectContract(el,type){
   el.classList.add('selected');
 }
 
-// ── 요금 계산 ──
 function haversine(lat1,lon1,lat2,lon2){
   var R=6371,dLat=(lat2-lat1)*Math.PI/180,dLon=(lon2-lon1)*Math.PI/180;
   var a=Math.sin(dLat/2)*Math.sin(dLat/2)+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)*Math.sin(dLon/2);
   return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
 }
-function shortAddr(addr){ return (!addr||addr.length<=22)?addr:addr.substring(0,22)+'…'; }
+function shortAddr(s){ return(!s||s.length<=22)?s:s.substring(0,22)+'…'; }
 
 function buildFare(){
-  var viaKeys=Object.keys(stops.via);
+  var vk=Object.keys(stops.via);
   var km=BASE_KM;
   if(stops.start&&stops.end){
     km=haversine(stops.start.lat,stops.start.lng,stops.end.lat,stops.end.lng);
-    km+=viaKeys.length*1.5; km=Math.max(km,2);
+    km+=vk.length*1.5; km=Math.max(km,2);
   }
   var rsm=document.getElementById('fare-route-summary');
   rsm.innerHTML='<div class="rsm-dot" style="background:var(--primary)"></div><span class="rsm-stop">'+shortAddr(stops.start?stops.start.addr:'출발지')+'</span>';
-  viaKeys.forEach(function(k){ rsm.innerHTML+='<span class="rsm-arrow">›</span><span class="rsm-via">▸ '+shortAddr(stops.via[k].addr)+'</span>'; });
+  vk.forEach(function(k){ rsm.innerHTML+='<span class="rsm-arrow">›</span><span class="rsm-via">▸ '+shortAddr(stops.via[k].addr)+'</span>'; });
   rsm.innerHTML+='<span class="rsm-arrow">›</span><div class="rsm-dot" style="background:var(--red);border-radius:3px"></div><span class="rsm-stop">'+shortAddr(stops.end?stops.end.addr:'목적지')+'</span>';
-
   var oneway=Math.round(km*RATE/500)*500;
-  var viaFee=viaKeys.length*2000;
+  var viaFee=vk.length*2000;
   var perTrip=(W.tripType==='both'?oneway*2:oneway)+viaFee;
   var count=W.days.length*4;
   var discount=W.contractType==='monthly'?.10:W.contractType==='weekly'?.05:0;
   var discountAmt=Math.round(perTrip*count*discount/100)*100;
   var total=perTrip*count-discountAmt;
-
   document.getElementById('f-oneway').textContent=oneway.toLocaleString()+'원';
   document.getElementById('f-row-return').style.display=W.tripType==='both'?'flex':'none';
   document.getElementById('f-return').textContent=(oneway*2).toLocaleString()+'원';
-  document.getElementById('f-row-via').style.display=viaKeys.length>0?'flex':'none';
-  document.getElementById('f-via').textContent='+'+viaFee.toLocaleString()+'원 (경유지 '+viaKeys.length+'곳)';
+  document.getElementById('f-row-via').style.display=vk.length?'flex':'none';
+  document.getElementById('f-via').textContent='+'+viaFee.toLocaleString()+'원 (경유지 '+vk.length+'곳)';
   var sorted=DAY_ORDER.filter(function(d){ return W.days.indexOf(d)>-1; });
   document.getElementById('f-count').textContent=sorted.map(function(d){ return DAY_NAMES[d]; }).join('·')+' × 4주 = '+count+'회';
   document.getElementById('f-row-discount').style.display=discount>0?'flex':'none';
@@ -1057,23 +1008,15 @@ function buildFare(){
 }
 
 function handleWizardSubmit(){ alert('코스 설정 완료!\n기사님 매칭 요청이 등록되었습니다.\n(베타: 실제 매칭은 백엔드 연동 후 활성화됩니다)'); document.getElementById('drivers').scrollIntoView({behavior:'smooth'}); }
-
-// ── 기사님 / 모달 ──
 function setFilter(el){ document.querySelectorAll('.filter-btn').forEach(function(e){ e.classList.remove('active'); }); el.classList.add('active'); }
-function toggleSelect(btn){
-  var card=btn.closest('.profile-card'), was=card.classList.contains('selected');
-  document.querySelectorAll('.profile-card').forEach(function(c){ c.classList.remove('selected'); });
-  document.querySelectorAll('.select-btn').forEach(function(b){ b.classList.remove('selected'); b.textContent='선택하기'; });
-  if(!was){ card.classList.add('selected'); btn.classList.add('selected'); btn.textContent='선택됨'; }
-}
-function openModal(type){ document.getElementById('modal').classList.add('open'); if(type==='driver'){ switchModalTab('signup',document.querySelectorAll('.modal-tab')[1]); selectUserType(document.querySelectorAll('.type-btn')[1],'d'); } }
-function closeModal(){ document.getElementById('modal').classList.remove('open'); }
-function closeModalOutside(e){ if(e.target===document.getElementById('modal')) closeModal(); }
+function toggleSelect(btn){ var card=btn.closest('.profile-card'),was=card.classList.contains('selected'); document.querySelectorAll('.profile-card').forEach(function(c){ c.classList.remove('selected'); }); document.querySelectorAll('.select-btn').forEach(function(b){ b.classList.remove('selected'); b.textContent='선택하기'; }); if(!was){ card.classList.add('selected'); btn.classList.add('selected'); btn.textContent='선택됨'; } }
+function openAuthModal(type){ document.getElementById('auth-modal').classList.add('open'); if(type==='driver'){ switchModalTab('signup',document.querySelectorAll('.modal-tab')[1]); selectUserType(document.querySelectorAll('.type-btn')[1],'d'); } }
+function closeAuthModal(){ document.getElementById('auth-modal').classList.remove('open'); }
 function switchModalTab(tab,el){ document.querySelectorAll('.modal-tab').forEach(function(t){ t.classList.remove('active'); }); el.classList.add('active'); document.getElementById('modal-login').style.display=tab==='login'?'block':'none'; document.getElementById('modal-signup').style.display=tab==='signup'?'block':'none'; }
 function selectUserType(btn,type){ document.querySelectorAll('.type-btn').forEach(function(b){ b.className='type-btn'; }); btn.classList.add(type==='p'?'active-p':'active-d'); document.getElementById('child-field').style.display=type==='p'?'block':'none'; document.getElementById('exp-field').style.display=type==='d'?'block':'none'; }
-function handleLogin(){ alert('로그인 기능은 백엔드 연동 후 활성화됩니다. (베타)'); closeModal(); }
-function handleSignup(){ alert('가입해주셔서 감사합니다! 베타 오픈 시 안내드리겠습니다.'); closeModal(); }
-function betaSignup(){ var input=document.querySelector('.beta-input'); if(input.value&&input.value.includes('@')){ alert('베타 신청 완료! ('+input.value+')\n오픈 시 이메일로 안내드리겠습니다.'); input.value=''; } else { alert('올바른 이메일 주소를 입력해주세요.'); } }
+function handleLogin(){ alert('로그인 기능은 백엔드 연동 후 활성화됩니다. (베타)'); closeAuthModal(); }
+function handleSignup(){ alert('가입해주셔서 감사합니다! 베타 오픈 시 안내드리겠습니다.'); closeAuthModal(); }
+function betaSignup(){ var i=document.querySelector('.beta-input'); if(i.value&&i.value.includes('@')){ alert('베타 신청 완료! ('+i.value+')'); i.value=''; } else { alert('올바른 이메일 주소를 입력해주세요.'); } }
 </script>
 </body>
 </html>
